@@ -38,11 +38,13 @@ public class PlacingBuildings : MonoBehaviour
         {
             if(go.GetComponent<Producer>().TargetBuilding != null)
             {
-                go.GetComponent<Producer>().SetLRPos(go.GetComponent<FindEnemies>().FindClosestEnemy());
+                float MaxRng = go.GetComponent<FindEnemies>().MaxRange;
 
-                go.GetComponent<Producer>().TargetBuilding = go.GetComponent<FindEnemies>().FindClosestEnemy();
+                go.GetComponent<Producer>().SetLRPos(go.GetComponent<FindEnemies>().FindClosestEnemy(MaxRng));
 
-                go.GetComponent<MoveTowards>().Target = go.GetComponent<FindEnemies>().FindClosestEnemy();
+                go.GetComponent<Producer>().TargetBuilding = go.GetComponent<FindEnemies>().FindClosestEnemy(MaxRng);
+
+                go.GetComponent<MoveTowards>().Target = go.GetComponent<FindEnemies>().FindClosestEnemy(MaxRng);
             }
         }
 
@@ -55,13 +57,15 @@ public class PlacingBuildings : MonoBehaviour
 
         foreach (GameObject Go in Gos)
         {
+            float MaxRng = Go.GetComponent<FindEnemies>().MaxRange;
+
             if (Go.GetComponent<Producer>().TargetBuilding != null)
             {
-                Go.GetComponent<Producer>().SetLRPos(Go.GetComponent<FindEnemies>().FindClosestEnemy());
+                Go.GetComponent<Producer>().SetLRPos(Go.GetComponent<FindEnemies>().FindClosestEnemy(MaxRng));
 
-                Go.GetComponent<Producer>().TargetBuilding = Go.GetComponent<FindEnemies>().FindClosestEnemy();
+                Go.GetComponent<Producer>().TargetBuilding = Go.GetComponent<FindEnemies>().FindClosestEnemy(MaxRng);
 
-                Go.GetComponent<MoveTowards>().Target = Go.GetComponent<FindEnemies>().FindClosestEnemy();
+                Go.GetComponent<MoveTowards>().Target = Go.GetComponent<FindEnemies>().FindClosestEnemy(MaxRng);
             }
         }
     }
