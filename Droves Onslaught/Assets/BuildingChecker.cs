@@ -57,7 +57,12 @@ public class BuildingChecker : MonoBehaviour
 
     private void SpawnBuilding()
     {
-        Instantiate(Building, transform.position, Building.transform.rotation);
+        GameObject SpawnedBuilding = Instantiate(Building, transform.position, Building.transform.rotation);
+        GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>().BuildingsList.Add(SpawnedBuilding);
+
+        GameObject Visual = GameObject.FindGameObjectWithTag("Manager").GetComponent<PlacingBuildings>().Visual;
+        GameObject SpawnedVisual = Instantiate(Visual, transform.position, Building.transform.rotation);
+        SpawnedVisual.transform.parent = SpawnedBuilding.transform;
 
         GameObject.FindGameObjectWithTag("Manager").GetComponent<PlacingBuildings>().SettingLineRenderers();
 

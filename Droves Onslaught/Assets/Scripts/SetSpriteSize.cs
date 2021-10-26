@@ -7,12 +7,13 @@ public class SetSpriteSize : MonoBehaviour
 
     void Start()
     {
-        //Works, but has weird bug when it's spawned as a child, it's position gets set and it rotates around with it's parent
-
         //Scale = Square root of MaxRange * 2
         float Scale = Mathf.Sqrt(gameObject.GetComponentInParent<FindEnemies>().MaxRange) * 2;
 
         transform.localScale = new Vector3(Scale, Scale, Scale);
-        transform.position = Vector3.zero;
+        transform.position = transform.parent.position;
+
+        GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>().VisualsList.Add(gameObject);
+        gameObject.SetActive(false);
     }
 }

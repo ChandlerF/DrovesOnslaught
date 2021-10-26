@@ -9,6 +9,7 @@ TagManager:
   - Weapon
   - Enemy
   - Manager
+  - Visual
   layers:
   - Default
   - TransparentFX

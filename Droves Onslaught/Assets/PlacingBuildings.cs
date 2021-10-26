@@ -6,6 +6,7 @@ public class PlacingBuildings : MonoBehaviour
 {
     [SerializeField] GameObject BuildingChecker;
 
+    public GameObject Visual;
 
     public void ClickedButton(GameObject Building)      //Need to hide UI after clicking
     {
