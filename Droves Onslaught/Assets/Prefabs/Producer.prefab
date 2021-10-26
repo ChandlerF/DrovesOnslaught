@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetBuilding: {fileID: 0}
-  lengthOfLineRenderer: 2
   StartTimer: 1
   Product: {fileID: 1499395680370331946, guid: f8042b0be97a10d4cbe411909b665521, type: 3}
   ProductInStock: 0
@@ -148,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tag: Factory
+  MaxRange: 100
 --- !u!114 &6343817766275101422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,3 +167,4 @@ MonoBehaviour:
   RotateTowards: 0
   MoveForwards: 0
   DoneRotating: 0
+  AccuracyBeforeShooting: 4

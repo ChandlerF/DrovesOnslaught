@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a6f081918fd3b4db94427f49416014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TargetBuilding: {fileID: 0}
   StartTimer: 0.75
   Product: {fileID: 4838360965951771847, guid: 2a185dace7bfc3c4f9e5bc5b18e4d423, type: 3}
   ProductInStock: 0
@@ -156,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tag: Weapon
+  MaxRange: 100
 --- !u!114 &-2548509069237486316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,3 +177,4 @@ MonoBehaviour:
   RotateTowards: 0
   MoveForwards: 0
   DoneRotating: 0
+  AccuracyBeforeShooting: 4

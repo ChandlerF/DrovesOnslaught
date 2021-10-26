@@ -38,13 +38,13 @@ public class PlacingBuildings : MonoBehaviour
         {
             if(go.GetComponent<Producer>().TargetBuilding != null)
             {
-                float MaxRng = go.GetComponent<FindEnemies>().MaxRange;
+                GameObject ClosestEnemy = go.GetComponent<FindEnemies>().FindClosestEnemy();
 
-                go.GetComponent<Producer>().SetLRPos(go.GetComponent<FindEnemies>().FindClosestEnemy(MaxRng));
+                go.GetComponent<Producer>().SetLRPos(ClosestEnemy);
 
-                go.GetComponent<Producer>().TargetBuilding = go.GetComponent<FindEnemies>().FindClosestEnemy(MaxRng);
+                go.GetComponent<Producer>().TargetBuilding = ClosestEnemy;
 
-                go.GetComponent<MoveTowards>().Target = go.GetComponent<FindEnemies>().FindClosestEnemy(MaxRng);
+                go.GetComponent<MoveTowards>().Target = ClosestEnemy;
             }
         }
 
@@ -55,17 +55,18 @@ public class PlacingBuildings : MonoBehaviour
         Gos = GameObject.FindGameObjectsWithTag("Factory");
 
 
-        foreach (GameObject Go in Gos)
+        foreach (GameObject go in Gos)
         {
-            float MaxRng = Go.GetComponent<FindEnemies>().MaxRange;
 
-            if (Go.GetComponent<Producer>().TargetBuilding != null)
+            if (go.GetComponent<Producer>().TargetBuilding != null)
             {
-                Go.GetComponent<Producer>().SetLRPos(Go.GetComponent<FindEnemies>().FindClosestEnemy(MaxRng));
+                GameObject ClosestEnemy = go.GetComponent<FindEnemies>().FindClosestEnemy();
 
-                Go.GetComponent<Producer>().TargetBuilding = Go.GetComponent<FindEnemies>().FindClosestEnemy(MaxRng);
+                go.GetComponent<Producer>().SetLRPos(ClosestEnemy);
 
-                Go.GetComponent<MoveTowards>().Target = Go.GetComponent<FindEnemies>().FindClosestEnemy(MaxRng);
+                go.GetComponent<Producer>().TargetBuilding = ClosestEnemy;
+
+                go.GetComponent<MoveTowards>().Target = ClosestEnemy;
             }
         }
     }
