@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8917373743407298228}
   - component: {fileID: 6843732847645617286}
   - component: {fileID: 5578341728447294803}
+  - component: {fileID: 602775581950658948}
   - component: {fileID: 630443507885105692}
   - component: {fileID: 3713165796385180367}
   - component: {fileID: 3533062310243632633}
@@ -122,6 +123,20 @@ MonoBehaviour:
   MoveForwards: 0
   DoneRotating: 0
   AccuracyBeforeShooting: 4
+--- !u!114 &602775581950658948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524697476118191260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8106e864ce2ed648a878303c14d295d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dmg: 20
+  KnockbackForce: 3000
 --- !u!114 &630443507885105692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,14 +165,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 1
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!60 &3533062310243632633
 PolygonCollider2D:
   m_ObjectHideFlags: 0

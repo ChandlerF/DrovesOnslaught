@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4298817013556371105}
   - component: {fileID: 2883956663123770878}
   - component: {fileID: 2426811150784486990}
+  - component: {fileID: -3855163984015130830}
   m_Layer: 6
   m_Name: Gattler
   m_TagString: Weapon
@@ -124,7 +125,6 @@ MonoBehaviour:
   Ammo: 0
   StartTimer: 0.4
   AmmoPerShot: 2
-  ShootAnim: {fileID: 0}
 --- !u!114 &3782205979634647112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,3 +244,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3855163984015130830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886977672466418204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26141ae533dabf24298837582481e24d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
+  Particles: {fileID: 4007544464715862984, guid: 0117a1b726d9ec344a777e6c2b2c0f30, type: 3}
+  Scrap: 0
