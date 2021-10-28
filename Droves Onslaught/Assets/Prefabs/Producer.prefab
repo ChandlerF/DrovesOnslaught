@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 972579116252861194}
   - component: {fileID: 7421488877022075636}
   - component: {fileID: 6343817766275101422}
+  - component: {fileID: 2264046336189628295}
   m_Layer: 6
   m_Name: Producer
   m_TagString: Producer
@@ -168,3 +169,22 @@ MonoBehaviour:
   MoveForwards: 0
   DoneRotating: 0
   AccuracyBeforeShooting: 4
+--- !u!95 &2264046336189628295
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930292488747133327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86c886d2756a7dd43ba374f2fe584f46, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

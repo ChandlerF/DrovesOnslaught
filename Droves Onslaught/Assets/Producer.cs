@@ -18,9 +18,13 @@ public class Producer : MonoBehaviour
 
     private bool HasDrawnLine = false;
 
+    private Animator Anim;
+
 
     void Start()
     {
+        Anim = GetComponent<Animator>();
+
         Timer = StartTimer;
 
         if (TargetBuilding != null)
@@ -32,7 +36,7 @@ public class Producer : MonoBehaviour
 
     void Update()
     {
-        if(Timer > 0)
+        if((Timer - 0.45f) > 0) //0.45 is how long the puls animation is
         {
             Timer -= Time.deltaTime;
         }
@@ -44,13 +48,13 @@ public class Producer : MonoBehaviour
                 {
                     if (ProductInStock > 0)
                     {
-                        SpawnProduct();
+                        Anim.Play("Pulse");
                         Timer = StartTimer;
                     }
                 }
                 else
                 {
-                    SpawnProduct();
+                    Anim.Play("Pulse");
                     Timer = StartTimer;
                 }
             }
@@ -83,6 +87,9 @@ public class Producer : MonoBehaviour
         {
             ProductInStock -= 1;
         }
+
+
+        SetAnimTrigger();
     }
 
     public void MakeLineRenderer(GameObject Target)
@@ -121,7 +128,10 @@ public class Producer : MonoBehaviour
         lineRenderer.SetPosition(1, Target.transform.position - Direction * Multiplier);
     }
 
-
+    private void SetAnimTrigger()   //Is called by event when animation is done
+    {
+        Anim.SetTrigger("Pulse");
+    }
 
 
 
