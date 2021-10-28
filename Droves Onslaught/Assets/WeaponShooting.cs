@@ -14,8 +14,6 @@ public class WeaponShooting : MonoBehaviour
 
     [SerializeField] int AmmoPerShot;
 
-    [SerializeField] AnimationClip ShootAnim;
-
     void Start()
     {
         RotateScript = GetComponent<MoveTowards>();
