@@ -26,7 +26,7 @@ public class WeaponShooting : MonoBehaviour
 
     void Update()
     {
-        if(Timer > 0)
+        if((Timer - 0.45f) > 0) // -0.45f because that's how long animation is
         {
             Timer -= Time.deltaTime;
         }
@@ -36,7 +36,7 @@ public class WeaponShooting : MonoBehaviour
             {
                 if (RotateScript.DoneRotating && RotateScript.Target != null)
                 {
-                    Shoot();
+                    Anim.Play("Shoot");
                     Timer = StartTimer;
                 }
             }
@@ -49,9 +49,6 @@ public class WeaponShooting : MonoBehaviour
     {
         Instantiate(Bullet, transform.position, transform.rotation);//Might want to spawn it slighty ahead of the weapon (so it's not inside the weapon)
         Ammo -= AmmoPerShot;
-
-        Anim.Play("Shoot");
-        
     }
 
     private void SetAnimTrigger()   //Is called by event when animation is done
