@@ -14,6 +14,8 @@ public class WeaponShooting : MonoBehaviour
 
     [SerializeField] int AmmoPerShot;
 
+    [SerializeField] AnimationClip ShootAnim;
+
     void Start()
     {
         RotateScript = GetComponent<MoveTowards>();
@@ -46,5 +48,13 @@ public class WeaponShooting : MonoBehaviour
     {
         Instantiate(Bullet, transform.position, transform.rotation);//Might want to spawn it slighty ahead of the weapon (so it's not inside the weapon)
         Ammo -= AmmoPerShot;
+
+         gameObject.GetComponent<Animator>().Play("Shoot");
+        
+    }
+
+    private void SetAnimTrigger()
+    {
+        gameObject.GetComponent<Animator>().SetTrigger("Shoot");
     }
 }

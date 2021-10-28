@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3782205979634647112}
   - component: {fileID: 4298817013556371105}
   - component: {fileID: 2883956663123770878}
+  - component: {fileID: 2426811150784486990}
   m_Layer: 6
   m_Name: Gattler
   m_TagString: Weapon
@@ -123,6 +124,7 @@ MonoBehaviour:
   Ammo: 0
   StartTimer: 0.4
   AmmoPerShot: 2
+  ShootAnim: {fileID: 0}
 --- !u!114 &3782205979634647112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,3 +225,22 @@ PolygonCollider2D:
       - {x: 0.2975003, y: -0.24017608}
       - {x: 0.3075003, y: -0.24517608}
       - {x: -0.30249968, y: -0.24017608}
+--- !u!95 &2426811150784486990
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886977672466418204}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79ff141b77b86ba43a4cfe2b627e4b35, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
