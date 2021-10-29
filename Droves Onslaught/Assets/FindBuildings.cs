@@ -32,21 +32,7 @@ public class FindBuildings : MonoBehaviour
     //https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html 
     public GameObject FindClosestEnemy()
     {
-        GameObject[] gos = null;
-
-
-        if(GameObject.FindGameObjectsWithTag(TagOne).Length > 0)
-        {
-            gos = GameObject.FindGameObjectsWithTag(TagOne);
-        }
-        else if(GameObject.FindGameObjectsWithTag(TagTwo).Length > 0)
-        {
-            gos = GameObject.FindGameObjectsWithTag(TagTwo);
-        } 
-        else if (GameObject.FindGameObjectsWithTag(TagThree).Length > 0)
-        {
-            gos = GameObject.FindGameObjectsWithTag(TagThree);
-        }
+        List<GameObject> gos = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>().BuildingsList;
 
 
         GameObject closest = null;

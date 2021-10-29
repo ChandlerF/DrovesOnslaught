@@ -31,6 +31,13 @@ public class Health : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Manager").GetComponent<Player>().Scrap += Scrap;  //Turn this into a function like the Damage() - place on Health script
 
+
+        List<GameObject> gos = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>().BuildingsList; 
+        if (gos.Contains(gameObject))
+        {
+            gos.Remove(gameObject);
+        }
+
         Instantiate(Particles, transform.position, Particles.transform.rotation);
         Destroy(gameObject);
     }

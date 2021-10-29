@@ -10,10 +10,8 @@ public class DamageAndKnockback : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Hit");
         if(collision.transform.CompareTag("Weapon") || collision.transform.CompareTag("Producer") || collision.transform.CompareTag("Factory"))
         {
-            Debug.Log("Hitttttt");
             Knockback(KnockbackForce);
             collision.transform.GetComponent<Health>().Damage(Dmg);
         }
