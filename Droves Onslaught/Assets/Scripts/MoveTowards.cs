@@ -14,6 +14,8 @@ public class MoveTowards : MonoBehaviour
 
     [SerializeField] bool MoveForwards = false;
 
+    [SerializeField] bool DestroyIfTargetNull = false;
+
     public bool DoneRotating = false;
 
     private int SpriteOffset = 90;
@@ -49,6 +51,12 @@ public class MoveTowards : MonoBehaviour
                 }
             }
         }
+
+        else if (DestroyIfTargetNull)
+        {
+            Destroy(gameObject);
+        }
+
         if (MoveForwards)
         {
             transform.position += transform.up * MoveSpeed;

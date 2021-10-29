@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6087718855524070062}
   - component: {fileID: 1775466608982070607}
   - component: {fileID: 7995284204321101488}
-  - component: {fileID: -3131104392022736942}
+  - component: {fileID: 3327988379696637962}
   m_Layer: 7
   m_Name: Ammo
   m_TagString: Untagged
@@ -115,6 +115,10 @@ MonoBehaviour:
   MoveSpeed: 0.05
   RotateSpeed: 0.05
   RotateTowards: 0
+  MoveForwards: 0
+  DestroyIfTargetNull: 1
+  DoneRotating: 0
+  AccuracyBeforeShooting: 4
 --- !u!50 &7995284204321101488
 Rigidbody2D:
   serializedVersion: 4
@@ -136,8 +140,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &-3131104392022736942
-CircleCollider2D:
+--- !u!61 &3327988379696637962
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -150,5 +154,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.85, y: 0.85}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 0.85, y: 0.85}
+  m_EdgeRadius: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3613983595172895240}
   - component: {fileID: 3613983595172895243}
   - component: {fileID: 3613983595172895247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BuildingChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}

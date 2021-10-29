@@ -57,16 +57,28 @@ public class BuildingChecker : MonoBehaviour
 
     private void SpawnBuilding()
     {
+        GameObject Manager = GameObject.FindGameObjectWithTag("Manager");
+
         GameObject SpawnedBuilding = Instantiate(Building, transform.position, Building.transform.rotation);
-        GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>().BuildingsList.Add(SpawnedBuilding);
+        Manager.GetComponent<Arrays>().BuildingsList.Add(SpawnedBuilding);
 
-        GameObject Visual = GameObject.FindGameObjectWithTag("Manager").GetComponent<PlacingBuildings>().Visual;
+
+        GameObject Visual = Manager.GetComponent<PlacingBuildings>().Visual;
         GameObject SpawnedVisual = Instantiate(Visual, transform.position, Building.transform.rotation);
-        SpawnedVisual.transform.parent = SpawnedBuilding.transform;
 
-        GameObject.FindGameObjectWithTag("Manager").GetComponent<PlacingBuildings>().SettingLineRenderers();
+        float Scale = Mathf.Sqrt(SpawnedBuilding.GetComponent<FindEnemies>().MaxRange) * 2;
 
-        GameObject.FindGameObjectWithTag("Manager").GetComponent<Player>().Scrap -= Building.GetComponent<ButtonInfo>().Cost;
+        SpawnedVisual.transform.localScale = new Vector3(Scale, Scale, Scale);
+
+        SpawnedBuilding.transform.position = SpawnedVisual.transform.position;
+
+        Manager.GetComponent<Arrays>().VisualsList.Add(SpawnedVisual);
+
+
+
+        Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
+
+        Manager.GetComponent<Player>().Scrap -= Building.GetComponent<ButtonInfo>().Cost;
     }
 
 

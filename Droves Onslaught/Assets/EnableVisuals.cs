@@ -4,26 +4,20 @@ using UnityEngine;
 
 public class EnableVisuals : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameObject Manager;
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Manager = GameObject.FindGameObjectWithTag("Manager");
     }
 
     public void EnableAllVisuals(bool IsOn)
     {
-        List<GameObject> VList = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>().VisualsList;
+        List<GameObject> VList = Manager.GetComponent<Arrays>().VisualsList;
 
 
         foreach (GameObject go in VList)
         {
-            go.SetActive(IsOn);
+            go.GetComponent<SpriteRenderer>().enabled = IsOn;
         }
     }
 }
