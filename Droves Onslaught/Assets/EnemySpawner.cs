@@ -12,9 +12,12 @@ public class EnemySpawner : MonoBehaviour
 
     private int Difficulty = 1;
 
+    private Arrays ListScript;
+
     void Start()
     {
         Timer = StartTimer;
+        ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
     }
 
     void Update()
@@ -43,7 +46,9 @@ public class EnemySpawner : MonoBehaviour
 
             Vector2 Pos = new Vector2(x, y);
 
-            Instantiate(Enemy, Pos, Enemy.transform.rotation);
+            GameObject SpawnedEnemy = Instantiate(Enemy, Pos, Enemy.transform.rotation);
+
+            SpawnedEnemy.GetComponent<FindBuildings>().ListScript = ListScript;
         }
 
         Difficulty += 1;

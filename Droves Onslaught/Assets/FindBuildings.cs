@@ -11,6 +11,8 @@ public class FindBuildings : MonoBehaviour
     [SerializeField] string TagTwo;
     [SerializeField] string TagThree;
 
+    public Arrays ListScript;   //Set by enemy spawner
+
     private void Start()
     {
         MoveScript = GetComponent<MoveTowards>();
@@ -22,7 +24,7 @@ public class FindBuildings : MonoBehaviour
         {
             if (GameObject.FindGameObjectsWithTag(TagOne).Length > 0 || GameObject.FindGameObjectsWithTag(TagTwo).Length > 0 || GameObject.FindGameObjectsWithTag(TagThree).Length > 0)
             {
-                MoveScript.Target = FindClosestEnemy();
+                MoveScript.Target = FindClosestEnemy(ListScript);
             }
         }
     }
@@ -30,9 +32,9 @@ public class FindBuildings : MonoBehaviour
 
 
     //https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html 
-    public GameObject FindClosestEnemy()
+    public GameObject FindClosestEnemy(Arrays ListScript)
     {
-        List<GameObject> gos = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>().BuildingsList;
+        List<GameObject> gos = ListScript.BuildingsList;
 
 
         GameObject closest = null;
