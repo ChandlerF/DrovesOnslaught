@@ -10,6 +10,8 @@ public class ButtonInfo : MonoBehaviour
 
     public string Name;
 
+    public List<GameObject> BuildingUpgrades = new List<GameObject>();
+
     private void Start()
     {
         Sprite = GetComponent<SpriteRenderer>().sprite;

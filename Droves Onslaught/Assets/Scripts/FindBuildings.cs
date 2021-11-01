@@ -22,7 +22,7 @@ public class FindBuildings : MonoBehaviour
     {
         if (MoveScript.Target == null)
         {
-            if (GameObject.FindGameObjectsWithTag(TagOne).Length > 0 || GameObject.FindGameObjectsWithTag(TagTwo).Length > 0 || GameObject.FindGameObjectsWithTag(TagThree).Length > 0)
+            if (ListScript.BuildingsList.Count > 0)
             {
                 MoveScript.Target = FindClosestEnemy(ListScript);
             }
@@ -34,9 +34,6 @@ public class FindBuildings : MonoBehaviour
     //https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html 
     public GameObject FindClosestEnemy(Arrays ListScript)
     {
-        List<GameObject> gos = ListScript.BuildingsList;
-
-
         GameObject closest = null;
 
         float distance = Mathf.Infinity;
@@ -44,7 +41,7 @@ public class FindBuildings : MonoBehaviour
         Vector3 position = transform.position;
 
 
-        foreach (GameObject go in gos)
+        foreach (GameObject go in ListScript.BuildingsList)
         {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
@@ -56,41 +53,4 @@ public class FindBuildings : MonoBehaviour
         }
         return closest;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-    void Update()
-    {
-        //Set Target to move towards
-        if(MoveScript.Target == null)
-        {
-
-            //Finds buildings, Priority: Weapon, Factory, and Producer
-
-            if (GameObject.FindGameObjectsWithTag("Weapon").Length > 0)
-            {
-                MoveScript.Target = GameObject.FindGameObjectWithTag("Weapon");
-            } 
-            else if(GameObject.FindGameObjectsWithTag("Factory").Length > 0)
-            {
-                MoveScript.Target = GameObject.FindGameObjectWithTag("Factory");
-            }
-            else if(GameObject.FindGameObjectsWithTag("Producer").Length > 0)
-            {
-                MoveScript.Target = GameObject.FindGameObjectWithTag("Producer");
-            }
-        }
-    }*/
 }

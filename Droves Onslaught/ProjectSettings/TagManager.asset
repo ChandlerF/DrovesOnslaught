@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Manager
   - Visual
+  - Tower
   layers:
   - Default
   - TransparentFX
@@ -58,4 +59,7 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 3040822681
+    locked: 0
+  - name: Buttons
+    uniqueID: 2362964019
     locked: 0

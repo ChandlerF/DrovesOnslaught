@@ -8,26 +8,38 @@ public class PlacingBuildings : MonoBehaviour
 
     public GameObject Visual;
 
+    private Arrays ListScript;
+
+    private void Start()
+    {
+        ListScript = GetComponent<Arrays>();
+    }
+
+
+
+
+
     public void ClickedButton(GameObject Building)      //Need to hide UI after clicking
     {
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = Camera.main.nearClipPlane;
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
+        //mousePos.z = Camera.main.nearClipPlane;
+        Vector3 worldPosition = new Vector3(Camera.main.ScreenToWorldPoint(mousePos).x, Camera.main.ScreenToWorldPoint(mousePos).y, 0);
 
-
+        //Debug.Log(worldPosition);
         GameObject SpawnedCheker = Instantiate(BuildingChecker, worldPosition, BuildingChecker.transform.rotation);   ///////////////
         SpawnedCheker.GetComponent<BuildingChecker>().Building = Building.GetComponent<SetButton>().Building;
 
         SpawnedCheker.GetComponent<SpriteRenderer>().sprite = Building.GetComponent<SetButton>().Building.GetComponent<SpriteRenderer>().sprite;
+
+        ListScript.ChangeButtonsActive();
     }
 
-    private void Update()
-    {/*
-        if (Input.GetMouseButtonDown(0))
-        {
-            SettingLineRenderers();
-        }*/
-    }
+
+
+
+
+
+
 
     public void SettingLineRenderers()  //For when a building is placed, it's line renderer and target has to be changed
     {

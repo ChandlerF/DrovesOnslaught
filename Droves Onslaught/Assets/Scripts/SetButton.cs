@@ -13,6 +13,8 @@ public class SetButton : MonoBehaviour
 
     [SerializeField] Image Img;
 
+    private Player PlayerScript;
+
     void Start()
     {
         Info = Building.GetComponent<ButtonInfo>();
@@ -22,12 +24,14 @@ public class SetButton : MonoBehaviour
 
         Img.sprite = Info.Sprite;
         UGUI.text = Info.Name + " - " + Info.Cost;
+
+        PlayerScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Player>();
     }
 
 
     private void Update()
     {
-        int Scrap = GameObject.FindGameObjectWithTag("Manager").GetComponent<Player>().Scrap;
+        int Scrap = PlayerScript.Scrap;
         if(Scrap >= Info.Cost)
         {
             GetComponent<Button>().interactable = true;

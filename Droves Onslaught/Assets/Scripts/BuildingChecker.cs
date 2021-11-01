@@ -47,6 +47,9 @@ public class BuildingChecker : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))        ///////////////////////////
         {
+            Arrays ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
+            ListScript.ChangeButtonsActive();
+
             Destroy(gameObject);
         }
     }
@@ -59,7 +62,10 @@ public class BuildingChecker : MonoBehaviour
     {
         GameObject Manager = GameObject.FindGameObjectWithTag("Manager");
 
-        GameObject SpawnedBuilding = Instantiate(Building, transform.position, Building.transform.rotation);
+        Vector3 SpawnPos = new Vector3(transform.position.x, transform.position.y, 0);
+
+
+        GameObject SpawnedBuilding = Instantiate(Building, SpawnPos, Building.transform.rotation);
         Manager.GetComponent<Arrays>().BuildingsList.Add(SpawnedBuilding);
 
 
@@ -79,6 +85,9 @@ public class BuildingChecker : MonoBehaviour
         Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
 
         Manager.GetComponent<Player>().Scrap -= Building.GetComponent<ButtonInfo>().Cost;
+
+        Arrays ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
+        ListScript.ChangeButtonsActive();
     }
 
 

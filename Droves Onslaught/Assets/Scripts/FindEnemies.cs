@@ -33,7 +33,7 @@ public class FindEnemies : MonoBehaviour
         gos = GameObject.FindGameObjectsWithTag(Tag);
 
         GameObject closest = null;
-
+ 
         float distance = Mathf.Infinity;
 
         Vector3 position = transform.position;
