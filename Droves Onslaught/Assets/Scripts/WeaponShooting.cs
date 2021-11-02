@@ -49,6 +49,7 @@ public class WeaponShooting : MonoBehaviour
     {
         Instantiate(Bullet, transform.position, transform.rotation);//Might want to spawn it slighty ahead of the weapon (so it's not inside the weapon)
         Ammo -= AmmoPerShot;
+        RotateScript.Offset = Random.Range(-RotateScript.Innaccuracy, RotateScript.Innaccuracy);
     }
 
     private void SetAnimTrigger()   //Is called by event when animation is done

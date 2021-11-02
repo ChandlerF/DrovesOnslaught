@@ -9,12 +9,13 @@ public class Producer : MonoBehaviour
     private int lengthOfLineRenderer = 2;
 
 
-    //Ore - Now it's called product
     [SerializeField] float StartTimer;
     private float Timer;
     [SerializeField] GameObject Product;
 
-    public int ProductInStock;      //Ore - for factories
+    public int ProductInStock;      //for factories
+
+    [SerializeField] int ProductConsumed = 1;
 
     private bool HasDrawnLine = false;
 
@@ -36,15 +37,18 @@ public class Producer : MonoBehaviour
 
     void Update()
     {
-        if((Timer - 0.45f) > 0) //0.45 is how long the puls animation is
+        if((Timer - 0.45f) > 0) //0.45 is how long the pulse animation is
         {
             Timer -= Time.deltaTime;
         }
         else
         {
+                //If timer is done:
+        }
+        {
             if(TargetBuilding != null)
             {
-                if (!gameObject.CompareTag("Producer"))
+                if (!gameObject.CompareTag("Producer"))     //Factory code:     
                 {
                     if (ProductInStock > 0)
                     {
@@ -52,7 +56,7 @@ public class Producer : MonoBehaviour
                         Timer = StartTimer;
                     }
                 }
-                else
+                else   //Producer code:
                 {
                     Anim.Play("Pulse");
                     Timer = StartTimer;
@@ -73,6 +77,8 @@ public class Producer : MonoBehaviour
         }
         else
         {
+            //Remove line renderer component
+            Destroy(GetComponent<LineRenderer>());
             HasDrawnLine = false;
         }
     }
@@ -85,7 +91,7 @@ public class Producer : MonoBehaviour
 
         if (!gameObject.CompareTag("Producer"))
         {
-            ProductInStock -= 1;
+            ProductInStock -= ProductConsumed;
         }
 
 

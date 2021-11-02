@@ -7,9 +7,6 @@ public class FindBuildings : MonoBehaviour
 
     private MoveTowards MoveScript;
 
-    [SerializeField] string TagOne;
-    [SerializeField] string TagTwo;
-    [SerializeField] string TagThree;
 
     public Arrays ListScript;   //Set by enemy spawner
 

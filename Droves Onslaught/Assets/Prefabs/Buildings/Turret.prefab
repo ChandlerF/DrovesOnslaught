@@ -107,6 +107,8 @@ MonoBehaviour:
   MoveSpeed: 0.05
   RotateSpeed: 4
   RotateTowards: 1
+  Innaccuracy: 0.5
+  Offset: 0
   MoveForwards: 0
   DestroyIfTargetNull: 0
   DoneRotating: 0
@@ -139,7 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7933ad2d075167f4da038e80d4a1f8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tag: Enemy
+  TagOne: Enemy
+  TagTwo: 
   MaxRange: 700
 --- !u!114 &5871699182762534363
 MonoBehaviour:
@@ -153,12 +156,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2dec31ec7dda44ab384f84699a838d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cost: 50
+  Cost: 75
   Sprite: {fileID: -8011784276369972047, guid: ff441542621ef5f4faaec240c2f763cd, type: 3}
   Name: Turret
   BuildingUpgrades:
   - {fileID: 1886977672466418204, guid: a9fcc66484be1d840acc54152e56defa, type: 3}
   - {fileID: 3338007895369318516, guid: ee4ca79e0f77a124299116a5cffead6d, type: 3}
+  RangeVisual: {fileID: 0}
 --- !u!95 &5438593402144466228
 Animator:
   serializedVersion: 3

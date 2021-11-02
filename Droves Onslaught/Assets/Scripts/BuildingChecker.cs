@@ -15,7 +15,7 @@ public class BuildingChecker : MonoBehaviour
     private void Update()
     {
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = Camera.main.nearClipPlane;
+        mousePos.z = 30;    // it's this 30 + the camera's -30
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
 
 
@@ -61,32 +61,45 @@ public class BuildingChecker : MonoBehaviour
     private void SpawnBuilding()
     {
         GameObject Manager = GameObject.FindGameObjectWithTag("Manager");
+        Arrays ListScript = Manager.GetComponent<Arrays>();
+        PlacingBuildings PlaceBuilding = Manager.GetComponent<PlacingBuildings>();
 
         Vector3 SpawnPos = new Vector3(transform.position.x, transform.position.y, 0);
 
-
+        //Spawn building
         GameObject SpawnedBuilding = Instantiate(Building, SpawnPos, Building.transform.rotation);
-        Manager.GetComponent<Arrays>().BuildingsList.Add(SpawnedBuilding);
+        //Add building to list
+        ListScript.BuildingsList.Add(SpawnedBuilding);
 
+        ButtonInfo BuildingInfo = SpawnedBuilding.GetComponent<ButtonInfo>();
 
-        GameObject Visual = Manager.GetComponent<PlacingBuildings>().Visual;
+        //Reference the visual gameobject
+        GameObject Visual = PlaceBuilding.Visual;
+        //Spawn visual
         GameObject SpawnedVisual = Instantiate(Visual, transform.position, Building.transform.rotation);
 
+        //Set building's visual
+        BuildingInfo.RangeVisual = SpawnedVisual;
+
+        //Find size to scale visual up to
         float Scale = Mathf.Sqrt(SpawnedBuilding.GetComponent<FindEnemies>().MaxRange) * 2;
-
+        //Set visual scale
         SpawnedVisual.transform.localScale = new Vector3(Scale, Scale, Scale);
-
+        //Building pos = Visual pos
         SpawnedBuilding.transform.position = SpawnedVisual.transform.position;
 
-        Manager.GetComponent<Arrays>().VisualsList.Add(SpawnedVisual);
 
 
+        //Add visual to list
+        ListScript.VisualsList.Add(SpawnedVisual);
 
-        Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
 
-        Manager.GetComponent<Player>().Scrap -= Building.GetComponent<ButtonInfo>().Cost;
+        //Every building re does line renderer
+        PlaceBuilding.SettingLineRenderers();
+        //Take from player scrap
+        Manager.GetComponent<Player>().Scrap -= BuildingInfo.Cost;
 
-        Arrays ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
+        //Turn buttons on / off
         ListScript.ChangeButtonsActive();
     }
 

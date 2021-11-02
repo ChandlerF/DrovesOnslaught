@@ -104,9 +104,12 @@ MonoBehaviour:
   Target: {fileID: 0}
   MoveTowardsTarget: 0
   MoveSpeed: 0.05
-  RotateSpeed: 4
+  RotateSpeed: 6
   RotateTowards: 1
+  Innaccuracy: 0
+  Offset: 0
   MoveForwards: 0
+  DestroyIfTargetNull: 0
   DoneRotating: 0
   AccuracyBeforeShooting: 4
 --- !u!114 &-7608830483973809006
@@ -137,7 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7933ad2d075167f4da038e80d4a1f8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tag: Enemy
+  TagOne: Enemy
+  TagTwo: 
   MaxRange: 1000
 --- !u!114 &1140940130457654473
 MonoBehaviour:
@@ -151,9 +155,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2dec31ec7dda44ab384f84699a838d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cost: 75
+  Cost: 100
   Sprite: {fileID: -1217393373796201866, guid: ff441542621ef5f4faaec240c2f763cd, type: 3}
   Name: Sniper
+  BuildingUpgrades: []
+  RangeVisual: {fileID: 0}
 --- !u!60 &5372364159252488572
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -8,9 +8,12 @@ public class BuildingButton : MonoBehaviour
 
     private Arrays ListScript;
 
+    public GameObject SelectedBuilding;
+
     private void Start()
     {
         ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
+        SelectedBuilding = transform.parent.parent.gameObject;
     }
 
 
@@ -20,34 +23,27 @@ public class BuildingButton : MonoBehaviour
         ListScript.ChangeButtonsActive();
 
         //GetBuilding
-        ButtonInfo ButtonScript = transform.parent.parent.GetComponent<ButtonInfo>();
+        ButtonInfo ButtonScript = SelectedBuilding.GetComponent<ButtonInfo>();
 
-        //If list.count == 0 then don't show
 
         if(ButtonScript.BuildingUpgrades.Count > 0)
         {
+            //Spawn Canvas (with buttons)
             GameObject SpawnedCanvas = Instantiate(Buttons, transform.position, transform.rotation);
 
             GameObject ButtonParent = SpawnedCanvas.transform.GetChild(0).gameObject;
-
+            //Set Buttons Reference
             GameObject ButtonOne = ButtonParent.transform.GetChild(0).gameObject;
             GameObject ButtonTwo = ButtonParent.transform.GetChild(1).gameObject;
 
+            //Change button's building reference
             ButtonOne.GetComponent<SetButton>().Building = ButtonScript.BuildingUpgrades[0];
 
             ButtonTwo.GetComponent<SetButton>().Building = ButtonScript.BuildingUpgrades[1];
 
+            //Change button's SelectedBuilding reference
+            ButtonOne.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
+            ButtonTwo.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
         }
-
-        //Youd made the buttons into a prefab
-        //Spawn in a button, set it's gameobject to be parent
-        //Make it's position be (x, y)
-
-        //Have those buttons: 
-        //Destroy building
-        //Spawn new building in the same spot
-        //And maybe reset line renderes if you make them manual
-
-        //transform.parent.parent.GetComponent<BuildingUpgrades>().Buildings
     }
 }

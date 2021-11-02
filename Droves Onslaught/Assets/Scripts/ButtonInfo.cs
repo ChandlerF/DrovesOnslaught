@@ -12,6 +12,8 @@ public class ButtonInfo : MonoBehaviour
 
     public List<GameObject> BuildingUpgrades = new List<GameObject>();
 
+    public GameObject RangeVisual;
+
     private void Start()
     {
         Sprite = GetComponent<SpriteRenderer>().sprite;

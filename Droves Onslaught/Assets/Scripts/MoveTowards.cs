@@ -12,6 +12,9 @@ public class MoveTowards : MonoBehaviour
     [SerializeField] float RotateSpeed = 0.05f;
     [SerializeField] bool RotateTowards = false;
 
+    public float Innaccuracy = 1f;
+    public float Offset;
+
     [SerializeField] bool MoveForwards = false;
 
     [SerializeField] bool DestroyIfTargetNull = false;
@@ -35,13 +38,18 @@ public class MoveTowards : MonoBehaviour
             if (RotateTowards)
             {
                 Vector3 vectorToTarget = Target.transform.position - transform.position;
-                float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - SpriteOffset;
-                Quaternion q = Quaternion.AngleAxis(angle, transform.forward);
-                transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * RotateSpeed);
+                
+                Vector3 NewTargetVector = new Vector3(vectorToTarget.x + Offset, vectorToTarget.y + Offset, 0);
+                
+                //Debug.DrawLine(transform.position, vectorToTarget, Color.blue);
+                //Debug.DrawLine(transform.position, NewTargetVector, Color.green);
+                
+                float angle = Mathf.Atan2(NewTargetVector.y, NewTargetVector.x) * Mathf.Rad2Deg - SpriteOffset;
+                Quaternion TargetRot = Quaternion.AngleAxis(angle, transform.forward);
+                transform.rotation = Quaternion.Slerp(transform.rotation, TargetRot, Time.deltaTime * RotateSpeed);
 
-                //transform.rotation == q
-                //Debug.Log(transform.rotation + " - " + q);
-                if (Quaternion.Angle(transform.rotation, q) <= AccuracyBeforeShooting)     //Might need to be more lenient    -   Might need to predict where it'll be (instead of where it is)
+
+                if (Quaternion.Angle(transform.rotation, TargetRot) <= AccuracyBeforeShooting)     //Might need to be more lenient    -   Might need to predict where it'll be (instead of where it is)
                 {
                     DoneRotating = true;
                 }

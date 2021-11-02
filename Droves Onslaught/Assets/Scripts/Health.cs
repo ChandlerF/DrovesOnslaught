@@ -38,6 +38,11 @@ public class Health : MonoBehaviour
             gos.Remove(gameObject);
         }
 
+        if (transform.CompareTag("Tower"))
+        {
+            Time.timeScale = 0;
+        }
+
         Instantiate(Particles, transform.position, Particles.transform.rotation);
         Destroy(gameObject);
     }

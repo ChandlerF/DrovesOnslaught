@@ -103,6 +103,7 @@ MonoBehaviour:
   TagOne: Weapon
   TagTwo: Factory
   TagThree: Producer
+  ListScript: {fileID: 0}
 --- !u!114 &5578341728447294803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +121,10 @@ MonoBehaviour:
   MoveSpeed: 0.05
   RotateSpeed: 10
   RotateTowards: 1
+  Innaccuracy: 1
+  Offset: 0
   MoveForwards: 0
+  DestroyIfTargetNull: 0
   DoneRotating: 0
   AccuracyBeforeShooting: 4
 --- !u!114 &602775581950658948
@@ -136,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dmg: 20
-  KnockbackForce: 3000
+  KnockbackForce: 400
 --- !u!114 &630443507885105692
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class DamageAndKnockback : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.CompareTag("Weapon") || collision.transform.CompareTag("Producer") || collision.transform.CompareTag("Factory"))
+        if(collision.transform.CompareTag("Weapon") || collision.transform.CompareTag("Producer") || collision.transform.CompareTag("Factory") || collision.transform.CompareTag("Tower"))
         {
             Knockback(KnockbackForce);
             collision.transform.GetComponent<Health>().Damage(Dmg);

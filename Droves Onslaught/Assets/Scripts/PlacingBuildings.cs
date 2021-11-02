@@ -19,13 +19,13 @@ public class PlacingBuildings : MonoBehaviour
 
 
 
-    public void ClickedButton(GameObject Building)      //Need to hide UI after clicking
+    public void ClickedButton(GameObject Building)
     {
         Vector3 mousePos = Input.mousePosition;
-        //mousePos.z = Camera.main.nearClipPlane;
+        //mousePos.z = Camera.main.nearClipPlane; //put 30
         Vector3 worldPosition = new Vector3(Camera.main.ScreenToWorldPoint(mousePos).x, Camera.main.ScreenToWorldPoint(mousePos).y, 0);
 
-        //Debug.Log(worldPosition);
+
         GameObject SpawnedCheker = Instantiate(BuildingChecker, worldPosition, BuildingChecker.transform.rotation);   ///////////////
         SpawnedCheker.GetComponent<BuildingChecker>().Building = Building.GetComponent<SetButton>().Building;
 

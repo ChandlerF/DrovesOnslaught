@@ -105,6 +105,7 @@ MonoBehaviour:
   StartTimer: 1
   Product: {fileID: 1499395680370331946, guid: f8042b0be97a10d4cbe411909b665521, type: 3}
   ProductInStock: 0
+  ProductConsumed: 1
 --- !u!114 &4172901112118505285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +121,8 @@ MonoBehaviour:
   Cost: 100
   Sprite: {fileID: -5875320677663893810, guid: ff441542621ef5f4faaec240c2f763cd, type: 3}
   Name: Miner
+  BuildingUpgrades: []
+  RangeVisual: {fileID: 0}
 --- !u!58 &972579116252861194
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -148,7 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7933ad2d075167f4da038e80d4a1f8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tag: Factory
+  TagOne: Factory
+  TagTwo: 
   MaxRange: 100
 --- !u!114 &6343817766275101422
 MonoBehaviour:
@@ -167,7 +171,10 @@ MonoBehaviour:
   MoveSpeed: 0
   RotateSpeed: 0
   RotateTowards: 0
+  Innaccuracy: 1
+  Offset: 0
   MoveForwards: 0
+  DestroyIfTargetNull: 0
   DoneRotating: 0
   AccuracyBeforeShooting: 4
 --- !u!95 &2264046336189628295
