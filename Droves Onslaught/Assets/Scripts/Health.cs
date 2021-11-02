@@ -29,12 +29,14 @@ public class Health : MonoBehaviour
 
     private void Death()
     {
-        GameObject.FindGameObjectWithTag("Manager").GetComponent<Player>().Scrap += Scrap;  //Turn this into a function like the Damage() - place on Health script
+        GameObject Manager = GameObject.FindGameObjectWithTag("Manager");
+        Manager.GetComponent<Player>().Scrap += Scrap;  //Turn this into a function like the Damage() - place on Health script
 
 
         List<GameObject> gos = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>().BuildingsList; 
         if (gos.Contains(gameObject))
         {
+            Manager.GetComponent<Player>().CameraShake(0.6f);
             gos.Remove(gameObject);
         }
 

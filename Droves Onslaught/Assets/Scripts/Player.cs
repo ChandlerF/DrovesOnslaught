@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI UGUI;
 
+    [SerializeField] CameraShake CamShake;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))        ////////////////////////
@@ -36,5 +38,10 @@ public class Player : MonoBehaviour
     public void AddScrap(int x)
     {
         Scrap += x;
+    }
+
+    public void CameraShake(float x)
+    {
+        CamShake.Trauma += x;
     }
 }
