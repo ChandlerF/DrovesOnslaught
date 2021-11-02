@@ -19,6 +19,16 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Time.timeScale = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Time.timeScale = 1;
+        }
+
         UGUI.text = Scrap.ToString();
     }
 

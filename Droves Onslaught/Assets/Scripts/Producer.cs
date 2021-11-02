@@ -50,7 +50,7 @@ public class Producer : MonoBehaviour
             {
                 if (!gameObject.CompareTag("Producer"))     //Factory code:     
                 {
-                    if (ProductInStock > 0)
+                    if (ProductInStock >= ProductConsumed)
                     {
                         Anim.Play("Pulse");
                         Timer = StartTimer;

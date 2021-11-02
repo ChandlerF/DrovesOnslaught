@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetBuilding: {fileID: 0}
-  StartTimer: 0.75
+  StartTimer: 0.5
   Product: {fileID: 3358157642721833975, guid: cf589957ee9d79b4581ccbf885c66d0e, type: 3}
   ProductInStock: 0
   ProductConsumed: 2

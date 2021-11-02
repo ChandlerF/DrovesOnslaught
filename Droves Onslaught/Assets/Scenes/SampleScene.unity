@@ -1975,7 +1975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0006f83f016fa47bd44b18f56d784d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scrap: 2500
+  Scrap: 250
   Crystal: 0
   UGUI: {fileID: 1151813924}
 --- !u!114 &374592538
