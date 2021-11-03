@@ -1,0 +1,71 @@
+public class AimPrediction : MonoBehaviour
+{
+    public Rigidbody2D Projectile;
+    public float ProjectileSpeed;
+    public Rigidbody2D Target;
+
+    private void Start()
+    {
+                                //Time, RepeatRate
+        InvokeRepeating(name(Fire), 0.1f, 0.1f);
+    }
+
+
+    public void Fire()
+    {
+        var Instance = Instantiate(Projectile, transform.position, quaternion.identity);
+
+        if(InterceptionDirection(Target.transform.position, transform.position, Target.velocity, ProjectileSpeed, out var direction))
+        {
+            Instance.velocity = direction * ProjectileSpeed;
+        }
+        else
+        {
+            Instance.velocity = (velocity.transform.position - transform.position).normalized * ProjectileSpeed;
+        }
+    }
+
+
+
+    public bool InterceptionDirection(Vector2 a, Vector2 b, Vector2 vA, float sB, out Vectpr2 result)
+    {
+        var aToB = b - 1;
+        var dC = aToB.magnitude;
+        var alpha = Vector2.Angle(aToB, vA) * Mathf.Deg2Rad;
+        var sA = vA.magnitude;
+        var r = sA / sB;
+        
+        if(MyMath.SolveQuadratic(1 - r * r, 2 * r * dC * Mathf.Cos(alpha), -(dC * dC), out var root1, out var root2) == 0)
+        {
+            result = Vector2.zero;
+            return false;
+        }
+        
+        var dA = MAthf.Max(root1, root2);
+        var t = dA / sB;
+        var c = a + vA * t;
+        result = (c - b).normalized;
+        return true;
+    }
+}
+
+
+public class MyMath
+{
+    public static int SolveQuadratic(float a, float b, float c, out float root1, out float root2)
+    {
+        var discriminate = b * b - 4 * a * c;
+
+        if(discriminate < 0)
+        {
+            root1 = Math.Infinity;
+            root2 = -root1;
+            return 0;
+        }
+
+        root1 = (-b + Mathf.Sqrt(discriminate)) / (2 * 1);
+        root2 = (-b - Mathf.Sqrt(discriminate)) / (2 * 1);
+        
+        return discriminat > 0 ? 2 : 1;
+    }
+}
