@@ -1978,7 +1978,6 @@ MonoBehaviour:
   Scrap: 250
   Crystal: 0
   UGUI: {fileID: 1151813924}
-  CamShake: {fileID: 1736503629}
 --- !u!114 &374592538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1995,6 +1994,7 @@ MonoBehaviour:
   - {fileID: 1776787592}
   VisualsList: []
   BaseButtonsParent: {fileID: 827622665}
+  UpgradeButtonActive: 0
 --- !u!1 &392981669
 GameObject:
   m_ObjectHideFlags: 0
@@ -8244,8 +8244,8 @@ SpriteRenderer:
   m_SortingLayerID: 1898965481
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5651830671411172072, guid: 968f74b633d420741a246dbc335321f1, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -7816024807854489259, guid: 68e898d1e4369ea47ad56099c18e16ea, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8301,7 +8301,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.17, y: 1.17}
+    oldSize: {x: 1.17, y: 1.175}
     newSize: {x: 1.17, y: 1.17}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -1,0 +1,576 @@
+fileFormatVersion: 2
+guid: 68e898d1e4369ea47ad56099c18e16ea
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5276970296247716496
+    second: LargeShapeOutlines2PNG_0
+  - first:
+      213: -7492986888825655202
+    second: LargeShapeOutlines2PNG_1
+  - first:
+      213: -3478285842592866778
+    second: LargeShapeOutlines2PNG_2
+  - first:
+      213: 8410136350641735548
+    second: LargeShapeOutlines2PNG_3
+  - first:
+      213: -7816024807854489259
+    second: LargeShapeOutlines2PNG_4
+  - first:
+      213: 4151276595793207843
+    second: LargeShapeOutlines2PNG_5
+  - first:
+      213: -601089710265103066
+    second: LargeShapeOutlines2PNG_6
+  - first:
+      213: -7363522578075064536
+    second: LargeShapeOutlines2PNG_7
+  - first:
+      213: 1408508945494741597
+    second: LargeShapeOutlines2PNG_8
+  - first:
+      213: 5932607865353721274
+    second: LargeShapeOutlines2PNG_9
+  - first:
+      213: -1718215145305686965
+    second: LargeShapeOutlines2PNG_10
+  - first:
+      213: 7559160226926947850
+    second: LargeShapeOutlines2PNG_11
+  - first:
+      213: -6491122874091984853
+    second: LargeShapeOutlines2PNG_12
+  - first:
+      213: 6148607946484057845
+    second: LargeShapeOutlines2PNG_13
+  - first:
+      213: 4499262223421087987
+    second: LargeShapeOutlines2PNG_14
+  - first:
+      213: 4447921339828506532
+    second: LargeShapeOutlines2PNG_15
+  - first:
+      213: -7607310291942475745
+    second: LargeShapeOutlines2PNG_16
+  - first:
+      213: 6966213031571853087
+    second: LargeShapeOutlines2PNG_17
+  - first:
+      213: 5967119995655174586
+    second: LargeShapeOutlines2PNG_18
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 738
+        width: 246
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a022e96809b3940800000000000000
+      internalID: 5276970296247716496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_1
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 706
+        width: 221
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5033e8cf10930890800000000000000
+      internalID: -7492986888825655202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_2
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 764
+        width: 210
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62e5bf47475aabfc0800000000000000
+      internalID: -3478285842592866778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_3
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 764
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c77c99cb37ec6b470800000000000000
+      internalID: 8410136350641735548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_4
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 736
+        width: 234
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 551413c29d6e78390800000000000000
+      internalID: -7816024807854489259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_5
+      rect:
+        serializedVersion: 2
+        x: 1522
+        y: 729
+        width: 275
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322a5a8c11c4c9930800000000000000
+      internalID: 4151276595793207843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_6
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 412
+        width: 170
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62d818dd71088a7f0800000000000000
+      internalID: -601089710265103066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_7
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 407
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82764469a338fc990800000000000000
+      internalID: -7363522578075064536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_8
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 403
+        width: 234
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d529c2f5c670c8310800000000000000
+      internalID: 1408508945494741597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_9
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 398
+        width: 252
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab5d816db6bd45250800000000000000
+      internalID: 5932607865353721274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_10
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 412
+        width: 213
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4cbb58cd6ca728e0800000000000000
+      internalID: -1718215145305686965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_11
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 407
+        width: 223
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0eed3e1d2887e860800000000000000
+      internalID: 7559160226926947850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_12
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 423
+        width: 235
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b28a5503326eae5a0800000000000000
+      internalID: -6491122874091984853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_13
+      rect:
+        serializedVersion: 2
+        x: 1655
+        y: 418
+        width: 247
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f68351c95e345550800000000000000
+      internalID: 6148607946484057845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 561
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f029527727907e30800000000000000
+      internalID: 4499262223421087987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_15
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 26
+        width: 245
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af8b5974e03abd30800000000000000
+      internalID: 4447921339828506532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_16
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 21
+        width: 257
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f18789048976d6690800000000000000
+      internalID: -7607310291942475745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_17
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 20
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f8988f7d5fca060800000000000000
+      internalID: 6966213031571853087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LargeShapeOutlines2PNG_18
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 15
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab9382955087fc250800000000000000
+      internalID: 5967119995655174586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -10,6 +10,8 @@ public class Arrays : MonoBehaviour
 
     [SerializeField] GameObject BaseButtonsParent;
 
+    public bool UpgradeButtonActive = false;
+
 
     public void ChangeButtonsActive()
     {

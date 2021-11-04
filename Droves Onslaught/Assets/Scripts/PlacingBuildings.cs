@@ -43,35 +43,14 @@ public class PlacingBuildings : MonoBehaviour
 
     public void SettingLineRenderers()  //For when a building is placed, it's line renderer and target has to be changed
     {
-        GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag("Producer");        //And factory
+        List<GameObject> gos = new List<GameObject>();
+        gos.AddRange(GameObject.FindGameObjectsWithTag("Producer"));
+        gos.AddRange(GameObject.FindGameObjectsWithTag("Factory"));
 
 
         foreach (GameObject go in gos)
         {
             if(go.GetComponent<Producer>().TargetBuilding != null)
-            {
-                GameObject ClosestEnemy = go.GetComponent<FindEnemies>().FindClosestEnemy();
-
-                go.GetComponent<Producer>().SetLRPos(ClosestEnemy);
-
-                go.GetComponent<Producer>().TargetBuilding = ClosestEnemy;
-
-                go.GetComponent<MoveTowards>().Target = ClosestEnemy;
-            }
-        }
-
-
-
-
-        GameObject[] Gos;
-        Gos = GameObject.FindGameObjectsWithTag("Factory");
-
-
-        foreach (GameObject go in Gos)
-        {
-
-            if (go.GetComponent<Producer>().TargetBuilding != null)
             {
                 GameObject ClosestEnemy = go.GetComponent<FindEnemies>().FindClosestEnemy();
 

@@ -12,7 +12,13 @@ public class Player : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI UGUI;
 
-    [SerializeField] CameraShake CamShake;
+    private CameraShake CamShake;
+
+    private void Start()
+    {
+        CamShake = Camera.main.transform.parent.GetComponent<CameraShake>();
+    }
+
 
     private void Update()
     {

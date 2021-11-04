@@ -110,7 +110,7 @@ public class Producer : MonoBehaviour
         float alpha = 1.0f;
         Gradient gradient = new Gradient();
         gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(transform.GetComponent<SpriteRenderer>().color, 0.0f), new GradientColorKey(Target.transform.GetComponent<SpriteRenderer>().color, 1.0f) },
+            new GradientColorKey[] { new GradientColorKey(Color.black, 0.0f), new GradientColorKey(Color.black, 1.0f) },
             new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
         );
         lineRenderer.colorGradient = gradient;
@@ -128,7 +128,7 @@ public class Producer : MonoBehaviour
         Vector3 Direction = (Target.transform.position - transform.position).normalized;
 
         //Higher the number, the bigger the gap
-        float Multiplier = 0.4f;
+        float Multiplier = 0; //0.4f;
 
         lineRenderer.SetPosition(0, transform.position + Direction * Multiplier);
         lineRenderer.SetPosition(1, Target.transform.position - Direction * Multiplier);

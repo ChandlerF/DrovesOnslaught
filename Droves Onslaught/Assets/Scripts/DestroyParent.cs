@@ -21,6 +21,8 @@ public class DestroyParent : MonoBehaviour
     {
         ListScript.ChangeButtonsActive();
 
+        ListScript.UpgradeButtonActive = false;
+
         Destroy(transform.parent.gameObject);
     }
 

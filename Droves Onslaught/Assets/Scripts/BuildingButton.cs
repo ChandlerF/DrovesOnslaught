@@ -12,38 +12,45 @@ public class BuildingButton : MonoBehaviour
 
     private void Start()
     {
-        ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
+        GameObject Manager = GameObject.FindGameObjectWithTag("Manager");
+        ListScript = Manager.GetComponent<Arrays>();
         SelectedBuilding = transform.parent.parent.gameObject;
     }
 
 
     public void SpawnButtons()
     {
-        //DisableOther Buttons
-        ListScript.ChangeButtonsActive();
-
-        //GetBuilding
-        ButtonInfo ButtonScript = SelectedBuilding.GetComponent<ButtonInfo>();
-
-
-        if(ButtonScript.BuildingUpgrades.Count > 0)
+        if (!ListScript.UpgradeButtonActive)
         {
-            //Spawn Canvas (with buttons)
-            GameObject SpawnedCanvas = Instantiate(Buttons, transform.position, transform.rotation);
+            //DisableOther Buttons
+            ListScript.ChangeButtonsActive();
 
-            GameObject ButtonParent = SpawnedCanvas.transform.GetChild(0).gameObject;
-            //Set Buttons Reference
-            GameObject ButtonOne = ButtonParent.transform.GetChild(0).gameObject;
-            GameObject ButtonTwo = ButtonParent.transform.GetChild(1).gameObject;
+            //GetBuilding
+            ButtonInfo ButtonScript = SelectedBuilding.GetComponent<ButtonInfo>();
 
-            //Change button's building reference
-            ButtonOne.GetComponent<SetButton>().Building = ButtonScript.BuildingUpgrades[0];
 
-            ButtonTwo.GetComponent<SetButton>().Building = ButtonScript.BuildingUpgrades[1];
+            if (ButtonScript.BuildingUpgrades.Count > 0)
+            {
+                //Spawn Canvas (with buttons)
+                GameObject SpawnedCanvas = Instantiate(Buttons, transform.position, transform.rotation);
 
-            //Change button's SelectedBuilding reference
-            ButtonOne.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
-            ButtonTwo.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
+                GameObject ButtonParent = SpawnedCanvas.transform.GetChild(0).gameObject;
+                //Set Buttons Reference
+                GameObject ButtonOne = ButtonParent.transform.GetChild(0).gameObject;
+                GameObject ButtonTwo = ButtonParent.transform.GetChild(1).gameObject;
+
+                //Change button's building reference
+                ButtonOne.GetComponent<SetButton>().Building = ButtonScript.BuildingUpgrades[0];
+
+                ButtonTwo.GetComponent<SetButton>().Building = ButtonScript.BuildingUpgrades[1];
+
+                //Change button's SelectedBuilding reference
+                ButtonOne.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
+                ButtonTwo.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
+
+
+                ListScript.UpgradeButtonActive = true;
+            }
         }
     }
 }
