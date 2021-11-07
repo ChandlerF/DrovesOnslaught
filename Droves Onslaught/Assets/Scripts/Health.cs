@@ -45,6 +45,14 @@ public class Health : MonoBehaviour
             Time.timeScale = 0;
         }
 
+        if (GetComponent<ButtonInfo>())
+        {
+            //Remove it from list
+            Destroy(GetComponent<ButtonInfo>().RangeVisual);
+        }
+
+
+
         Manager.GetComponent<Arrays>().BuildingDict[gameObject.name.Remove(gameObject.name.Length - 7)].Remove(gameObject);
 
         Instantiate(Particles, transform.position, Particles.transform.rotation);

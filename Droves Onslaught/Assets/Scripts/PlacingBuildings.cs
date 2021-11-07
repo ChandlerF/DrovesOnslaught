@@ -16,6 +16,7 @@ public class PlacingBuildings : MonoBehaviour
     {
         ListScript = GetComponent<Arrays>();
 
+        //Spawn Tower//
         float x = Random.Range(-14, -7);
         float y = Random.Range(1, -5);
 
@@ -52,8 +53,8 @@ public class PlacingBuildings : MonoBehaviour
     public void SettingLineRenderers()  //For when a building is placed, it's line renderer and target has to be changed
     {
         List<GameObject> gos = new List<GameObject>();
-        gos.AddRange(GameObject.FindGameObjectsWithTag("Producer"));
-        gos.AddRange(GameObject.FindGameObjectsWithTag("Factory"));
+        gos.AddRange(ListScript.BuildingDict["Miner"]);
+        gos.AddRange(ListScript.BuildingDict["Factory"]);
 
 
         foreach (GameObject go in gos)

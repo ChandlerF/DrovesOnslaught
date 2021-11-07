@@ -18,7 +18,7 @@ public class BuildingButton : MonoBehaviour
     }
 
 
-    public void SpawnButtons()
+    public void SpawnButtons()  //Clicked on building
     {
         if (!ListScript.UpgradeButtonActive)
         {
@@ -27,6 +27,9 @@ public class BuildingButton : MonoBehaviour
 
             //GetBuilding
             ButtonInfo ButtonScript = SelectedBuilding.GetComponent<ButtonInfo>();
+
+            //Enable building visual
+            SelectedBuilding.GetComponent<ButtonInfo>().RangeVisual.GetComponent<SpriteRenderer>().enabled = true;
 
 
             if (ButtonScript.BuildingUpgrades.Count > 0)
@@ -48,6 +51,10 @@ public class BuildingButton : MonoBehaviour
                 ButtonOne.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
                 ButtonTwo.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
 
+                //Sets the destroy Button on upgrade screen
+                ButtonParent.transform.GetChild(2).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
+                //Sets hide buttons button
+                ButtonParent.transform.GetChild(3).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
 
                 ListScript.UpgradeButtonActive = true;
             }

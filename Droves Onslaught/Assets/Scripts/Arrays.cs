@@ -14,6 +14,7 @@ public class Arrays : MonoBehaviour
 
     public Dictionary<string, List<GameObject>> BuildingDict = new Dictionary<string, List<GameObject>>();
 
+    //Is set to know if upgrade menu can be spawned
     public bool UpgradeButtonActive = false;
 
 
@@ -26,13 +27,6 @@ public class Arrays : MonoBehaviour
         }
     }
 
-    /*private void Update()
-    {
-        for (int i = 0; i < DictNames.Count; i++)
-        {
-            Debug.Log(BuildingDict[DictNames[i]]);
-        }
-    }*/
     public void ChangeButtonsActive()
     {
         if(BaseButtonsParent.activeSelf == true)
