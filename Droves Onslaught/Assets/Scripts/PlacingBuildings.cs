@@ -10,9 +10,17 @@ public class PlacingBuildings : MonoBehaviour
 
     private Arrays ListScript;
 
+    [SerializeField] GameObject Tower;
+
     private void Start()
     {
         ListScript = GetComponent<Arrays>();
+
+        float x = Random.Range(-14, -7);
+        float y = Random.Range(1, -5);
+
+        Vector2 SpawnPos = new Vector2(x, y);
+        Instantiate(Tower, SpawnPos, Quaternion.identity);
     }
 
 
