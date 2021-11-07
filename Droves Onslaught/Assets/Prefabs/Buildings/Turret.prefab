@@ -141,8 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7933ad2d075167f4da038e80d4a1f8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TagOne: Enemy
-  TagTwo: 
+  TargetName:
+  - Enemy
+  TargetList: []
   MaxRange: 700
 --- !u!114 &5871699182762534363
 MonoBehaviour:

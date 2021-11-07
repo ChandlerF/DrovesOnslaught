@@ -70,6 +70,9 @@ public class BuildingChecker : MonoBehaviour
         GameObject SpawnedBuilding = Instantiate(Building, SpawnPos, Building.transform.rotation);
         //Add building to list
         ListScript.BuildingsList.Add(SpawnedBuilding);
+        //Add building to it's individual list in the dictionary
+        string SpawnedName = SpawnedBuilding.gameObject.name;
+        ListScript.BuildingDict[SpawnedName.Remove(SpawnedName.Length - 7)].Add(SpawnedBuilding);   //Removes lasts 7 letters, "(Clone)"
 
         ButtonInfo BuildingInfo = SpawnedBuilding.GetComponent<ButtonInfo>();
 

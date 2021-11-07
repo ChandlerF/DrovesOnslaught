@@ -45,6 +45,8 @@ public class Health : MonoBehaviour
             Time.timeScale = 0;
         }
 
+        Manager.GetComponent<Arrays>().BuildingDict[gameObject.name.Remove(gameObject.name.Length - 7)].Remove(gameObject);
+
         Instantiate(Particles, transform.position, Particles.transform.rotation);
         Destroy(gameObject);
     }

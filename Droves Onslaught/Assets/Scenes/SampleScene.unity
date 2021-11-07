@@ -1994,6 +1994,14 @@ MonoBehaviour:
   - {fileID: 1776787592}
   VisualsList: []
   BaseButtonsParent: {fileID: 827622665}
+  DictNames:
+  - Miner
+  - Factory
+  - Transport
+  - Turret
+  - Sniper
+  - Gattler
+  - Enemy
   UpgradeButtonActive: 0
 --- !u!1 &392981669
 GameObject:

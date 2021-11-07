@@ -39,7 +39,9 @@ public class DestroyParent : MonoBehaviour
 
         GameObject SpawnedBuilding = Instantiate(NewBuilding, SelectedBuilding.transform.position, SelectedBuilding.transform.rotation);
 
-        Manager.GetComponent<Arrays>().BuildingsList.Add(SpawnedBuilding);
+        Arrays ArrayScript = Manager.GetComponent<Arrays>();
+
+        ArrayScript.BuildingsList.Add(SpawnedBuilding);
 
 
         ListScript.ChangeButtonsActive();
@@ -55,14 +57,16 @@ public class DestroyParent : MonoBehaviour
 
 
 
+        //Remove from lists
+        ArrayScript.BuildingDict[SelectedBuilding.name.Remove(SelectedBuilding.name.Length - 7)].Remove(SelectedBuilding);
+
+        ArrayScript.BuildingsList.Remove(SelectedBuilding);
 
 
-
-
-
-        Manager.GetComponent<Arrays>().BuildingsList.Remove(SelectedBuilding);
         //Add building to list
-        Manager.GetComponent<Arrays>().BuildingsList.Add(SpawnedBuilding);
+        ArrayScript.BuildingsList.Add(SpawnedBuilding);
+
+        ArrayScript.BuildingDict[SpawnedBuilding.name.Remove(SpawnedBuilding.name.Length - 7)].Add(SpawnedBuilding);
 
 
         //Find size to scale visual up to

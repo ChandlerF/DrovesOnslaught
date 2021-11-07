@@ -13,6 +13,8 @@ public class FindBuildings : MonoBehaviour
     private void Start()
     {
         MoveScript = GetComponent<MoveTowards>();
+
+        GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>().BuildingDict["Enemy"].Add(gameObject);
     }
 
     void Update()

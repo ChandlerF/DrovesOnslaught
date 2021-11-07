@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2264046336189628295}
   - component: {fileID: -2244011215822607189}
   m_Layer: 6
-  m_Name: Producer
+  m_Name: Miner
   m_TagString: Producer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,8 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7933ad2d075167f4da038e80d4a1f8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TagOne: Factory
-  TagTwo: 
+  TargetName:
+  - Factory
+  TargetList: []
   MaxRange: 100
 --- !u!114 &6343817766275101422
 MonoBehaviour:

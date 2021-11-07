@@ -145,8 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cost: 50
-  Sprite: {fileID: 1615727979523620395, guid: ff441542621ef5f4faaec240c2f763cd, type: 3}
-  Name: Factory
+  Sprite: {fileID: 8410136350641735548, guid: 68e898d1e4369ea47ad56099c18e16ea, type: 3}
+  Name: Transport
   BuildingUpgrades: []
   RangeVisual: {fileID: 0}
 --- !u!114 &7036947675211934890
@@ -161,8 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7933ad2d075167f4da038e80d4a1f8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TagOne: Tower
-  TagTwo: 
+  TargetName:
+  - Tower
+  TargetList: []
   MaxRange: 75
 --- !u!114 &7472316231170768296
 MonoBehaviour:

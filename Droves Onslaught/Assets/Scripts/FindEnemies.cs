@@ -7,70 +7,58 @@ public class FindEnemies : MonoBehaviour
 
     private MoveTowards RotateScript;
 
-    [SerializeField] string TagOne;
-    [SerializeField] string TagTwo = null;
+    [SerializeField] List<string> TargetName = new List<string>();
 
-    private bool TagTwoIsNull = true;
+    [SerializeField] List<GameObject> TargetList = new List<GameObject>();
+
+    private GameObject Manager;
 
     public float MaxRange = 100f;
 
     private void Start()
     {
         RotateScript = GetComponent<MoveTowards>();
-
-        if(string.IsNullOrEmpty(TagTwo))
-        {
-            TagTwo = TagOne;
-            TagTwoIsNull = true;
-        }
-        else
-        {
-            TagTwoIsNull = false;
-        }
+        Manager = GameObject.FindGameObjectWithTag("Manager");
     }
 
     void Update()
     {
-        if (RotateScript.Target == null && NumBuildWithTag() > 0)
+        if (RotateScript.Target == null && TargetsAlive())
         {
             RotateScript.Target = FindClosestEnemy();
         }
     }
 
-    private int NumBuildWithTag()
-    {
-        int x = 0;
-
-        if (!TagTwoIsNull)
-        {
-            x = GameObject.FindGameObjectsWithTag(TagOne).Length + GameObject.FindGameObjectsWithTag(TagTwo).Length;
-        }
-        else
-        {
-            x = GameObject.FindGameObjectsWithTag(TagOne).Length;
-        }
-        return x;
-    }
 
     //https://docs.unity3d.com/ScriptReference/GameObject.FindGameObjectsWithTag.html 
     public GameObject FindClosestEnemy()
     {
-        List<GameObject> gos = new List<GameObject>();
-        gos.AddRange(GameObject.FindGameObjectsWithTag(TagOne));
-        if(!TagTwoIsNull)
+        //For every name that's a target
+        for (int i = 0; i < TargetName.Count; i++)
         {
-            gos.AddRange(GameObject.FindGameObjectsWithTag(TagTwo));
+            //GameObject based off TargetName in the Dictionary
+            foreach(GameObject go in Manager.GetComponent<Arrays>().BuildingDict[TargetName[i]])
+            {
+                //If the gameobject is not in the TargetList
+                if (!TargetList.Contains(go))
+                {
+                    //Add to list
+                    TargetList.Add(go);
+                }
+            }
         }
 
 
         GameObject closest = null;
 
-            float distance = Mathf.Infinity;
+        float distance = Mathf.Infinity;
 
-            Vector3 position = transform.position;
+        Vector3 position = transform.position;
 
 
-            foreach (GameObject go in gos)
+        foreach (GameObject go in TargetList)
+        {
+            if(go != null)
             {
                 Vector3 diff = go.transform.position - position;
                 float curDistance = diff.sqrMagnitude;
@@ -86,7 +74,35 @@ public class FindEnemies : MonoBehaviour
                     }
                 }
             }
+        }
 
-        return closest;
+    return closest;
     }
+
+
+
+
+
+    //Have to put this in a function because the for loop
+    private bool TargetsAlive()
+    {
+        //For each name in Target Name
+        for (int i = 0; i < TargetName.Count; i++)
+        {
+            //If any gameobjects in lists, return 
+            if(Manager.GetComponent<Arrays>().BuildingDict[TargetName[i]].Count > 0)
+            {
+                return true;
+            }
+            
+        }
+
+
+        return false;
+    }
+
+
+
+
+
 }
