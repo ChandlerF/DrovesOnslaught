@@ -47,8 +47,9 @@ public class Health : MonoBehaviour
 
         if (GetComponent<ButtonInfo>())
         {
-            //Remove it from list
-            Destroy(GetComponent<ButtonInfo>().RangeVisual);
+            GameObject Visual = GetComponent<ButtonInfo>().RangeVisual;
+            Manager.GetComponent<Arrays>().VisualsList.Remove(Visual);
+            Destroy(Visual);
         }
 
 

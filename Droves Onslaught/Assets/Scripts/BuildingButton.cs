@@ -10,9 +10,10 @@ public class BuildingButton : MonoBehaviour
 
     public GameObject SelectedBuilding;
 
+    private GameObject Manager;
     private void Start()
     {
-        GameObject Manager = GameObject.FindGameObjectWithTag("Manager");
+        Manager = GameObject.FindGameObjectWithTag("Manager");
         ListScript = Manager.GetComponent<Arrays>();
         SelectedBuilding = transform.parent.parent.gameObject;
     }
@@ -22,6 +23,9 @@ public class BuildingButton : MonoBehaviour
     {
         if (!ListScript.UpgradeButtonActive)
         {
+            //Set ListScript Selected, to reference globally
+            ListScript.SelectedBuilding = SelectedBuilding;
+
             //DisableOther Buttons
             ListScript.ChangeButtonsActive();
 
@@ -58,6 +62,11 @@ public class BuildingButton : MonoBehaviour
 
                 ListScript.UpgradeButtonActive = true;
             }
+        }
+        else if (ListScript.InTetherMode)   //If new building is selected while in tether mode:
+        {
+            ListScript.SelectedBuilding.GetComponent<MoveTowards>().Target = SelectedBuilding; //Cant do gameObject, do SelectedBuilding (The new building)
+            Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
         }
     }
 }

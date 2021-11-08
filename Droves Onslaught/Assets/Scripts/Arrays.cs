@@ -17,6 +17,9 @@ public class Arrays : MonoBehaviour
     //Is set to know if upgrade menu can be spawned
     public bool UpgradeButtonActive = false;
 
+    public GameObject SelectedBuilding;
+
+    public bool InTetherMode = false;
 
     private void Start()
     {

@@ -76,16 +76,6 @@ public class DestroyParent : MonoBehaviour
         ListScript.ChangeButtonsActive();
 
 
-        //Destroy building
-        //Spawn new building in the same spot
-        //And maybe reset line renderes if you make them manual
-
-
-
-
-
-
-
         //Remove from lists
         ListScript.BuildingDict[SelectedBuilding.name.Remove(SelectedBuilding.name.Length - 7)].Remove(SelectedBuilding);
 
@@ -119,5 +109,10 @@ public class DestroyParent : MonoBehaviour
 
         DestroyTheParent();
 
+    }
+
+    public void EnterTetherMode(bool x)   //Called by button
+    {
+        ListScript.InTetherMode = x;
     }
 }
