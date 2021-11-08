@@ -88,8 +88,20 @@ public class BuildingButton : MonoBehaviour
         }
         else if (ListScript.InTetherMode)   //If new building is selected while in tether mode:
         {
-            ListScript.SelectedBuilding.GetComponent<MoveTowards>().Target = SelectedBuilding; //Cant do gameObject, do SelectedBuilding (The new building)
-            Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
+            SetTetherModeFalse();
+            
         }
+    }
+    
+    
+    
+    public void SetTetherModeFalse()
+    {
+        //Set tether mode false
+        ListScript.InTetherMode = false;
+        //Set Selected Building's Target to the New Taget from List Script (Array.cs)
+        ListScript.SelectedBuilding.GetComponent<MoveTowards>().Target = SelectedBuilding; //Cant do gameObject, do SelectedBuilding (The new building)
+        //Call Liner Renderer
+        Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
     }
 }
