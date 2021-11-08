@@ -88,6 +88,7 @@ public class Producer : MonoBehaviour
     {
         GameObject SpawnedOre = Instantiate(Product, transform.position, Product.transform.rotation);
         SpawnedOre.GetComponent<MoveTowards>().Target = TargetBuilding;
+        SpawnedOre.GetComponent<Product>().Target = TargetBuilding;
 
         if (!gameObject.CompareTag("Producer"))
         {
