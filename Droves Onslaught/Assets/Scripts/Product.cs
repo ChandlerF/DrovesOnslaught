@@ -10,7 +10,6 @@ public class Product : MonoBehaviour
 
 
     //Tether mode is set true but never false
-    //BuildingButton, have it spawn upgrade menu, and set upgrade buttons active as needed
     //Feedback to know you're in Tether Mode (Selected Building's line renderer target is mouse or, because mobile, dim screen with overlay)
     //Add World Canvas to other buildings, like transport
     //Bug where if you're placing a building, and click another building instead of placing it, bad
