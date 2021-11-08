@@ -7,7 +7,6 @@ public class Product : MonoBehaviour
     [SerializeField] string Name;
     
     public GameObject Target;
-    //GO target, use Target, not tag to compare col
 
 
     //Tether mode is set true but never false
@@ -15,11 +14,7 @@ public class Product : MonoBehaviour
     //Feedback to know you're in Tether Mode (Selected Building's line renderer target is mouse or, because mobile, dim screen with overlay)
     //Add World Canvas to other buildings, like transport
     //Bug where if you're placing a building, and click another building instead of placing it, bad
-    
-    private Start()
-    {
-        Target = GetComponent<MoveTowards>().Target;
-    }
+
     
 
     private void OnTriggerEnter2D(Collider2D col)
