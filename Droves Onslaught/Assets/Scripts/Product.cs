@@ -5,6 +5,8 @@ using UnityEngine;
 public class Product : MonoBehaviour
 {
     [SerializeField] string Name;
+    
+    public GameObject Target;
     //GO target, use Target, not tag to compare col
 
 
@@ -13,18 +15,24 @@ public class Product : MonoBehaviour
     //Feedback to know you're in Tether Mode (Selected Building's line renderer target is mouse or, because mobile, dim screen with overlay)
     //Add World Canvas to other buildings, like transport
     //Bug where if you're placing a building, and click another building instead of placing it, bad
+    
+    private Start()
+    {
+        Target = GetComponent<MoveTowards>().Target;
+    }
+    
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(Name == "Ammo")
         {
-            if (col.CompareTag("Weapon"))
+            if (col.gameObject == Target)
             {
                 col.GetComponent<WeaponShooting>().Ammo += 1;
                 Destroy(gameObject);
             }
 
-            else if (col.CompareTag("Transport"))
+            else if (col.gameObject == Target)
             {
                 col.GetComponent<Producer>().ProductInStock += 1;
                 Destroy(gameObject);
@@ -32,7 +40,7 @@ public class Product : MonoBehaviour
         }
         else if(Name == "Ore")
         {
-            if (col.CompareTag("Factory"))
+            if (col.gameObject == Target)
             {
                 col.GetComponent<Producer>().ProductInStock += 1;
                 Destroy(gameObject);
@@ -40,7 +48,7 @@ public class Product : MonoBehaviour
         }
         else if(Name == "Points")
         {
-            if (col.CompareTag("Tower"))
+            if (col.gameObject == Target)
             {
                 col.GetComponent<Tower>().Score += 1;
                 Destroy(gameObject);
