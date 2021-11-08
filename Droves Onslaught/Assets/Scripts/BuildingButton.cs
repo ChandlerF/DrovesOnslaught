@@ -21,11 +21,12 @@ public class BuildingButton : MonoBehaviour
 
     public void SpawnButtons()  //Clicked on building
     {
-        if (!ListScript.UpgradeButtonActive)
-        {
             //Set ListScript Selected, to reference globally
             ListScript.SelectedBuilding = SelectedBuilding;
-
+            
+            
+        if (!ListScript.UpgradeButtonActive)
+        {
             //DisableOther Buttons
             ListScript.ChangeButtonsActive();
 
