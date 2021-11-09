@@ -11,6 +11,9 @@ public class BuildingButton : MonoBehaviour
     public GameObject SelectedBuilding;
 
     private GameObject Manager;
+
+    private GameObject ButtonParent;
+
     private void Start()
     {
         Manager = GameObject.FindGameObjectWithTag("Manager");
@@ -41,25 +44,31 @@ public class BuildingButton : MonoBehaviour
                 
             if (ButtonScript.BuildingUpgrades.Count > 0)
             {
-                GameObject ButtonParent = SpawnedCanvas.transform.GetChild(0).gameObject;
-                //Set Buttons Reference
-                GameObject ButtonOne = ButtonParent.transform.GetChild(0).gameObject;
-                GameObject ButtonTwo = ButtonParent.transform.GetChild(1).gameObject;
+                ButtonParent = SpawnedCanvas.transform.GetChild(0).gameObject;
 
+                //Set Buttons Reference
+                List<GameObject> Buttons = new List<GameObject>();
+                Buttons.Add(ButtonParent.transform.GetChild(0).gameObject);
+                Buttons.Add(ButtonParent.transform.GetChild(1).gameObject);
+                Buttons.Add(ButtonParent.transform.GetChild(2).gameObject);
 
                 int i = 0;
                 //Set's upgrade buttons for buildings that have upgrades
                 //Have several buttons not active and per upgrade available set active appropriately
-                foreach(GameObject Button in ButtonScript.BuildingUpgrades)
+                foreach(GameObject Button in Buttons)
                 {
-                    //Set each button to on
-                    Button.SetActive() = true;
-                    //SetButton Building
-                    Button.GetComponent<SetButton>().Building = ButtonScript.BuildingUpgrades[i];
-                    //Destroy SelectedBuilding
-                    Button.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;;
-                    
-                    i++;
+                    if(i < ButtonScript.BuildingUpgrades.Count)
+                    {
+                        //Set each button to on
+                        Button.SetActive(true);
+
+                        //SetButton Building
+                        Button.GetComponent<SetButton>().Building = ButtonScript.BuildingUpgrades[i];
+                        //Destroy SelectedBuilding
+                        Button.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding; ;
+
+                        i++;
+                    }
                 }
 
 
@@ -79,9 +88,9 @@ public class BuildingButton : MonoBehaviour
             
 
                 //Sets the destroy Button on upgrade screen
-                ButtonParent.transform.GetChild(2).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
-                //Sets hide buttons button
                 ButtonParent.transform.GetChild(3).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
+                //Sets hide buttons button
+                ButtonParent.transform.GetChild(4).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
                 
                 ListScript.UpgradeButtonActive = true;
                 
@@ -90,7 +99,6 @@ public class BuildingButton : MonoBehaviour
         else if (ListScript.InTetherMode)   //If new building is selected while in tether mode:
         {
             SetTetherModeFalse();
-            
         }
     }
     
