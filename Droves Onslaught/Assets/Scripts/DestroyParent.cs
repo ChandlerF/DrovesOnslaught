@@ -36,6 +36,8 @@ public class DestroyParent : MonoBehaviour
         {
             //Disable building visual
             SelectedBuilding.GetComponent<ButtonInfo>().RangeVisual.GetComponent<SpriteRenderer>().enabled = false;
+            
+            //Destroy instead of diasable and remove from list?
         }
 
         Destroy(transform.parent.parent.gameObject);
