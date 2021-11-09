@@ -28,12 +28,12 @@ public class BuildingButton : MonoBehaviour
             ListScript.SelectedBuilding = SelectedBuilding;
             
             
-        if (!ListScript.UpgradeButtonActive)
+        if (!ListScript.UpgradeButtonActive && !ListScript.InPlacingBuildingMode)
         {
-            //DisableOther Buttons
+            //Disable Base Buttons (the shop to place the original 3 buildings)
             ListScript.ChangeButtonsActive();
 
-            //GetBuilding
+            //Get Building
             ButtonInfo ButtonScript = SelectedBuilding.GetComponent<ButtonInfo>();
 
             //Enable building visual
@@ -46,30 +46,23 @@ public class BuildingButton : MonoBehaviour
             {
                 ButtonParent = SpawnedCanvas.transform.GetChild(0).gameObject;
 
-                //Set Buttons Reference
-                List<GameObject> Buttons = new List<GameObject>();
-                Buttons.Add(ButtonParent.transform.GetChild(0).gameObject);
-                Buttons.Add(ButtonParent.transform.GetChild(1).gameObject);
-                Buttons.Add(ButtonParent.transform.GetChild(2).gameObject);
 
-                int i = 0;
                 //Set's upgrade buttons for buildings that have upgrades
                 //Have several buttons not active and per upgrade available set active appropriately
-                foreach(GameObject Button in Buttons)
-                {
-                    if(i < ButtonScript.BuildingUpgrades.Count)
+
+                    for(int i = 0; i < ButtonScript.BuildingUpgrades.Count; i++)
                     {
-                        //Set each button to on
+                        GameObject Button = ButtonParent.transform.GetChild(i).gameObject;
+                    
+                        //Turn button on
                         Button.SetActive(true);
 
-                        //SetButton Building
+                        //Set SetButton Building
                         Button.GetComponent<SetButton>().Building = ButtonScript.BuildingUpgrades[i];
-                        //Destroy SelectedBuilding
-                        Button.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding; ;
-
-                        i++;
+                        //Set DestroyParent's SelectedBuilding
+                        Button.gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding; ;
                     }
-                }
+                    
 
 
                 /*
@@ -110,6 +103,11 @@ public class BuildingButton : MonoBehaviour
         ListScript.InTetherMode = false;
         //Set Selected Building's Target to the New Taget from List Script (Array.cs)
         ListScript.SelectedBuilding.GetComponent<MoveTowards>().Target = SelectedBuilding; //Cant do gameObject, do SelectedBuilding (The new building)
+        
+        Debug.Log("Set new building's target to current");
+        Debug.Log("New Target:" + ListScript.SelectedBuilding.GetComponent<MoveTowards>().Target);
+        Debug.Log("Current: " + SelectedBuilding);
+        
         //Call Liner Renderer
         Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
     }
