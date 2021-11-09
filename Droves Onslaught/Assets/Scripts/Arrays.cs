@@ -20,6 +20,8 @@ public class Arrays : MonoBehaviour
     public GameObject SelectedBuilding;
 
     public bool InTetherMode = false;
+    
+    public bool InPlacingBuildingMode = false;
 
     private void Start()
     {
