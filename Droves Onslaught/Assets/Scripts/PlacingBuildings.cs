@@ -40,6 +40,7 @@ public class PlacingBuildings : MonoBehaviour
 
         SpawnedCheker.GetComponent<SpriteRenderer>().sprite = Building.GetComponent<SetButton>().Building.GetComponent<SpriteRenderer>().sprite;
 
+        ListScript.InPlacingBuildingMode = true;
         ListScript.ChangeButtonsActive();
     }
 
