@@ -38,6 +38,8 @@ public class BuildingChecker : MonoBehaviour
                 if (!TouchingOre)
                 {
                     SpawnBuilding();
+                    
+                    ListScript.InPlacingBuildingMode = false;
                     Destroy(gameObject);
                 }
             }
@@ -50,6 +52,7 @@ public class BuildingChecker : MonoBehaviour
             Arrays ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
             ListScript.ChangeButtonsActive();
 
+            ListScript.InPlacingBuildingMode = false;
             Destroy(gameObject);
         }
     }
@@ -123,7 +126,8 @@ public class BuildingChecker : MonoBehaviour
         if (DestroyOres)        //Called when Building is placed, destroys ore's then the building checker
         {
             Destroy(col.gameObject);
-
+            
+            ListScript.InPlacingBuildingMode = false;
             Destroy(gameObject);
         }
     }
