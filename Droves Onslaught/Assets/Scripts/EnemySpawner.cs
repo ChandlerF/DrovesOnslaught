@@ -13,6 +13,9 @@ public class EnemySpawner : MonoBehaviour
     private int Difficulty = 1;
 
     private Arrays ListScript;
+    
+    [SerializeField] Vector2 XSpawn = new Vector2(10, 20);
+    [SerializeField] Vector2 YSpawn = new Vector2(-15, 15);
 
     void Start()
     {
@@ -37,12 +40,12 @@ public class EnemySpawner : MonoBehaviour
     private void Spawn()
     {
 
-        int AmountOfEnemies = Random.Range(1 + Difficulty, 4 + Difficulty);
+        int AmountOfEnemies = Random.Range(1 + Difficulty, 3 + Difficulty);
 
         for(int i = 0; i < AmountOfEnemies; i++)
         {
-            float x = Random.Range(10, 20);
-            float y = Random.Range(-15, 15);
+            float x = Random.Range(XSpawn.x, XSpawn.y);
+            float y = Random.Range(YSpawn.x, YSpawn.y);
 
             Vector2 Pos = new Vector2(x, y);
 
