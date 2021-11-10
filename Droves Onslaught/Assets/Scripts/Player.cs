@@ -56,16 +56,18 @@ public class Player : MonoBehaviour
     
     public void Pause()
     {
-        //Spawn a dim canvas for this, pause menu, and InTetherMode
-        SpawnedDimCanvas = Instantiate(GetComponent<PlacingBuildings>().DimCanvas, transform.position, transform.rotation);
-        GetComponent<Arrays>().IsPaused = true;
-        Time.timeScale = 0;
-    }
-    
-    public void UnPause()
-    {
-        Destroy(SpawnedDimCanvas);
-        GetComponent<Arrays>().IsPaused = false;
-        Time.timeScale = 1;
+        if(!GetComponent<Arrays>().IsPaused)
+        {
+            //Spawn a dim canvas for this, pause menu, and InTetherMode
+            SpawnedDimCanvas = Instantiate(GetComponent<PlacingBuildings>().DimCanvas, transform.position, transform.rotation);
+            Time.timeScale = 0;
+            GetComponent<Arrays>().IsPaused = true;
+        }
+        else
+        {
+            Destroy(SpawnedDimCanvas);
+            Time.timeScale = 1;
+            GetComponent<Arrays>().IsPaused = false;
+        }
     }
 }
