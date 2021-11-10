@@ -123,4 +123,18 @@ public class DestroyParent : MonoBehaviour
         //Set ListScript Selected Building to the building that's getting re-tethered, globally
         ListScript.SelectedBuilding = SelectedBuilding;
     }
+    
+    
+    //Add pause button (toggle)
+    public void Pause(bool x)
+    {
+        if(x)
+        {
+            Manager.GetComponent<Player>().Pause();
+        }
+        else
+        {
+            Manager.GetComponent<Player>().UnPause();
+        }
+    }
 }
