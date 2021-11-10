@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] TextMeshProUGUI UGUI;
 
     private CameraShake CamShake;
+    
+    private GameObject SpawnedDimCanvas;
 
     private void Start()
     {
@@ -55,8 +57,15 @@ public class Player : MonoBehaviour
     public void Pause()
     {
         //Spawn a dim canvas for this, pause menu, and InTetherMode
-        Instantiate(GetComponent<PlacingBuildings>().DimCanvas, transform.position, transform.rotation);
+        SpawnedDimCanvas = Instantiate(GetComponent<PlacingBuildings>().DimCanvas, transform.position, transform.rotation);
         GetComponent<Arrays>().IsPaused = true;
         Time.timeScale = 0;
+    }
+    
+    public void UnPause()
+    {
+        Destroy(SpawnedDimCanvas);
+        GetComponent<Arrays>().IsPaused = false;
+        Time.timeScale = 1;
     }
 }
