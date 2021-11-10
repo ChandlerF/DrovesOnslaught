@@ -16,6 +16,10 @@ public class Product : MonoBehaviour
     //When placing a building, show all visuals for where to place it
     //Do this by setting value in building checker, have it go through dict and grab visuals from each object
     
+    //Want to be able to drag from button to screen, not just clikc and click, want to drag (for mobile)
+    
+    //Dedicate portion of the screen to UI (mobile)
+    
 
     private void OnTriggerEnter2D(Collider2D col)
     {
