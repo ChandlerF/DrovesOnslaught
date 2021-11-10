@@ -9,11 +9,9 @@ public class Product : MonoBehaviour
     public GameObject Target;
 
 
-    //Tether mode is set true but never false
-    //Feedback to know you're in Tether Mode (Selected Building's line renderer target is mouse or, because mobile, dim screen with overlay)
-    //Add World Canvas to other buildings, like transport
-    //Bug where if you're placing a building, and click another building instead of placing it, bad
-    //Can i cancel if I'm placing a building?
+
+    //Feedback to know you're in Tether Mode (dim screen with overlay), for now the button has a color changed
+    //Can i cancel if I'm placing a building?   Right Click, needs to be a button
     
     //When placing a building, show all visuals for where to place it
     //Do this by setting value in building checker, have it go through dict and grab visuals from each object
