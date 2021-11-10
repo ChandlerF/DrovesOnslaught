@@ -16,6 +16,8 @@ public class EnemySpawner : MonoBehaviour
     
     [SerializeField] Vector2 XSpawn = new Vector2(10, 20);
     [SerializeField] Vector2 YSpawn = new Vector2(-15, 15);
+    
+    [SerializeField] int RoundNumber = 0;
 
     void Start()
     {
@@ -53,7 +55,13 @@ public class EnemySpawner : MonoBehaviour
 
             SpawnedEnemy.GetComponent<FindBuildings>().ListScript = ListScript;
         }
-
-        Difficulty += 1;
+        
+        RoundNumber++;
+        
+        //Every other round increase difficulty
+        if(RoundNumber % 2 == 0)
+        {
+            Difficulty += 1;
+        }
     }
 }
