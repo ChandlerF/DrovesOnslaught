@@ -22,6 +22,9 @@ public class Arrays : MonoBehaviour
     public bool InTetherMode = false;
     
     public bool InPlacingBuildingMode = false;
+    
+    //For when pausing, or game over
+    public bool IsPaused = false;
 
     private void Start()
     {
