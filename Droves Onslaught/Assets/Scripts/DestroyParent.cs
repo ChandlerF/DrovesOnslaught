@@ -125,16 +125,9 @@ public class DestroyParent : MonoBehaviour
     }
     
     
-    //Add pause button (toggle)
-    public void Pause(bool x)
+    //Add pause button
+    public void Pause()
     {
-        if(x)
-        {
             Manager.GetComponent<Player>().Pause();
-        }
-        else
-        {
-            Manager.GetComponent<Player>().UnPause();
-        }
     }
 }
