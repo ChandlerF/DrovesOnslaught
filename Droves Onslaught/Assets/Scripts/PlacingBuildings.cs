@@ -12,6 +12,9 @@ public class PlacingBuildings : MonoBehaviour
 
     [SerializeField] GameObject Tower;
 
+    //Global so when tether is manually set, the upgrade menu can be destroyed
+    public GameObject ActiveUpgradeCanvas;
+
     private void Start()
     {
         ListScript = GetComponent<Arrays>();
@@ -60,15 +63,15 @@ public class PlacingBuildings : MonoBehaviour
 
         foreach (GameObject go in gos)
         {
-            if(go.GetComponent<Producer>().TargetBuilding != null)
+            if(go.GetComponent<MoveTowards>().Target != null)
             {
-                GameObject ClosestEnemy = go.GetComponent<FindEnemies>().FindClosestEnemy();
+                GameObject ClosestEnemy = go.GetComponent<MoveTowards>().Target;
 
                 go.GetComponent<Producer>().SetLRPos(ClosestEnemy);
 
                 go.GetComponent<Producer>().TargetBuilding = ClosestEnemy;
 
-                go.GetComponent<MoveTowards>().Target = ClosestEnemy;
+               // go.GetComponent<MoveTowards>().Target = ClosestEnemy;     //Was commented out when manual tethering was added
             }
         }
     }

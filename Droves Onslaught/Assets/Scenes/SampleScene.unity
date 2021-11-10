@@ -1950,6 +1950,7 @@ MonoBehaviour:
   BuildingChecker: {fileID: 3613983595172895242, guid: b0ae99f933f73ad4db2011d8fab44a2d, type: 3}
   Visual: {fileID: 1866382075270357265, guid: 5b942daf555ae6e40aa8e536c509260b, type: 3}
   Tower: {fileID: 5626008921865999339, guid: 04b47793900bea54199bb92528df9902, type: 3}
+  ActiveUpgradeCanvas: {fileID: 0}
 --- !u!4 &374592536
 Transform:
   m_ObjectHideFlags: 0
@@ -1976,8 +1977,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0006f83f016fa47bd44b18f56d784d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scrap: 2500
-  Crystal: 0
+  Scrap: 250
+  Points: 0
   UGUI: {fileID: 1151813924}
 --- !u!114 &374592538
 MonoBehaviour:
@@ -1991,8 +1992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5407cd22cd01044b847c4a8840ed037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingsList:
-  - {fileID: 0}
+  BuildingsList: []
   VisualsList: []
   BaseButtonsParent: {fileID: 827622665}
   DictNames:
@@ -2005,6 +2005,9 @@ MonoBehaviour:
   - Gattler
   - Enemy
   UpgradeButtonActive: 0
+  SelectedBuilding: {fileID: 0}
+  InTetherMode: 0
+  InPlacingBuildingMode: 0
 --- !u!1 &392981669
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,7 +3637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c367f0ae0dc730c4db238f5600481787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTimer: 10
+  StartTimer: 12
   Enemy: {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
 --- !u!4 &777303988
 Transform:

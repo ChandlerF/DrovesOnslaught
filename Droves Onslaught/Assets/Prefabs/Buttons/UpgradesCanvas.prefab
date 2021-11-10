@@ -822,6 +822,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4873546240861175328, guid: 496c81681bfc1d945a753bf5864d402f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4873546240861175329, guid: 496c81681bfc1d945a753bf5864d402f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -959,6 +963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4873546240861175328, guid: 496c81681bfc1d945a753bf5864d402f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4873546240861175329, guid: 496c81681bfc1d945a753bf5864d402f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1095,6 +1103,10 @@ PrefabInstance:
     - target: {fileID: 4873546240861175328, guid: 496c81681bfc1d945a753bf5864d402f, type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873546240861175328, guid: 496c81681bfc1d945a753bf5864d402f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4873546240861175329, guid: 496c81681bfc1d945a753bf5864d402f, type: 3}
       propertyPath: m_Pivot.x

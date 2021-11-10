@@ -21,35 +21,22 @@ public class Product : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(Name == "Ammo")
-        {
             if (col.gameObject == Target)
             {
-                col.GetComponent<WeaponShooting>().Ammo += 1;
-                Destroy(gameObject);
-            }
-
-            else if (col.gameObject == Target)
-            {
-                col.GetComponent<Producer>().ProductInStock += 1;
-                Destroy(gameObject);
-            }
-        }
-        else if(Name == "Ore")
-        {
-            if (col.gameObject == Target)
-            {
-                col.GetComponent<Producer>().ProductInStock += 1;
-                Destroy(gameObject);
-            }
-        }
-        else if(Name == "Points")
-        {
-            if (col.gameObject == Target)
-            {
+                if (col.GetComponent<WeaponShooting>())
+                {
+                    col.GetComponent<WeaponShooting>().Ammo += 1;
+                }
+                else if(col.GetComponent<Producer>())
+                {
+                    col.GetComponent<Producer>().ProductInStock += 1;
+                }
+                else if(col.GetComponent<Tower>())
+                {
                 col.GetComponent<Tower>().Score += 1;
+                }
+
                 Destroy(gameObject);
             }
-        }
     }
 }

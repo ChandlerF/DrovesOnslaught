@@ -5,27 +5,28 @@ using UnityEngine;
 public class FindEnemies : MonoBehaviour
 {
 
-    private MoveTowards RotateScript;
+    private MoveTowards MoveScript;
 
-    [SerializeField] List<string> TargetName = new List<string>();
+    public List<string> TargetName = new List<string>();
 
-    [SerializeField] List<GameObject> TargetList = new List<GameObject>();
+    public List<GameObject> TargetList = new List<GameObject>();
 
     private GameObject Manager;
 
     public float MaxRange = 100f;
 
+
     private void Start()
     {
-        RotateScript = GetComponent<MoveTowards>();
+        MoveScript = GetComponent<MoveTowards>();
         Manager = GameObject.FindGameObjectWithTag("Manager");
     }
 
     void Update()
     {
-        if (RotateScript.Target == null && TargetsAlive())
+        if (MoveScript.Target == null && TargetsAlive())
         {
-            RotateScript.Target = FindClosestEnemy();
+            MoveScript.Target = FindClosestEnemy();
         }
     }
 
@@ -43,7 +44,7 @@ public class FindEnemies : MonoBehaviour
                 if (!TargetList.Contains(go))
                 {
                     //Add to list
-                    TargetList.Add(go);
+                    TargetList.Add(go); //When building is destroyed it's not removed, it should be
                 }
             }
         }
@@ -100,9 +101,4 @@ public class FindEnemies : MonoBehaviour
 
         return false;
     }
-
-
-
-
-
 }

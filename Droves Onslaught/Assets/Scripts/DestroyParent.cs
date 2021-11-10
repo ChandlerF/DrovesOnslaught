@@ -40,6 +40,9 @@ public class DestroyParent : MonoBehaviour
             //Destroy instead of diasable and remove from list?
         }
 
+        //Set tether mode false
+        ListScript.InTetherMode = false;
+
         Destroy(transform.parent.parent.gameObject);
     }
 
@@ -116,5 +119,8 @@ public class DestroyParent : MonoBehaviour
     public void EnterTetherMode(bool x)   //Called by button
     {
         ListScript.InTetherMode = x;
+
+        //Set ListScript Selected Building to the building that's getting re-tethered, globally
+        ListScript.SelectedBuilding = SelectedBuilding;
     }
 }

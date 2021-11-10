@@ -12,6 +12,8 @@ public class BuildingChecker : MonoBehaviour
 
     private bool DestroyOres = false;
 
+    private Arrays ListScript;
+
     private void Update()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -64,7 +66,7 @@ public class BuildingChecker : MonoBehaviour
     private void SpawnBuilding()
     {
         GameObject Manager = GameObject.FindGameObjectWithTag("Manager");
-        Arrays ListScript = Manager.GetComponent<Arrays>();
+        ListScript = Manager.GetComponent<Arrays>();
         PlacingBuildings PlaceBuilding = Manager.GetComponent<PlacingBuildings>();
 
         Vector3 SpawnPos = new Vector3(transform.position.x, transform.position.y, 0);

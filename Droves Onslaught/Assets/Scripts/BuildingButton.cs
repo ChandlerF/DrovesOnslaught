@@ -24,10 +24,6 @@ public class BuildingButton : MonoBehaviour
 
     public void SpawnButtons()  //Clicked on building
     {
-            //Set ListScript Selected, to reference globally
-            ListScript.SelectedBuilding = SelectedBuilding;
-            
-            
         if (!ListScript.UpgradeButtonActive && !ListScript.InPlacingBuildingMode)
         {
             //Disable Base Buttons (the shop to place the original 3 buildings)
@@ -39,12 +35,17 @@ public class BuildingButton : MonoBehaviour
             //Enable building visual
             SelectedBuilding.GetComponent<ButtonInfo>().RangeVisual.GetComponent<SpriteRenderer>().enabled = true;
 
-             //Spawn Canvas (with buttons)
-             GameObject SpawnedCanvas = Instantiate(Buttons, transform.position, transform.rotation);
-                
+            //Spawn Canvas (with buttons)
+            GameObject SpawnedCanvas = Instantiate(Buttons, transform.position, transform.rotation);
+            //Sets Manager's active canvas
+            Manager.GetComponent<PlacingBuildings>().ActiveUpgradeCanvas = SpawnedCanvas;
+
+
+            ButtonParent = SpawnedCanvas.transform.GetChild(0).gameObject;
+
+
             if (ButtonScript.BuildingUpgrades.Count > 0)
             {
-                ButtonParent = SpawnedCanvas.transform.GetChild(0).gameObject;
 
 
                 //Set's upgrade buttons for buildings that have upgrades
@@ -62,34 +63,25 @@ public class BuildingButton : MonoBehaviour
                         //Set DestroyParent's SelectedBuilding
                         Button.gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding; ;
                     }
-                    
-
-
-                /*
-                //Change button's building reference
-                ButtonOne.GetComponent<SetButton>().Building = ButtonScript.BuildingUpgrades[0];
-
-                ButtonTwo.GetComponent<SetButton>().Building = ButtonScript.BuildingUpgrades[1];
-
-                //Change button's SelectedBuilding reference
-                ButtonOne.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
-                ButtonTwo.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
-                */
             }
             
             
             
 
-                //Sets the destroy Button on upgrade screen
-                ButtonParent.transform.GetChild(3).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
-                //Sets hide buttons button
-                ButtonParent.transform.GetChild(4).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
-                
-                ListScript.UpgradeButtonActive = true;
-                
-                
+            //Sets the destroy Button on upgrade screen
+            ButtonParent.transform.GetChild(3).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
+            //Sets hide buttons button
+            ButtonParent.transform.GetChild(4).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
+            //Sets Tether buttons button
+            ButtonParent.transform.GetChild(5).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
+
+
+
+            ListScript.UpgradeButtonActive = true;
         }
-        else if (ListScript.InTetherMode)   //If new building is selected while in tether mode:
+
+
+        else if (ListScript.InTetherMode && ListScript.SelectedBuilding.GetComponent<FindEnemies>().TargetName.Contains(SelectedBuilding.name.Remove(SelectedBuilding.name.Length - 7)))   //called from new building when clicked
         {
             SetTetherModeFalse();
         }
@@ -99,16 +91,18 @@ public class BuildingButton : MonoBehaviour
     
     public void SetTetherModeFalse()
     {
-        //Set tether mode false
-        ListScript.InTetherMode = false;
-        //Set Selected Building's Target to the New Taget from List Script (Array.cs)
+        //Set 'old' building to new (this gameobject) from ListScript (Array.cs)
         ListScript.SelectedBuilding.GetComponent<MoveTowards>().Target = SelectedBuilding; //Cant do gameObject, do SelectedBuilding (The new building)
-        
-        Debug.Log("Set new building's target to current");
-        Debug.Log("New Target:" + ListScript.SelectedBuilding.GetComponent<MoveTowards>().Target);
-        Debug.Log("Current: " + SelectedBuilding);
+
         
         //Call Liner Renderer
         Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
+
+        //Destroys Upgrade Canvas after tethering - Calls Destroy Parent
+        Manager.GetComponent<PlacingBuildings>().ActiveUpgradeCanvas.transform.GetChild(0).transform.GetChild(4).gameObject.GetComponent<DestroyParent>().DestroyTheParent();
+
+
+        //Set tether mode false
+        ListScript.InTetherMode = false;
     }
 }

@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     public int Scrap = 0;
 
-    public int Crystal = 0;
+    public int Points = 0;
 
     [SerializeField] TextMeshProUGUI UGUI;
 

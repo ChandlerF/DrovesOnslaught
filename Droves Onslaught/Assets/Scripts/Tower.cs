@@ -15,6 +15,11 @@ public class Tower : MonoBehaviour
         Manager.GetComponent<Arrays>().BuildingDict["Tower"].Add(gameObject);
     }
 
+    private void Update()
+    {
+        Manager.GetComponent<Player>().Points = Score;
+    }
+
 
     /*private void Update()
     {

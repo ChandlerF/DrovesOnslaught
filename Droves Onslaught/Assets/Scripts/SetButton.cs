@@ -31,7 +31,7 @@ public class SetButton : MonoBehaviour
 
     private void Update()
     {
-        int Scrap = PlayerScript.Scrap; //is null??
+        int Scrap = PlayerScript.Scrap;
         if(Scrap >= Info.Cost)
         {
             GetComponent<Button>().interactable = true;

@@ -5,17 +5,17 @@ using TMPro;
 
 public class DisplayPoints : MonoBehaviour
 {
-    private Tower TowerScript;
+    private Player MoneyScript;
     private TextMeshProUGUI UGUI;
     void Start()
     {
-        TowerScript = GameObject.FindGameObjectWithTag("Tower").GetComponent<Tower>();
+        MoneyScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Player>();
         UGUI = GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UGUI.text = TowerScript.Score.ToString();
+        UGUI.text = MoneyScript.Points.ToString();
     }
 }

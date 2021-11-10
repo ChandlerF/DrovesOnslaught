@@ -250,11 +250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6303879479382175848, guid: a77117925281cb043825702ce0f7c9d0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 278.9292
+      value: 107.4497
       objectReference: {fileID: 0}
     - target: {fileID: 6303879479382175848, guid: a77117925281cb043825702ce0f7c9d0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 273.244
+      value: 105.2596
       objectReference: {fileID: 0}
     - target: {fileID: 6303879479382175848, guid: a77117925281cb043825702ce0f7c9d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -315,7 +315,7 @@ PrefabInstance:
     - target: {fileID: 6303879479686776184, guid: a77117925281cb043825702ce0f7c9d0, type: 3}
       propertyPath: SelectedBuilding
       value: 
-      objectReference: {fileID: 930292488747133327}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a77117925281cb043825702ce0f7c9d0, type: 3}
 --- !u!224 &7782854931931965720 stripped
