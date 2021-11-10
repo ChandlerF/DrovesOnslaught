@@ -50,4 +50,11 @@ public class Player : MonoBehaviour
     {
         CamShake.Trauma += x;
     }
+    
+    
+    public void GameOver()
+    {
+        //Spawn a dim canvas for this, pause menu, and InTetherMode
+        Time.timeScale = 0.1;
+    }
 }
