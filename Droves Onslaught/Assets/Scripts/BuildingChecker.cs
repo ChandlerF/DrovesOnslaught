@@ -107,6 +107,8 @@ public class BuildingChecker : MonoBehaviour
         //Take from player scrap
         Manager.GetComponent<Player>().Scrap -= BuildingInfo.Cost;
 
+        //Manager.GetComponent<Player>().CameraShake(0.1f);
+
         //Turn buttons on / off
         ListScript.ChangeButtonsActive();
     }

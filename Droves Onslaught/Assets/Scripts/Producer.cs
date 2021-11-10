@@ -8,6 +8,7 @@ public class Producer : MonoBehaviour
     public GameObject TargetBuilding = null;
     private int lengthOfLineRenderer = 2;
 
+    [SerializeField] bool IsMarket = false;
 
     [SerializeField] float StartTimer;
     private float Timer;
@@ -37,49 +38,58 @@ public class Producer : MonoBehaviour
 
     void Update()
     {
-        if((Timer - 0.45f) > 0) //0.45 is how long the pulse animation is
+
+        TargetBuilding = GetComponent<MoveTowards>().Target;
+
+        if (IsMarket && TargetBuilding == null)
         {
-            Timer -= Time.deltaTime;
+            //Make scrap based off timer
         }
         else
         {
-                //If timer is done:
-        }
-        {
-            if(TargetBuilding != null)
+            if ((Timer - 0.45f) > 0) //0.45 is how long the pulse animation is
             {
-                if (!gameObject.CompareTag("Producer"))     //Factory code:     
+                Timer -= Time.deltaTime;
+            }
+            else
+            {
+                //If timer is done:
+            }
+            {
+                if (TargetBuilding != null)
                 {
-                    if (ProductInStock >= ProductConsumed)
+                    if (!gameObject.CompareTag("Producer"))     //Factory code:     
+                    {
+                        if (ProductInStock >= ProductConsumed)
+                        {
+                            Anim.Play("Pulse");
+                            Timer = StartTimer;
+                        }
+                    }
+                    else   //Producer code:
                     {
                         Anim.Play("Pulse");
                         Timer = StartTimer;
                     }
                 }
-                else   //Producer code:
+            }
+
+
+
+            if (TargetBuilding != null)
+            {
+                if (!HasDrawnLine)
                 {
-                    Anim.Play("Pulse");
-                    Timer = StartTimer;
+                    MakeLineRenderer(TargetBuilding);
+                    HasDrawnLine = true;
                 }
             }
-        }
-
-
-        TargetBuilding = GetComponent<MoveTowards>().Target;
-
-        if (TargetBuilding != null)
-        {
-            if (!HasDrawnLine)
+            else
             {
-                MakeLineRenderer(TargetBuilding);
-                HasDrawnLine = true;
+                //Remove line renderer component
+                Destroy(GetComponent<LineRenderer>());
+                HasDrawnLine = false;
             }
-        }
-        else
-        {
-            //Remove line renderer component
-            Destroy(GetComponent<LineRenderer>());
-            HasDrawnLine = false;
         }
     }
 
