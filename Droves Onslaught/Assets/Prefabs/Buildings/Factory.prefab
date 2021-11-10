@@ -150,7 +150,6 @@ MonoBehaviour:
   Name: Factory
   BuildingUpgrades:
   - {fileID: 1720282595321408432, guid: 47177c5f78bcf354b9b17e7612874bd0, type: 3}
-  - {fileID: 1720282595321408432, guid: 47177c5f78bcf354b9b17e7612874bd0, type: 3}
   RangeVisual: {fileID: 0}
 --- !u!114 &6537716085279026198
 MonoBehaviour:
