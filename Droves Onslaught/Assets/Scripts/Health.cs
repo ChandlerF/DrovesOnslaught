@@ -50,7 +50,7 @@ public class Health : MonoBehaviour
 
         if (transform.CompareTag("Tower"))
         {
-            Manager.GetComponent<Player>().GameOver();
+            Manager.GetComponent<Player>().Pause();
             //Time.timeScale = 0;
         }
 
