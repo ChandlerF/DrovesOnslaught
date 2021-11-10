@@ -10,6 +10,14 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject Particles;
 
     [SerializeField] int Scrap;
+    
+    private GameObject Manager;
+
+    private void Start()
+    {
+        Manager = GameObject.FindGameObjectWithTag("Manager");
+    }
+
 
 
     void Update()
@@ -42,7 +50,8 @@ public class Health : MonoBehaviour
 
         if (transform.CompareTag("Tower"))
         {
-            Time.timeScale = 0;
+            Manager.GetComponent<Player>().GameOver();
+            //Time.timeScale = 0;
         }
 
         if (GetComponent<ButtonInfo>())
