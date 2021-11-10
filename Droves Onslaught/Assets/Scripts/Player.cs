@@ -55,6 +55,8 @@ public class Player : MonoBehaviour
     public void GameOver()
     {
         //Spawn a dim canvas for this, pause menu, and InTetherMode
+        Instantiate(GetComponent<PlacingBuildings>().DimCanvas, transform.position, transform.rotation);
+        GetComponent<Arrays>().IsPaused = true;
         Time.timeScale = 0.1;
     }
 }
