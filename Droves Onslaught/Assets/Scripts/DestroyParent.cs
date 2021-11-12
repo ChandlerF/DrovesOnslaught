@@ -95,9 +95,14 @@ public class DestroyParent : MonoBehaviour
 
         //Find size to scale visual up to
         float Scale = Mathf.Sqrt(SpawnedBuilding.GetComponent<FindEnemies>().MaxRange) * 2;
+
+
+        //Set visual reference on the new building
+        SpawnedBuilding.GetComponent<ButtonInfo>().RangeVisual = SelectedBuilding.GetComponent<ButtonInfo>().RangeVisual;
         //Set visual scale
-        SelectedBuilding.GetComponent<ButtonInfo>().RangeVisual.transform.localScale = new Vector3(Scale, Scale, Scale);
-       
+        SpawnedBuilding.GetComponent<ButtonInfo>().RangeVisual.transform.localScale = new Vector3(Scale, Scale, Scale);
+
+
 
 
 

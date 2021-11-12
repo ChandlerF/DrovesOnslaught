@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            .Pause();
+            Pause();
         }
 
         UGUI.text = Scrap.ToString();

@@ -1950,6 +1950,7 @@ MonoBehaviour:
   BuildingChecker: {fileID: 3613983595172895242, guid: b0ae99f933f73ad4db2011d8fab44a2d, type: 3}
   Visual: {fileID: 1866382075270357265, guid: 5b942daf555ae6e40aa8e536c509260b, type: 3}
   Tower: {fileID: 5626008921865999339, guid: 04b47793900bea54199bb92528df9902, type: 3}
+  DimCanvas: {fileID: 5501281988721443284, guid: f524b31333b596f4fa70b507c69d11b9, type: 3}
   ActiveUpgradeCanvas: {fileID: 0}
 --- !u!4 &374592536
 Transform:
@@ -1977,7 +1978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0006f83f016fa47bd44b18f56d784d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scrap: 250
+  Scrap: 2500
   Points: 0
   UGUI: {fileID: 1151813924}
 --- !u!114 &374592538
@@ -2008,6 +2009,7 @@ MonoBehaviour:
   SelectedBuilding: {fileID: 0}
   InTetherMode: 0
   InPlacingBuildingMode: 0
+  IsPaused: 0
 --- !u!1 &392981669
 GameObject:
   m_ObjectHideFlags: 0
@@ -3639,6 +3641,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartTimer: 12
   Enemy: {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
+  XSpawn: {x: 10, y: 20}
+  YSpawn: {x: -15, y: 15}
+  RoundNumber: 0
 --- !u!4 &777303988
 Transform:
   m_ObjectHideFlags: 0
