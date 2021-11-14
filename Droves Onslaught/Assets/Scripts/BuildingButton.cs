@@ -24,6 +24,8 @@ public class BuildingButton : MonoBehaviour
 
     public void SpawnButtons()  //Clicked on building
     {
+        //If another building is not selected and you're not trying to place down a building
+        //tl;dr spawn buttons canvas if nothing else selected
         if (!ListScript.UpgradeButtonActive && !ListScript.InPlacingBuildingMode)
         {
             //Disable Base Buttons (the shop to place the original 3 buildings)
@@ -80,18 +82,37 @@ public class BuildingButton : MonoBehaviour
             ListScript.UpgradeButtonActive = true;
         }
 
-
+        //if in tether mode and the new building is in old buildings target list
         else if (ListScript.InTetherMode && ListScript.SelectedBuilding.GetComponent<FindEnemies>().TargetName.Contains(SelectedBuilding.name.Remove(SelectedBuilding.name.Length - 7)))   //called from new building when clicked
         {
             SetTetherModeFalse();
+        }
+
+        //If in tether mode and clicks on self, target = null
+        else if(ListScript.InTetherMode && ListScript.SelectedBuilding == SelectedBuilding)
+        {
+            //Set 'old' building target to null
+            ListScript.SelectedBuilding.GetComponent<MoveTowards>().Target = null; //Cant do gameObject, do SelectedBuilding (The new building)
+            Debug.Log(ListScript.SelectedBuilding.GetComponent<MoveTowards>().Target);
+
+            //Call Liner Renderer
+            Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
+
+            //Destroys Upgrade Canvas after tethering - Calls Destroy Parent
+            Manager.GetComponent<PlacingBuildings>().ActiveUpgradeCanvas.transform.GetChild(0).transform.GetChild(4).gameObject.GetComponent<DestroyParent>().DestroyTheParent();
+
+
+            //Set tether mode false
+            ListScript.InTetherMode = false;
         }
     }
     
     
     
+    //changes which building it's tethered to
     public void SetTetherModeFalse()
     {
-        //Set 'old' building to new (this gameobject) from ListScript (Array.cs)
+        //Set 'old' building target to new (this gameobject) from ListScript (Array.cs)
         ListScript.SelectedBuilding.GetComponent<MoveTowards>().Target = SelectedBuilding; //Cant do gameObject, do SelectedBuilding (The new building)
 
         

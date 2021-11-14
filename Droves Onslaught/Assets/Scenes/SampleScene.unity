@@ -2004,6 +2004,7 @@ MonoBehaviour:
   - Turret
   - Sniper
   - Gattler
+  - Market
   - Enemy
   UpgradeButtonActive: 0
   SelectedBuilding: {fileID: 0}

@@ -15,16 +15,32 @@ public class FindEnemies : MonoBehaviour
 
     public float MaxRange = 100f;
 
+    private bool IsMarket = false;
 
     private void Start()
     {
         MoveScript = GetComponent<MoveTowards>();
         Manager = GameObject.FindGameObjectWithTag("Manager");
+
+        //Have this code here to run once (for the market buildings)
+        //Having trouble setting their target to null because this script sets it to something else immediately
+        if (MoveScript.Target == null && TargetsAlive())
+        {
+            MoveScript.Target = FindClosestEnemy();
+        }
+
+        else if (GetComponent<Producer>())
+        {
+            if (GetComponent<Producer>().IsMarket)
+            {
+                IsMarket = true;
+            }
+        }
     }
 
     void Update()
     {
-        if (MoveScript.Target == null && TargetsAlive())
+        if (MoveScript.Target == null && TargetsAlive() && !IsMarket)
         {
             MoveScript.Target = FindClosestEnemy();
         }

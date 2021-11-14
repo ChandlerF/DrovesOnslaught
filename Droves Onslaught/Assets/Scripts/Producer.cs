@@ -8,7 +8,7 @@ public class Producer : MonoBehaviour
     public GameObject TargetBuilding = null;
     private int lengthOfLineRenderer = 2;
 
-    [SerializeField] bool IsMarket = false;
+    public bool IsMarket = false;
 
     [SerializeField] float StartTimer;
     private float Timer;
@@ -41,69 +41,77 @@ public class Producer : MonoBehaviour
 
         TargetBuilding = GetComponent<MoveTowards>().Target;
 
-        if (IsMarket && TargetBuilding == null)
+        if ((Timer - 0.45f) > 0) //0.45 is how long the pulse animation is
         {
-            //Make scrap based off timer
+            Timer -= Time.deltaTime;
         }
+
+        //When Timer Is Done:
         else
         {
-            if ((Timer - 0.45f) > 0) //0.45 is how long the pulse animation is
+            //has target || is market:
+            if (TargetBuilding != null || IsMarket)
             {
-                Timer -= Time.deltaTime;
-            }
-            else
-            {
-                //If timer is done:
-            }
-            {
-                if (TargetBuilding != null)
+                if (!gameObject.CompareTag("Producer"))     //Factory code:     
                 {
-                    if (!gameObject.CompareTag("Producer"))     //Factory code:     
-                    {
-                        if (ProductInStock >= ProductConsumed)
-                        {
-                            Anim.Play("Pulse");
-                            Timer = StartTimer;
-                        }
-                    }
-                    else   //Producer code:
+                    //If has product
+                    if (ProductInStock >= ProductConsumed)
                     {
                         Anim.Play("Pulse");
                         Timer = StartTimer;
                     }
                 }
-            }
-
-
-
-            if (TargetBuilding != null)
-            {
-                if (!HasDrawnLine)
+                else   //Miner code:
                 {
-                    MakeLineRenderer(TargetBuilding);
-                    HasDrawnLine = true;
+                    Anim.Play("Pulse");
+                    Timer = StartTimer;
                 }
             }
-            else
+        }
+
+
+
+
+
+        if (TargetBuilding != null)
+        {
+            if (!HasDrawnLine)
             {
-                //Remove line renderer component
-                Destroy(GetComponent<LineRenderer>());
-                HasDrawnLine = false;
+                MakeLineRenderer(TargetBuilding);
+                HasDrawnLine = true;
             }
+        }
+
+        else
+        {
+            //Remove line renderer component
+            Destroy(GetComponent<LineRenderer>());
+            HasDrawnLine = false;
         }
     }
 
 
     private void SpawnProduct()
     {
-        GameObject SpawnedOre = Instantiate(Product, transform.position, Product.transform.rotation);
-        SpawnedOre.GetComponent<MoveTowards>().Target = TargetBuilding;
-        SpawnedOre.GetComponent<Product>().Target = TargetBuilding;
-
-        if (!gameObject.CompareTag("Producer"))
+        //if market and not tethered
+        if (IsMarket && TargetBuilding == null)
         {
-            ProductInStock -= ProductConsumed;
+            //Spawn pop up
+            //Add to scrap
         }
+
+        else if(TargetBuilding != null)
+        {
+            GameObject SpawnedOre = Instantiate(Product, transform.position, Product.transform.rotation);
+            SpawnedOre.GetComponent<MoveTowards>().Target = TargetBuilding;
+            SpawnedOre.GetComponent<Product>().Target = TargetBuilding;
+
+            if (!gameObject.CompareTag("Producer"))
+            {
+                ProductInStock -= ProductConsumed;
+            }
+        }
+
 
 
         SetAnimTrigger();
@@ -133,16 +141,20 @@ public class Producer : MonoBehaviour
 
     public void SetLRPos(GameObject Target)
     {
-        LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
+        //if there's a line renderer
+        if (gameObject.GetComponent<LineRenderer>())
+        {
+            LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
 
 
-        Vector3 Direction = (Target.transform.position - transform.position).normalized;
+            Vector3 Direction = (Target.transform.position - transform.position).normalized;
 
-        //Higher the number, the bigger the gap
-        float Multiplier = 0; //0.4f;
+            //Higher the number, the bigger the gap
+            float Multiplier = 0; //0.4f;
 
-        lineRenderer.SetPosition(0, transform.position + Direction * Multiplier);
-        lineRenderer.SetPosition(1, Target.transform.position - Direction * Multiplier);
+            lineRenderer.SetPosition(0, transform.position + Direction * Multiplier);
+            lineRenderer.SetPosition(1, Target.transform.position - Direction * Multiplier);
+        }
     }
 
     private void SetAnimTrigger()   //Is called by event when animation is done
