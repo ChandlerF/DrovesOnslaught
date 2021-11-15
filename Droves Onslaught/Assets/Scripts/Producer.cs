@@ -12,6 +12,7 @@ public class Producer : MonoBehaviour
     //Markets:
     private Player PlayerScript;
     public bool IsMarket = false;
+    [SerializeField] int MarketScrap;
 
     [SerializeField] float StartTimer;
     private float Timer;
@@ -101,7 +102,7 @@ public class Producer : MonoBehaviour
         if (IsMarket && TargetBuilding == null)
         {
             //Add scrap
-            GetComponent<Health>().SpawnText();
+            GetComponent<Health>().SpawnText(MarketScrap);
         }
 
         else if(TargetBuilding != null)
