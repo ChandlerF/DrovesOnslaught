@@ -50,8 +50,6 @@ public class Tower : MonoBehaviour
         {
             Debug.Log("3");     //Called only when GameObject is destroyed
                 
-            //Pop up texts, big enemy, spawn with more money, timer on market is longer, need to slow gameplay (give less money)
-            //Move the popup function health and call it on several occasions, i say in that one script
 
             //Make market cost and make less    -   Weapons cost and make more
 
