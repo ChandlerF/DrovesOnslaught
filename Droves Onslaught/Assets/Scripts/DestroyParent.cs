@@ -46,14 +46,15 @@ public class DestroyParent : MonoBehaviour
         Destroy(transform.parent.parent.gameObject);
     }
 
+    //Scrap selected building
     public void DestroySelected()
     {
         ListScript.BuildingDict[SelectedBuilding.name.Remove(SelectedBuilding.name.Length - 7)].Remove(SelectedBuilding);
 
         ListScript.BuildingsList.Remove(SelectedBuilding);
 
-
-        Manager.GetComponent<Player>().Scrap += (int) (SelectedBuilding.GetComponent<ButtonInfo>().Cost);
+        //Pop up text when scrapped
+        SelectedBuilding.GetComponent<Health>).SpawnText(0.75f);
 
         Destroy(SelectedBuilding);
 
