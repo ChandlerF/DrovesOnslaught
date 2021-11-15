@@ -11,7 +11,6 @@ public class Producer : MonoBehaviour
 
     //Markets:
     private Player PlayerScript;
-    [SerializeField] int MarketScrap;   //Instead, pull the scrap from health, and have a function in health to spawn pop up with scrap, call it on death, when a building is scrapped, and when the market makes money
     public bool IsMarket = false;
 
     [SerializeField] float StartTimer;
