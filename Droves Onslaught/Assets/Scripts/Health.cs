@@ -44,10 +44,11 @@ public class Health : MonoBehaviour
     private void Death()
     {
         GameObject Manager = GameObject.FindGameObjectWithTag("Manager");
-        
+           
+        //If on death, it's scrap is more than 0, add it
         if(Scrap > 0)
         {
-            SpawnText();
+            SpawnText(Scrap);
         }
 
 
@@ -80,7 +81,12 @@ public class Health : MonoBehaviour
     }
     
     
-    public void SpawnText()
+    
+    //Consider moving this to manager
+    //Called On Death, when Scrapped, and Markets making money
+    //     health scrap  -  cost*0.75  -  producer scrap
+    //          enemies - destroy building - Market
+    public void SpawnText(int scrap)
     {
         //Spawn Pop Up Text
         GameObject SpawnedText = Instantiate(TextPopUp, transform.position, transform.rotation);
@@ -90,6 +96,6 @@ public class Health : MonoBehaviour
         SpawnedText.transform.SetParent(transform, true);
         
         //Add scrap to player
-        PlayerScript.Scrap += Scrap;
+        PlayerScript.Scrap += scrap
     }
 }
