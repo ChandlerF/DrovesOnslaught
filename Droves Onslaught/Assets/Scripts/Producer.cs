@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Producer : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class Producer : MonoBehaviour
     private bool HasDrawnLine = false;
 
     private Animator Anim;
+
+    [SerializeField] GameObject TextPopUp;
 
 
 
@@ -100,7 +103,10 @@ public class Producer : MonoBehaviour
         //if market and not tethered
         if (IsMarket && TargetBuilding == null)
         {
-            //Spawn pop up
+            GameObject SpawnedText = Instantiate(TextPopUp, transform.position, transform.rotation);
+            SpawnedText.GetComponent<TextMeshPro>().text = "+" + MarketScrap.ToString();
+            SpawnedText.transform.SetParent(transform, true);
+
             PlayerScript.Scrap += MarketScrap;
         }
 

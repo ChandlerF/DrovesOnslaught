@@ -103,12 +103,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetBuilding: {fileID: 0}
-  MarketScrap: 10
+  MarketScrap: 40
   IsMarket: 1
-  StartTimer: 1
+  StartTimer: 6
   Product: {fileID: 0}
   ProductInStock: 0
   ProductConsumed: 1
+  TextPopUp: {fileID: 2345172247935831203, guid: e682825cdffc63d42a96809c6d5e6cab, type: 3}
 --- !u!114 &4408647980876948415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2dec31ec7dda44ab384f84699a838d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cost: 100
+  Cost: 200
   Sprite: {fileID: 4447921339828506532, guid: 68e898d1e4369ea47ad56099c18e16ea, type: 3}
   Name: Market
   BuildingUpgrades: []

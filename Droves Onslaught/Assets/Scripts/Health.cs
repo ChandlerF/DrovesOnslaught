@@ -48,6 +48,11 @@ public class Health : MonoBehaviour
             gos.Remove(gameObject);
         }
 
+        if (gameObject.CompareTag("Tower"))
+        {
+            //GameOver
+            Manager.GetComponent<Player>().Pause();
+        }
 
         if (GetComponent<ButtonInfo>())
         {
