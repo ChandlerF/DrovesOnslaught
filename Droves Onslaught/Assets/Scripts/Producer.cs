@@ -26,8 +26,6 @@ public class Producer : MonoBehaviour
 
     private Animator Anim;
 
-    [SerializeField] GameObject TextPopUp;
-
 
 
     void Start()
@@ -103,11 +101,8 @@ public class Producer : MonoBehaviour
         //if market and not tethered
         if (IsMarket && TargetBuilding == null)
         {
-            GameObject SpawnedText = Instantiate(TextPopUp, transform.position, transform.rotation);
-            SpawnedText.GetComponent<TextMeshPro>().text = "+" + MarketScrap.ToString();
-            SpawnedText.transform.SetParent(transform, true);
-
-            PlayerScript.Scrap += MarketScrap;
+            //Add scrap
+            GetComponent<Health>().SpawnText();
         }
 
         else if(TargetBuilding != null)
