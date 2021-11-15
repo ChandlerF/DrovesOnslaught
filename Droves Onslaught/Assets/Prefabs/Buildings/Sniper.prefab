@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2dec31ec7dda44ab384f84699a838d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cost: 100
+  Cost: 250
   Sprite: {fileID: -1217393373796201866, guid: ff441542621ef5f4faaec240c2f763cd, type: 3}
   Name: Sniper
   BuildingUpgrades: []

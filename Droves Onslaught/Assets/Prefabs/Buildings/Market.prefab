@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetBuilding: {fileID: 0}
-  MarketScrap: 40
+  MarketScrap: 20
   IsMarket: 1
   StartTimer: 6
   Product: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2dec31ec7dda44ab384f84699a838d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cost: 200
+  Cost: 100
   Sprite: {fileID: 4447921339828506532, guid: 68e898d1e4369ea47ad56099c18e16ea, type: 3}
   Name: Market
   BuildingUpgrades: []

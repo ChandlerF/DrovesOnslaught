@@ -103,11 +103,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetBuilding: {fileID: 0}
+  MarketScrap: 0
   IsMarket: 0
   StartTimer: 1
   Product: {fileID: 1499395680370331946, guid: f8042b0be97a10d4cbe411909b665521, type: 3}
   ProductInStock: 0
   ProductConsumed: 1
+  TextPopUp: {fileID: 0}
 --- !u!114 &4172901112118505285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2dec31ec7dda44ab384f84699a838d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cost: 100
+  Cost: 50
   Sprite: {fileID: -5875320677663893810, guid: ff441542621ef5f4faaec240c2f763cd, type: 3}
   Name: Miner
   BuildingUpgrades:
