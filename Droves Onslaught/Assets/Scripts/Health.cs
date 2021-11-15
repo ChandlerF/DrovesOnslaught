@@ -11,11 +11,17 @@ public class Health : MonoBehaviour
 
     [SerializeField] int Scrap;
     
+    [SerializeField] GameObject TextPopUp;
+    
     private GameObject Manager;
+    
+    private Player PlayerScript;
 
     private void Start()
     {
         Manager = GameObject.FindGameObjectWithTag("Manager");
+        
+        PlayerScript = Manager.GetCompononent<Player>();
     }
 
 
@@ -38,7 +44,11 @@ public class Health : MonoBehaviour
     private void Death()
     {
         GameObject Manager = GameObject.FindGameObjectWithTag("Manager");
-        Manager.GetComponent<Player>().Scrap += Scrap;  
+        
+        if(Scrap > 0)
+        {
+            SpawnText();
+        }
 
 
         List<GameObject> gos = Manager.GetComponent<Arrays>().BuildingsList; 
@@ -67,5 +77,19 @@ public class Health : MonoBehaviour
 
         Instantiate(Particles, transform.position, Particles.transform.rotation);
         Destroy(gameObject);
+    }
+    
+    
+    public void SpawnText()
+    {
+        //Spawn Pop Up Text
+        GameObject SpawnedText = Instantiate(TextPopUp, transform.position, transform.rotation);
+        //Set Text to Scrap
+        SpawnedText.GetComponent<TextMeshPro>().text = "+" + MarketScrap.ToString();
+        //Set Text as child of who instantiated it (because it's spawning somewhere else)
+        SpawnedText.transform.SetParent(transform, true);
+        
+        //Add scrap to player
+        PlayerScript.Scrap += Scrap;
     }
 }
