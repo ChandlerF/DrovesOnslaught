@@ -8,6 +8,9 @@ public class Producer : MonoBehaviour
     public GameObject TargetBuilding = null;
     private int lengthOfLineRenderer = 2;
 
+    //Markets:
+    private Player PlayerScript;
+    [SerializeField] int MarketScrap;   //Instead, pull the scrap from health, and have a function in health to spawn pop up with scrap, call it on death, when a building is scrapped, and when the market makes money
     public bool IsMarket = false;
 
     [SerializeField] float StartTimer;
@@ -23,10 +26,11 @@ public class Producer : MonoBehaviour
     private Animator Anim;
 
 
+
     void Start()
     {
         Anim = GetComponent<Animator>();
-
+        PlayerScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Player>();
         Timer = StartTimer;
 
         if (TargetBuilding != null)
@@ -84,7 +88,7 @@ public class Producer : MonoBehaviour
 
         else
         {
-            //Remove line renderer component
+            //Remove line renderer component when theres no target
             Destroy(GetComponent<LineRenderer>());
             HasDrawnLine = false;
         }
@@ -97,7 +101,7 @@ public class Producer : MonoBehaviour
         if (IsMarket && TargetBuilding == null)
         {
             //Spawn pop up
-            //Add to scrap
+            PlayerScript.Scrap += MarketScrap;
         }
 
         else if(TargetBuilding != null)

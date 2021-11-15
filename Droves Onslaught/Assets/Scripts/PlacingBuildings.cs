@@ -26,7 +26,8 @@ public class PlacingBuildings : MonoBehaviour
         float y = Random.Range(1, -5);
 
         Vector2 SpawnPos = new Vector2(x, y);
-        Instantiate(Tower, SpawnPos, Quaternion.identity);
+        GameObject SpawnedTower = Instantiate(Tower, SpawnPos, Quaternion.identity);
+        ListScript.BuildingsList.Add(SpawnedTower);
     }
 
 

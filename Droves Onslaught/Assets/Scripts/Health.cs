@@ -48,11 +48,6 @@ public class Health : MonoBehaviour
             gos.Remove(gameObject);
         }
 
-        if (transform.CompareTag("Tower"))
-        {
-            Manager.GetComponent<Player>().Pause();
-            //Time.timeScale = 0;
-        }
 
         if (GetComponent<ButtonInfo>())
         {

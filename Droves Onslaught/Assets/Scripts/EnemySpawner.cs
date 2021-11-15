@@ -8,6 +8,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float StartTimer;
     private float Timer;
 
+    [SerializeField] float InitalDelay;
+
     [SerializeField] GameObject Enemy;
 
     private int Difficulty = 1;
@@ -21,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        Timer = StartTimer;
+        Timer = StartTimer + InitalDelay;
         ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
     }
 

@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetBuilding: {fileID: 0}
+  MarketScrap: 10
   IsMarket: 1
   StartTimer: 1
   Product: {fileID: 0}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 602775581950658948}
   - component: {fileID: 630443507885105692}
   - component: {fileID: 3713165796385180367}
-  - component: {fileID: 3533062310243632633}
+  - component: {fileID: 5237272639948574491}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524697476118191260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9023111, y: -4.2795024, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1254144615
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1284213265440037652, guid: 968f74b633d420741a246dbc335321f1, type: 3}
+  m_Sprite: {fileID: 5276970296247716496, guid: 68e898d1e4369ea47ad56099c18e16ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,9 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32a066a8abdb26409caf9c9c0d0e47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TagOne: Weapon
-  TagTwo: Factory
-  TagThree: Producer
   ListScript: {fileID: 0}
 --- !u!114 &5578341728447294803
 MonoBehaviour:
@@ -155,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 20
   Particles: {fileID: 4007544464715862984, guid: 0117a1b726d9ec344a777e6c2b2c0f30, type: 3}
-  Scrap: 20
+  Scrap: 5
 --- !u!50 &3713165796385180367
 Rigidbody2D:
   serializedVersion: 4
@@ -177,7 +174,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &3533062310243632633
+--- !u!60 &5237272639948574491
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,7 +191,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.225, y: 1.325}
+    oldSize: {x: 1.23, y: 1.33}
     newSize: {x: 1.175, y: 1.015}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -202,39 +199,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.6125, y: -0.66249996}
-      - {x: 0.6125, y: -0.6275}
-      - {x: 0.5775, y: -0.5525}
-      - {x: 0.1275, y: 0.42249998}
-      - {x: 0.0925, y: 0.4975}
-      - {x: 0.012499999, y: 0.66249996}
-      - {x: -0.0175, y: 0.66249996}
-      - {x: -0.0975, y: 0.4975}
-      - {x: -0.1475, y: 0.3725}
-      - {x: -0.2075, y: 0.24249999}
-      - {x: -0.2775, y: 0.0925}
-      - {x: -0.30249998, y: 0.037499998}
-      - {x: -0.5175, y: -0.42749998}
-      - {x: -0.5725, y: -0.5475}
-      - {x: -0.6125, y: -0.6325}
-      - {x: -0.6125, y: -0.66249996}
-      - {x: -0.5825, y: -0.66249996}
-      - {x: 0.0025, y: -0.36749998}
-      - {x: 0.0075, y: -0.3775}
-      - {x: 0.5825, y: -0.66249996}
-    - - {x: 0.1025, y: -0.2225}
-      - {x: 0.0925, y: -0.21249999}
-      - {x: 0.0075, y: -0.1725}
-      - {x: -0.0025, y: -0.1725}
-      - {x: -0.26749998, y: -0.3075}
-      - {x: -0.22749999, y: -0.2325}
-      - {x: -0.1925, y: -0.16749999}
-      - {x: -0.16749999, y: -0.1025}
-      - {x: -0.0175, y: 0.2225}
-      - {x: 0.0025, y: 0.2725}
-      - {x: 0.022499999, y: 0.2175}
-      - {x: 0.2325, y: -0.2375}
-      - {x: 0.2625, y: -0.2925}
-      - {x: 0.2625, y: -0.30249998}
-      - {x: 0.2725, y: -0.3125}
-      - {x: 0.2775, y: -0.3075}
+    - - {x: 0.002845645, y: 0.6698523}
+      - {x: -0.35999998, y: -0.085}
+      - {x: -0.59999996, y: -0.66499996}
+      - {x: -0.0015419209, y: -0.3566107}
+      - {x: 0.59499997, y: -0.66499996}
+      - {x: 0.615, y: -0.66499996}
+      - {x: 0.615, y: -0.645}
+      - {x: 0.60499996, y: -0.62}
