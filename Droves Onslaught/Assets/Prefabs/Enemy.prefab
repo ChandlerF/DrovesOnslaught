@@ -153,6 +153,7 @@ MonoBehaviour:
   HP: 20
   Particles: {fileID: 4007544464715862984, guid: 0117a1b726d9ec344a777e6c2b2c0f30, type: 3}
   Scrap: 10
+  TextPopUp: {fileID: 673736955966541936, guid: afe73ec0780a3be4cbc1217b9b599cc1, type: 3}
 --- !u!50 &3713165796385180367
 Rigidbody2D:
   serializedVersion: 4

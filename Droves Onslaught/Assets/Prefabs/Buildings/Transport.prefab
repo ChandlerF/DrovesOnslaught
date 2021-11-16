@@ -103,6 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetBuilding: {fileID: 0}
+  IsMarket: 0
+  MarketScrap: 0
   StartTimer: 0.5
   Product: {fileID: 3358157642721833975, guid: cf589957ee9d79b4581ccbf885c66d0e, type: 3}
   ProductInStock: 0
@@ -223,6 +225,7 @@ MonoBehaviour:
   HP: 100
   Particles: {fileID: 4007544464715862984, guid: 0117a1b726d9ec344a777e6c2b2c0f30, type: 3}
   Scrap: 0
+  TextPopUp: {fileID: 673736955966541936, guid: afe73ec0780a3be4cbc1217b9b599cc1, type: 3}
 --- !u!1001 &4176803093473471826
 PrefabInstance:
   m_ObjectHideFlags: 0

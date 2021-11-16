@@ -54,7 +54,7 @@ public class DestroyParent : MonoBehaviour
         ListScript.BuildingsList.Remove(SelectedBuilding);
 
         //Pop up text when scrapped, refund 75% of cost to make
-        SelectedBuilding.GetComponent<Health>).SpawnText((int) (SelectedBuilding.GetComponent<ButtonInfo>().Cost * 0.75));
+        SelectedBuilding.GetComponent<Health>().SpawnText((int) (SelectedBuilding.GetComponent<ButtonInfo>().Cost * 0.75));
 
 
 

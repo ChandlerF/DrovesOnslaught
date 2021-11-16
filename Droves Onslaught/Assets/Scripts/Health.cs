@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -21,7 +22,7 @@ public class Health : MonoBehaviour
     {
         Manager = GameObject.FindGameObjectWithTag("Manager");
         
-        PlayerScript = Manager.GetCompononent<Player>();
+        PlayerScript = Manager.GetComponent<Player>();
     }
 
 
@@ -43,7 +44,6 @@ public class Health : MonoBehaviour
 
     private void Death()
     {
-        GameObject Manager = GameObject.FindGameObjectWithTag("Manager");
            
         //If on death, it's scrap is more than 0, add it
         if(Scrap > 0)
@@ -89,13 +89,13 @@ public class Health : MonoBehaviour
     public void SpawnText(int scrap)
     {
         //Spawn Pop Up Text
-        GameObject SpawnedText = Instantiate(TextPopUp, transform.position, transform.rotation);
+        GameObject SpawnedText = Instantiate(TextPopUp, transform.position, Quaternion.identity);
         //Set Text to Scrap
-        SpawnedText.GetComponent<TextMeshPro>().text = "+" + MarketScrap.ToString();
+        SpawnedText.transform.GetChild(0).GetComponent<TextMeshPro>().text = "+" + scrap.ToString();
         //Set Text as child of who instantiated it (because it's spawning somewhere else)
-        SpawnedText.transform.SetParent(transform, true);
-        
+        SpawnedText.transform.position = transform.position;
+
         //Add scrap to player
-        PlayerScript.Scrap += scrap
+        PlayerScript.Scrap += scrap;
     }
 }

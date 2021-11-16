@@ -103,13 +103,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetBuilding: {fileID: 0}
-  MarketScrap: 20
   IsMarket: 1
+  MarketScrap: 20
   StartTimer: 6
   Product: {fileID: 0}
   ProductInStock: 0
   ProductConsumed: 1
-  TextPopUp: {fileID: 2345172247935831203, guid: e682825cdffc63d42a96809c6d5e6cab, type: 3}
 --- !u!114 &4408647980876948415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +214,7 @@ MonoBehaviour:
   HP: 100
   Particles: {fileID: 4007544464715862984, guid: 0117a1b726d9ec344a777e6c2b2c0f30, type: 3}
   Scrap: 0
+  TextPopUp: {fileID: 673736955966541936, guid: afe73ec0780a3be4cbc1217b9b599cc1, type: 3}
 --- !u!1 &7549712872834442726
 GameObject:
   m_ObjectHideFlags: 0

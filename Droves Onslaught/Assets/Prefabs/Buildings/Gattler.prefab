@@ -196,6 +196,7 @@ MonoBehaviour:
   HP: 100
   Particles: {fileID: 4007544464715862984, guid: 0117a1b726d9ec344a777e6c2b2c0f30, type: 3}
   Scrap: 0
+  TextPopUp: {fileID: 673736955966541936, guid: afe73ec0780a3be4cbc1217b9b599cc1, type: 3}
 --- !u!68 &8019283798609949486
 EdgeCollider2D:
   m_ObjectHideFlags: 0
