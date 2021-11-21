@@ -17,6 +17,9 @@ public class FindEnemies : MonoBehaviour
 
     private bool IsMarket = false;
 
+    //So if the building is spawned in the editor (I spawn it, not the player)
+    [SerializeField] bool SpawnedViaEditor = false;
+
     private void Start()
     {
         MoveScript = GetComponent<MoveTowards>();
@@ -35,6 +38,47 @@ public class FindEnemies : MonoBehaviour
             {
                 IsMarket = true;
             }
+        }
+
+
+
+
+        if (SpawnedViaEditor)
+        {
+            Arrays ListScript = Manager.GetComponent<Arrays>();
+            PlacingBuildings PlaceBuilding = Manager.GetComponent<PlacingBuildings>();
+            ButtonInfo BuildingInfo = gameObject.GetComponent<ButtonInfo>();
+
+            //Add building to list (of all buildings)
+            ListScript.BuildingsList.Add(gameObject);
+            //Add building to it's individual list in the dictionary
+            string Name = BuildingInfo.Name;
+            ListScript.BuildingDict[Name].Add(gameObject);  
+
+
+            //Reference the visual gameobject
+            GameObject Visual = PlaceBuilding.Visual;
+            //Spawn visual
+            GameObject SpawnedVisual = Instantiate(Visual, transform.position, gameObject.transform.rotation);
+
+            //Set building's visual
+            BuildingInfo.RangeVisual = SpawnedVisual;
+
+            //Find size to scale visual up to
+            float Scale = Mathf.Sqrt(gameObject.GetComponent<FindEnemies>().MaxRange) * 2;
+            //Set visual scale
+            SpawnedVisual.transform.localScale = new Vector3(Scale, Scale, Scale);
+            //Building pos = Visual pos
+            gameObject.transform.position = SpawnedVisual.transform.position;
+
+
+
+            //Add visual to list
+            ListScript.VisualsList.Add(SpawnedVisual);
+
+
+            //Every building re does line renderer
+            PlaceBuilding.SettingLineRenderers();
         }
     }
 

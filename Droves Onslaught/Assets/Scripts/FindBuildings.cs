@@ -18,7 +18,7 @@ public class FindBuildings : MonoBehaviour
         MoveScript = GetComponent<MoveTowards>();
 
 
-        //This is only for when enemies are spawned in, not from the enemy spawner
+        //This is only for when enemies are spawned in via the editor, not from the enemy spawner
         if (!ListScript)
         {
             ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
