@@ -1978,7 +1978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0006f83f016fa47bd44b18f56d784d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scrap: 255
+  Scrap: 2550
   Points: 0
   UGUI: {fileID: 1151813924}
 --- !u!114 &374592538
@@ -3642,8 +3642,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartTimer: 15
-  InitalDelay: 0.22
-  Enemy: {fileID: 3284564456611010982, guid: e9211a7778d108e4d9b5114a84780a86, type: 3}
+  InitalDelay: 22
+  Enemy: {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
   XSpawn: {x: 10, y: 20}
   YSpawn: {x: -15, y: 15}
   RoundNumber: 0

@@ -25,7 +25,8 @@ public class BuildingChecker : MonoBehaviour
 
         transform.position = worldPosition;   ///////////////////
 
-        if(Input.GetMouseButtonDown(0) && !TouchingBuilding)     /////////////////////
+        //Click mouse, not touching buildings, game isn't paused
+        if(Input.GetMouseButtonDown(0) && !TouchingBuilding && Time.timeScale != 0)     /////////////////////
         {
             if (Building.CompareTag("Producer"))
             {
@@ -131,7 +132,10 @@ public class BuildingChecker : MonoBehaviour
 
         if (DestroyOres)        //Called when Building is placed, destroys ore's then the building checker
         {
-            Destroy(col.gameObject);
+            if (col.gameObject.layer == 10)
+            {
+                Destroy(col.gameObject);
+            }
             
             ListScript.InPlacingBuildingMode = false;
             Destroy(gameObject);
