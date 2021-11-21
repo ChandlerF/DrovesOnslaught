@@ -6,7 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
 
-    [SerializeField] int HP;
+    public int HP;
 
     [SerializeField] GameObject Particles;
 

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//need to put on start for buildings
+//the same things that i do when I spawn it
 public class BuildingChecker : MonoBehaviour
 {
     public bool TouchingBuilding = false;
