@@ -142,7 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetName:
-  - Enemy
+  - Swarm
+  - Tank
   TargetList: []
   MaxRange: 700
 --- !u!114 &5871699182762534363

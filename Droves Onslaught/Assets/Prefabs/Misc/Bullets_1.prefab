@@ -99,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.35}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -150,8 +150,12 @@ MonoBehaviour:
   MoveSpeed: 0.7
   RotateSpeed: 0.05
   RotateTowards: 0
+  Innaccuracy: 1
+  Offset: 0
   MoveForwards: 1
+  DestroyIfTargetNull: 0
   DoneRotating: 0
+  AccuracyBeforeShooting: 4
 --- !u!114 &-134957726163853393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,3 +170,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 20
   DestroyOnCol: 1
+  ColParticles: {fileID: 574601525466074822, guid: 7b94c376bd4622449a1f4424b5e5e640, type: 3}

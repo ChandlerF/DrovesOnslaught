@@ -9,10 +9,11 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] bool DestroyOnCol;
 
+    [SerializeField] GameObject ColParticles;
 
     void Start()
     {
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 6f);
     }
 
 
@@ -21,6 +22,11 @@ public class Bullet : MonoBehaviour
         if (col.CompareTag("Enemy"))
         {
             col.GetComponent<Health>().Damage(Damage);
+
+            //set particle's x rot = my (bullet) z rot
+            //So the particle explodes away from enemy (rather than disappearing inside the enemy)
+            Quaternion ParticleRot = Quaternion.Euler(transform.eulerAngles.z, -90, 0);
+            Instantiate(ColParticles, transform.position, ParticleRot); 
 
             if (DestroyOnCol)
             {

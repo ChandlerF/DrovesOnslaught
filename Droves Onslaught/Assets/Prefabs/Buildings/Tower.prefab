@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5626008921865999336}
   - component: {fileID: 5626008921865999342}
   - component: {fileID: 7484643519443896821}
+  - component: {fileID: 4515474903260269946}
   m_Layer: 6
   m_Name: Tower
   m_TagString: Tower
@@ -143,3 +144,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &4515474903260269946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626008921865999339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac2dec31ec7dda44ab384f84699a838d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cost: 0
+  Sprite: {fileID: 0}
+  Name: Tower
+  BuildingUpgrades: []
+  RangeVisual: {fileID: 0}

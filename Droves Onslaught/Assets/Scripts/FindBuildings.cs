@@ -10,11 +10,21 @@ public class FindBuildings : MonoBehaviour
 
     public Arrays ListScript;   //Set by enemy spawner
 
+
+
     private void Start()
     {
+        string Name = GetComponent<ButtonInfo>().Name;
         MoveScript = GetComponent<MoveTowards>();
 
-        GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>().BuildingDict["Enemy"].Add(gameObject);
+
+        //This is only for when enemies are spawned in, not from the enemy spawner
+        if (!ListScript)
+        {
+            ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
+        }
+
+        ListScript.BuildingDict[Name].Add(gameObject);
     }
 
     void Update()

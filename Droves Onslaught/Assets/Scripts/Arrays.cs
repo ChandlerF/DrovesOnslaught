@@ -26,7 +26,7 @@ public class Arrays : MonoBehaviour
     //For when pausing, or game over
     public bool IsPaused = false;
 
-    private void Start()
+    private void Awake()
     {
         //Can't make lists in the dictionary from the inspector, so I have a list of names and makes the dict lists here
         for (int i = 0; i < DictNames.Count; i++)    

@@ -44,9 +44,10 @@ public class Health : MonoBehaviour
 
     private void Death()
     {
-           
+        string Name = GetComponent<ButtonInfo>().Name;
+
         //If on death, it's scrap is more than 0, add it
-        if(Scrap > 0)
+        if (Scrap > 0)
         {
             SpawnText(Scrap);
         }
@@ -74,7 +75,7 @@ public class Health : MonoBehaviour
 
 
 
-        Manager.GetComponent<Arrays>().BuildingDict[gameObject.name.Remove(gameObject.name.Length - 7)].Remove(gameObject);
+        Manager.GetComponent<Arrays>().BuildingDict[Name].Remove(gameObject);
 
         Instantiate(Particles, transform.position, Particles.transform.rotation);
         Destroy(gameObject);
