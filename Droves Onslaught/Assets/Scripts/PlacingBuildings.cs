@@ -17,7 +17,7 @@ public class PlacingBuildings : MonoBehaviour
     //Global so when tether is manually set, the upgrade menu can be destroyed
     public GameObject ActiveUpgradeCanvas;
 
-    private void Start()
+    private void Awake()
     {
         ListScript = GetComponent<Arrays>();
 
@@ -59,9 +59,12 @@ public class PlacingBuildings : MonoBehaviour
 
     public void SettingLineRenderers()  //For when a building is placed, it's line renderer and target has to be changed
     {
+        //Setting list of all buildings that have line renderers (could maybe do ListScript.BuildingList and get every GameObject with a LineRenderer)
         List<GameObject> gos = new List<GameObject>();
+
         gos.AddRange(ListScript.BuildingDict["Miner"]);
         gos.AddRange(ListScript.BuildingDict["Factory"]);
+        gos.AddRange(ListScript.BuildingDict["Transport"]);
 
 
         foreach (GameObject go in gos)
