@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cost: 0
-  Sprite: {fileID: 0}
+  Sprite: {fileID: -7816024807854489259, guid: 68e898d1e4369ea47ad56099c18e16ea, type: 3}
   Name: Tower
   BuildingUpgrades: []
   RangeVisual: {fileID: 0}

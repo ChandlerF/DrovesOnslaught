@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cost: 50
-  Sprite: {fileID: -5875320677663893810, guid: ff441542621ef5f4faaec240c2f763cd, type: 3}
+  Sprite: {fileID: -1718215145305686965, guid: 68e898d1e4369ea47ad56099c18e16ea, type: 3}
   Name: Miner
   BuildingUpgrades:
   - {fileID: 589591799332513141, guid: ffe56d63484b96f40a7403507a6eb9b0, type: 3}
@@ -159,6 +159,7 @@ MonoBehaviour:
   - Factory
   TargetList: []
   MaxRange: 100
+  SpawnedViaEditor: 0
 --- !u!114 &6343817766275101422
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,66 +4,71 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-
-    [SerializeField] float StartTimer;
-    private float Timer;
-
-    [SerializeField] float InitalDelay;
-
-    [SerializeField] GameObject Enemy;
-
-    private int Difficulty = 1;
-
-    private Arrays ListScript;
+    [SerializeField] bool FluctuateSpawnRate = true;
     
-    [SerializeField] Vector2 XSpawn = new Vector2(10, 20);
-    [SerializeField] Vector2 YSpawn = new Vector2(-15, 15);
-    
-    [SerializeField] int RoundNumber = 0;
 
-    void Start()
-    {
-        Timer = StartTimer + InitalDelay;
-        ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
-    }
+    [SerializeField] List<GameObject> Enemy = new List<GameObject>();
+    [SerializeField] List<int> Amount = new List<int>();
+    [SerializeField] List<float> DelayBefore = new List<float>();
 
-    void Update()
+    //Equivalent to "i" in a for loop (for the 3 lists)
+    private int Round = 0;
+
+    [SerializeField] Vector2 SpawnX;
+    [SerializeField] Vector2 SpawnY;
+
+
+
+
+
+    private void Update()
     {
-        if(Timer > 0)
+        if(Round < Enemy.Count)
         {
-            Timer -= Time.deltaTime;
+            if (DelayBefore[Round] > 0)
+            {
+                DelayBefore[Round] -= Time.deltaTime;
+            }
+
+            else
+            {
+                Spawn(Enemy[Round], Amount[Round]);
+            }
         }
+        /*
         else
         {
-            Spawn();
-            Timer = StartTimer;
-        }
+            //Either restart and set round to 0 (and maybe change swarm enemies to brutes?)
+            //Or repeat the last round forever, but increase enemy amount with round number (like old spawn system)
+            //Or nothing and just have a lot of rounds per level
+        }*/
     }
 
 
-    private void Spawn()
+
+
+    private void Spawn(GameObject enemy, int amount)
     {
 
-        int AmountOfEnemies = Random.Range(1 + Difficulty, 3 + Difficulty);
-
-        for(int i = 0; i < AmountOfEnemies; i++)
+        if (FluctuateSpawnRate)
         {
-            float x = Random.Range(XSpawn.x, XSpawn.y);
-            float y = Random.Range(YSpawn.x, YSpawn.y);
-
-            Vector2 Pos = new Vector2(x, y);
-
-            GameObject SpawnedEnemy = Instantiate(Enemy, Pos, Enemy.transform.rotation);
-
-            SpawnedEnemy.GetComponent<FindBuildings>().ListScript = ListScript;
+            amount += Random.Range(-1, 1);
         }
-        
-        RoundNumber++;
-        
-        //Every other round increase difficulty
-        if(RoundNumber % 2 == 0)
+
+
+
+        for (int i = 0; i < amount; i++)
         {
-            Difficulty += 1;
+            float x = Random.Range(SpawnX.x, SpawnX.y);
+            float y = Random.Range(SpawnY.x, SpawnY.y);
+
+            Vector2 SpawnPos = new Vector2(x, y);
+
+            Instantiate(enemy, SpawnPos, Quaternion.identity);
         }
+
+
+
+        Round += 1;
     }
 }

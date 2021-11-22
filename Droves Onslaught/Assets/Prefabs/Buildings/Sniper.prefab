@@ -146,6 +146,7 @@ MonoBehaviour:
   - Tank
   TargetList: []
   MaxRange: 1000
+  SpawnedViaEditor: 0
 --- !u!114 &1140940130457654473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cost: 250
-  Sprite: {fileID: -1217393373796201866, guid: ff441542621ef5f4faaec240c2f763cd, type: 3}
+  Sprite: {fileID: -6491122874091984853, guid: 68e898d1e4369ea47ad56099c18e16ea, type: 3}
   Name: Sniper
   BuildingUpgrades: []
   RangeVisual: {fileID: 0}
