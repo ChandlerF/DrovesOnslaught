@@ -112,7 +112,7 @@ public class FindEnemies : MonoBehaviour
 
             if(TargetList.Count > 0)
             {
-                MoveScript.Target = FindClosestEnemy();
+                SetTargetAndLR();
             }
         }
     }
@@ -156,8 +156,22 @@ public class FindEnemies : MonoBehaviour
             closest.GetComponent<MoveTowards>().Shooter = gameObject;
         }
 
-
         return closest;
+    }
+
+    private void SetTargetAndLR()
+    {
+        //Put this into a function, so the if() won't ignore the Set LR section (because the target is no longer null)
+
+        MoveScript.Target = FindClosestEnemy();
+
+
+        //If gameobject is a producer:
+        if (GetComponent<Producer>() != null)
+        {
+            //Need to call this after FindClosestEnemy() or else SettingLineRenderers() won't work
+            Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
+        }
     }
 
 
@@ -192,7 +206,5 @@ public class FindEnemies : MonoBehaviour
         {
             TargetList.AddRange(ListScript.BuildingDict[TargetName[i]]);
         }
-
-
     }
 }

@@ -65,6 +65,7 @@ public class PlacingBuildings : MonoBehaviour
     public void SettingLineRenderers()  //For when a building is placed, it's line renderer and target has to be changed
     {
         //Setting list of all buildings that have line renderers (could maybe do ListScript.BuildingList and get every GameObject with a LineRenderer or producer script)
+        //List of producers
         List<GameObject> gos = new List<GameObject>();
 
         gos.AddRange(ListScript.BuildingDict["Miner"]);
@@ -74,6 +75,7 @@ public class PlacingBuildings : MonoBehaviour
 
         foreach (GameObject go in gos)
         {
+            //if building (producer) has target:
             if(go.GetComponent<MoveTowards>().Target != null)
             {
                 GameObject ClosestEnemy = go.GetComponent<MoveTowards>().Target;

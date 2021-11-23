@@ -72,14 +72,6 @@ public class Health : MonoBehaviour
         List<GameObject> gos = Manager.GetComponent<Arrays>().BuildingsList;
         if (gos.Contains(gameObject))
         {
-            //remove self from target list and set target null
-            /*if (MoveScript.Shooter != null)
-            {
-                MoveScript.Shooter.GetComponent<FindEnemies>().TargetList.Remove(gameObject);
-                MoveScript.Shooter.GetComponent<MoveTowards>().Target = null;
-                //Destroy(MoveScript.Shooter.GetComponent<LineRenderer>());
-            }*/
-
             //Shake Camera
             Manager.GetComponent<Player>().CameraShake(0.5f);
             //Remove building from building list
