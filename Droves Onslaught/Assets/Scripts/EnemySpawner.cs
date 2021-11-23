@@ -14,11 +14,17 @@ public class EnemySpawner : MonoBehaviour
     //Equivalent to "i" in a for loop (for the 3 lists)
     private int Round = 0;
 
+    //Could have 4 of these, (top, elft, right, bottom) so you don't have to make a circle, it's similar to a circle
     [SerializeField] Vector2 SpawnX;
     [SerializeField] Vector2 SpawnY;
 
+    private Arrays ListScript;
 
 
+    private void Start()
+    {
+        ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
+    }
 
 
     private void Update()
@@ -64,7 +70,10 @@ public class EnemySpawner : MonoBehaviour
 
             Vector2 SpawnPos = new Vector2(x, y);
 
-            Instantiate(enemy, SpawnPos, Quaternion.identity);
+            GameObject SpawnedEnemy = Instantiate(enemy, SpawnPos, Quaternion.identity);
+
+            SpawnedEnemy.GetComponent<FindBuildings>().ListScript = ListScript;
+            //Add enemy to building dict
         }
 
 

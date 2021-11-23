@@ -84,25 +84,30 @@ public class BuildingChecker : MonoBehaviour
 
         ButtonInfo BuildingInfo = SpawnedBuilding.GetComponent<ButtonInfo>();
 
-        //Reference the visual gameobject
-        GameObject Visual = PlaceBuilding.Visual;
-        //Spawn visual
-        GameObject SpawnedVisual = Instantiate(Visual, transform.position, Building.transform.rotation);
+        if (GetComponent<FindEnemies>().SpawnVisual)
+        {
+            //Reference the visual gameobject
+            GameObject Visual = PlaceBuilding.Visual;
+            //Spawn visual
+            GameObject SpawnedVisual = Instantiate(Visual, transform.position, Building.transform.rotation);
 
-        //Set building's visual
-        BuildingInfo.RangeVisual = SpawnedVisual;
+            //Set building's visual
+            BuildingInfo.RangeVisual = SpawnedVisual;
 
-        //Find size to scale visual up to
-        float Scale = Mathf.Sqrt(SpawnedBuilding.GetComponent<FindEnemies>().MaxRange) * 2;
-        //Set visual scale
-        SpawnedVisual.transform.localScale = new Vector3(Scale, Scale, Scale);
-        //Building pos = Visual pos
-        SpawnedBuilding.transform.position = SpawnedVisual.transform.position;
+            //Find size to scale visual up to
+            float Scale = Mathf.Sqrt(SpawnedBuilding.GetComponent<FindEnemies>().MaxRange) * 2;
+            //Set visual scale
+            SpawnedVisual.transform.localScale = new Vector3(Scale, Scale, Scale);
+            //Building pos = Visual pos
+            SpawnedBuilding.transform.position = SpawnedVisual.transform.position;
 
 
 
-        //Add visual to list
-        ListScript.VisualsList.Add(SpawnedVisual);
+            //Add visual to list
+            ListScript.VisualsList.Add(SpawnedVisual);
+        }
+
+        
 
 
         //Every building re does line renderer

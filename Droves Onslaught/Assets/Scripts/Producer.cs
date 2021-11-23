@@ -124,23 +124,26 @@ public class Producer : MonoBehaviour
 
     public void MakeLineRenderer(GameObject Target)
     {
-        LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
-        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.widthMultiplier = 0.1f;
-        lineRenderer.positionCount = lengthOfLineRenderer;
+        if (!GetComponent<LineRenderer>())
+        {
+            LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
+            lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+            lineRenderer.widthMultiplier = 0.1f;
+            lineRenderer.positionCount = lengthOfLineRenderer;
 
 
-        // A simple 2 color gradient with a fixed alpha of 1.0f.
-        float alpha = 1.0f;
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(Color.black, 0.0f), new GradientColorKey(Color.black, 1.0f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
-        );
-        lineRenderer.colorGradient = gradient;
-        lineRenderer.sortingLayerName = "LineRenderer";
+            // A simple 2 color gradient with a fixed alpha of 1.0f.
+            float alpha = 1.0f;
+            Gradient gradient = new Gradient();
+            gradient.SetKeys(
+                new GradientColorKey[] { new GradientColorKey(Color.black, 0.0f), new GradientColorKey(Color.black, 1.0f) },
+                new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
+            );
+            lineRenderer.colorGradient = gradient;
+            lineRenderer.sortingLayerName = "LineRenderer";
 
-        SetLRPos(Target);
+            SetLRPos(Target);
+        }
     }
 
 
@@ -159,6 +162,10 @@ public class Producer : MonoBehaviour
 
             lineRenderer.SetPosition(0, transform.position + Direction * Multiplier);
             lineRenderer.SetPosition(1, Target.transform.position - Direction * Multiplier);
+        }
+        else
+        {
+            MakeLineRenderer(Target);
         }
     }
 

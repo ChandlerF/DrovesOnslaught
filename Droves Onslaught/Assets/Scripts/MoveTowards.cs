@@ -6,6 +6,10 @@ public class MoveTowards : MonoBehaviour
 {
     public GameObject Target;
 
+    //It's the opposite of Target, this gameobject is the target of shooter
+    //Right now shooter does nothing, but can be an optimization, to set it's line renderer to null if target is destroyed (rather than call it for every building)
+    public GameObject Shooter;
+
     [SerializeField] bool MoveTowardsTarget = true;
     [SerializeField] float MoveSpeed = 0.05f;
 

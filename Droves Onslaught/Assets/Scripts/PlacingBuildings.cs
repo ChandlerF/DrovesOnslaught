@@ -17,17 +17,22 @@ public class PlacingBuildings : MonoBehaviour
     //Global so when tether is manually set, the upgrade menu can be destroyed
     public GameObject ActiveUpgradeCanvas;
 
+    [SerializeField] bool SpawnTower = false;
+
     private void Awake()
     {
         ListScript = GetComponent<Arrays>();
 
         //Spawn Tower//
-        float x = Random.Range(-14, -7);
-        float y = Random.Range(1, -5);
+        if (SpawnTower)
+        {
+            float x = Random.Range(-14, -7);
+            float y = Random.Range(1, -5);
 
-        Vector2 SpawnPos = new Vector2(x, y);
-        GameObject SpawnedTower = Instantiate(Tower, SpawnPos, Quaternion.identity);
-        ListScript.BuildingsList.Add(SpawnedTower);
+            Vector2 SpawnPos = new Vector2(x, y);
+            GameObject SpawnedTower = Instantiate(Tower, SpawnPos, Quaternion.identity);
+            ListScript.BuildingsList.Add(SpawnedTower);
+        }
     }
 
 
@@ -59,7 +64,7 @@ public class PlacingBuildings : MonoBehaviour
 
     public void SettingLineRenderers()  //For when a building is placed, it's line renderer and target has to be changed
     {
-        //Setting list of all buildings that have line renderers (could maybe do ListScript.BuildingList and get every GameObject with a LineRenderer)
+        //Setting list of all buildings that have line renderers (could maybe do ListScript.BuildingList and get every GameObject with a LineRenderer or producer script)
         List<GameObject> gos = new List<GameObject>();
 
         gos.AddRange(ListScript.BuildingDict["Miner"]);

@@ -45,6 +45,7 @@ public class Health : MonoBehaviour
     private void Death()
     {
         string Name = GetComponent<ButtonInfo>().Name;
+        MoveTowards MoveScript = GetComponent<MoveTowards>();
 
         //If on death, it's scrap is more than 0, add it
         if (Scrap > 0)
@@ -53,20 +54,13 @@ public class Health : MonoBehaviour
         }
 
 
-        List<GameObject> gos = Manager.GetComponent<Arrays>().BuildingsList; 
-        if (gos.Contains(gameObject))
-        {
-            Manager.GetComponent<Player>().CameraShake(0.5f);
-            gos.Remove(gameObject);
-        }
-
         if (gameObject.CompareTag("Tower"))
         {
             //GameOver
             Manager.GetComponent<Player>().Pause();
         }
 
-        if (GetComponent<ButtonInfo>())
+        if (GetComponent<ButtonInfo>() && GetComponent<ButtonInfo>().RangeVisual != null)
         {
             GameObject Visual = GetComponent<ButtonInfo>().RangeVisual;
             Manager.GetComponent<Arrays>().VisualsList.Remove(Visual);
@@ -74,6 +68,29 @@ public class Health : MonoBehaviour
         }
 
 
+        //If gameobject is a building//
+        List<GameObject> gos = Manager.GetComponent<Arrays>().BuildingsList;
+        if (gos.Contains(gameObject))
+        {
+            //remove self from target list and set target null
+            /*if (MoveScript.Shooter != null)
+            {
+                MoveScript.Shooter.GetComponent<FindEnemies>().TargetList.Remove(gameObject);
+                MoveScript.Shooter.GetComponent<MoveTowards>().Target = null;
+                //Destroy(MoveScript.Shooter.GetComponent<LineRenderer>());
+            }*/
+
+            //Shake Camera
+            Manager.GetComponent<Player>().CameraShake(0.5f);
+            //Remove building from building list
+            gos.Remove(gameObject);
+
+            //remove self from Shooter target list
+            //set shooter target to null
+            
+
+            //Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
+        }
 
         Manager.GetComponent<Arrays>().BuildingDict[Name].Remove(gameObject);
 

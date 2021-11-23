@@ -32,7 +32,7 @@ public class DestroyParent : MonoBehaviour
 
         ListScript.UpgradeButtonActive = false;
 
-        if (SelectedBuilding != null)
+        if (SelectedBuilding != null && SelectedBuilding.GetComponent<ButtonInfo>().RangeVisual != null)
         {
             //Disable building visual
             SelectedBuilding.GetComponent<ButtonInfo>().RangeVisual.GetComponent<SpriteRenderer>().enabled = false;
