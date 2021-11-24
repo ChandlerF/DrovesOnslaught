@@ -76,12 +76,6 @@ public class Health : MonoBehaviour
             Manager.GetComponent<Player>().CameraShake(0.5f);
             //Remove building from building list
             gos.Remove(gameObject);
-
-            //remove self from Shooter target list
-            //set shooter target to null
-            
-
-            //Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
         }
 
         Manager.GetComponent<Arrays>().BuildingDict[Name].Remove(gameObject);
