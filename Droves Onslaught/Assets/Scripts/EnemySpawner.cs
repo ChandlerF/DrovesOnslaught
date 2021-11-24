@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+
+    //Equivalent to "i" in a for loop (for the 3 lists)
+    [SerializeField] int Round = 0;
+
     [SerializeField] bool FluctuateSpawnRate = true;
     
 
     [SerializeField] List<GameObject> Enemy = new List<GameObject>();
     [SerializeField] List<int> Amount = new List<int>();
-    [SerializeField] List<float> DelayBefore = new List<float>();
+    [SerializeField] List<float> StartDelayBefore = new List<float>();
 
-    //Equivalent to "i" in a for loop (for the 3 lists)
-    private int Round = 0;
+    private List<float> DelayBefore = new List<float>();
+
 
     //Could have 4 of these, (top, elft, right, bottom) so you don't have to make a circle, it's similar to a circle
     [SerializeField] Vector2 SpawnX;
@@ -20,13 +25,49 @@ public class EnemySpawner : MonoBehaviour
 
     private Arrays ListScript;
 
+    [SerializeField] bool RestartWhenRoundsFinish = true;
+
 
     private void Start()
     {
         ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
+
+        SetCurrentList();
+
+        if(Enemy.Count != Amount.Count || Amount.Count != StartDelayBefore.Count)
+        {
+            Debug.LogError("Enemy Spawner Inconsistencies");
+
+
+            SetListToMin();
+
+
+        }
     }
+    
+    private void SetListToMin()
+    {
+        List<int> Counts = new List<int>();
+        Counts.Add(Enemy.Count);
+        Counts.Add(Amount.Count);
+        Counts.Add(StartDelayBefore.Count);
 
+        int Min = Counts.Min();
 
+        while (Enemy.Count > Min)
+        {
+            Enemy.RemoveAt(Enemy.Count - 1);
+        }
+        while (Amount.Count > Min)
+        {
+            Amount.RemoveAt(Amount.Count - 1);
+        }
+        while (StartDelayBefore.Count > Min)
+        {
+            StartDelayBefore.RemoveAt(StartDelayBefore.Count - 1);
+        }
+    }
+    
     private void Update()
     {
         if(Round < Enemy.Count)
@@ -41,17 +82,28 @@ public class EnemySpawner : MonoBehaviour
                 Spawn(Enemy[Round], Amount[Round]);
             }
         }
-        /*
-        else
+
+        else if(RestartWhenRoundsFinish)
         {
             //Either restart and set round to 0 (and maybe change swarm enemies to brutes?)
             //Or repeat the last round forever, but increase enemy amount with round number (like old spawn system)
             //Or nothing and just have a lot of rounds per level
-        }*/
+
+            SetCurrentList();
+            Round = 0;
+        }
     }
 
 
-
+    private void SetCurrentList()
+    {
+        //Clear list, then add start values (can't do start=current, it makes both lists share values constantly)
+        DelayBefore.Clear();
+        for (int i = 0; i < StartDelayBefore.Count; i++)
+        {
+            DelayBefore.Add(StartDelayBefore[i]);
+        }
+    }
 
     private void Spawn(GameObject enemy, int amount)
     {

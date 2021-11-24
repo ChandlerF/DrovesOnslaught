@@ -1952,7 +1952,7 @@ MonoBehaviour:
   Tower: {fileID: 5626008921865999339, guid: 04b47793900bea54199bb92528df9902, type: 3}
   DimCanvas: {fileID: 5501281988721443284, guid: f524b31333b596f4fa70b507c69d11b9, type: 3}
   ActiveUpgradeCanvas: {fileID: 0}
-  SpawnTower: 0
+  SpawnTower: 1
 --- !u!4 &374592536
 Transform:
   m_ObjectHideFlags: 0
@@ -3642,16 +3642,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c367f0ae0dc730c4db238f5600481787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Round: 0
   FluctuateSpawnRate: 0
   Enemy:
   - {fileID: 3284564456611010982, guid: e9211a7778d108e4d9b5114a84780a86, type: 3}
   - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
-  Amount: 0200000005000000
-  DelayBefore:
-  - 0
+  Amount: 0200000007000000
+  StartDelayBefore:
+  - 5
   - 7
   SpawnX: {x: 10, y: 20}
   SpawnY: {x: -15, y: 15}
+  RestartWhenRoundsFinish: 1
 --- !u!4 &777303988
 Transform:
   m_ObjectHideFlags: 0
@@ -7858,6 +7860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1736503630}
   - component: {fileID: 1736503629}
+  - component: {fileID: 1736503631}
   m_Layer: 0
   m_Name: CameraParent
   m_TagString: Untagged
@@ -7897,6 +7900,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1736503631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736503628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d01d02b05f10624fb9097f6ac9f7484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1743677130 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2943520207367900788, guid: 496c81681bfc1d945a753bf5864d402f, type: 3}

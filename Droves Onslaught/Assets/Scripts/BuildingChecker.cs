@@ -84,7 +84,7 @@ public class BuildingChecker : MonoBehaviour
 
         ButtonInfo BuildingInfo = SpawnedBuilding.GetComponent<ButtonInfo>();
 
-        if (GetComponent<FindEnemies>().SpawnVisual)
+        if (SpawnedBuilding.GetComponent<FindEnemies>().SpawnVisual)
         {
             //Reference the visual gameobject
             GameObject Visual = PlaceBuilding.Visual;
