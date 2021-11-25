@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
+  Shooter: {fileID: 0}
   MoveTowardsTarget: 1
   MoveSpeed: 0.015
   RotateSpeed: 6
@@ -205,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cost: 0
-  Sprite: {fileID: 0}
+  Sprite: {fileID: -6039856867367896726, guid: bb87f8b35bd241740a3504c4c6ca0eef, type: 3}
   Name: Tank
   BuildingUpgrades: []
   RangeVisual: {fileID: 0}

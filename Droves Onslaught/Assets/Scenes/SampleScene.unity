@@ -2619,7 +2619,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2647,6 +2646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2d013c86759f64eb87f56a2dcd170f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanMove: 1
   MouseZoomSpeed: 15
   TouchZoomSpeed: 0.1
   ZoomMinBound: 5
@@ -2709,18 +2709,6 @@ Transform:
   m_Father: {fileID: 1736503630}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 565d7f7d98f6ffe4197e626a3575ca59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &589562362
 GameObject:
   m_ObjectHideFlags: 0
@@ -3661,13 +3649,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Round: 0
-  FluctuateSpawnRate: 0
+  FluctuateSpawnRate: 1
   Enemy:
   - {fileID: 3284564456611010982, guid: e9211a7778d108e4d9b5114a84780a86, type: 3}
   - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
-  Amount: 0200000007000000
+  - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
+  - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
+  - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
+  - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
+  - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
+  - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
+  - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
+  - {fileID: 3284564456611010982, guid: e9211a7778d108e4d9b5114a84780a86, type: 3}
+  - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
+  - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
+  - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
+  - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
+  Amount: 0200000005000000050000000500000005000000050000000500000006000000060000000700000007000000080000000800000009000000
   StartDelayBefore:
   - 5
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
+  - 7
+  - 4
+  - 7
+  - 7
   - 7
   SpawnX: {x: 10, y: 20}
   SpawnY: {x: -15, y: 15}

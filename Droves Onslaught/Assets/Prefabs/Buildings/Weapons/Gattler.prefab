@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
+  Shooter: {fileID: 0}
   MoveTowardsTarget: 0
   MoveSpeed: 0.05
   RotateSpeed: 3
@@ -144,9 +145,12 @@ MonoBehaviour:
   TargetName:
   - Swarm
   - Tank
+  - Brute
+  - Fighter
   TargetList: []
   MaxRange: 600
   SpawnedViaEditor: 0
+  SpawnVisual: 1
 --- !u!114 &4298817013556371105
 MonoBehaviour:
   m_ObjectHideFlags: 0
