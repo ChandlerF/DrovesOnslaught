@@ -39,8 +39,9 @@ public class Bullet : MonoBehaviour
                 float NewForce = ColScript.KnockbackForce * 0.2f;
 
                 //Direction
-                Vector3 Dir = col.transform.position - transform.position;
-
+                Vector3 offset = transform.up * 3f;
+                Vector3 Dir = col.transform.position - (transform.position - offset);
+                
                 //knockback
                 ColScript.Knockback(NewForce, -Dir);
 
