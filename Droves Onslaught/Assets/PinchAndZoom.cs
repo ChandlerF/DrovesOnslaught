@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PinchAndZoom : MonoBehaviour
 {
-    float MouseZoomSpeed = 15.0f;
-    float TouchZoomSpeed = 0.1f;
-    float ZoomMinBound = 5f;
-    float ZoomMaxBound = 20f;
-    Camera cam;
+    [SerializeField] float MouseZoomSpeed = 15.0f;
+    [SerializeField] float TouchZoomSpeed = 0.1f;
+    [SerializeField] float ZoomMinBound = 5f;
+    [SerializeField] float ZoomMaxBound = 20f;
+    private Camera cam;
 
-    // Use this for initialization
+    [SerializeField] float PanSpeed = 0.1f;
+
+
     void Start()
     {
         cam = GetComponent<Camera>();
@@ -41,9 +43,19 @@ public class PinchAndZoom : MonoBehaviour
         }
         else
         {
+            //Scrool mouse wheel to zoom
+            if(Input.GetAxis("Mouse ScrollWheel") != 0)
+            {
+                float scroll = Input.GetAxis("Mouse ScrollWheel");
+                Zoom(scroll, MouseZoomSpeed);
+            }
+        }
 
-            float scroll = Input.GetAxis("Mouse ScrollWheel");
-            Zoom(scroll, MouseZoomSpeed);
+        //Panning with touch
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        {
+            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+            transform.Translate(-touchDeltaPosition.x * PanSpeed, -touchDeltaPosition.y * PanSpeed, 0);
         }
 
 
@@ -65,5 +77,6 @@ public class PinchAndZoom : MonoBehaviour
         cam.orthographicSize -= deltaMagnitudeDiff * speed;
         // set min and max value of Clamp function upon your requirement
         cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, ZoomMinBound, ZoomMaxBound);
+        Debug.Log("Zoom");
     }
 }
