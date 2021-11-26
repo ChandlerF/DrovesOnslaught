@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 1440117877
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5875320677663893810, guid: ff441542621ef5f4faaec240c2f763cd, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -1718215145305686965, guid: 68e898d1e4369ea47ad56099c18e16ea, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.065, y: 1.065}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
+  Shooter: {fileID: 0}
   MoveTowardsTarget: 1
   MoveSpeed: 0.05
   RotateSpeed: 0.05
@@ -159,3 +160,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Ore
+  Target: {fileID: 0}

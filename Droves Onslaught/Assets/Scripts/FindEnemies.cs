@@ -151,7 +151,7 @@ public class FindEnemies : MonoBehaviour
             }
         }
 
-        if(closest != null)
+        if(closest != null && closest.GetComponent<MoveTowards>() != null)
         {
             closest.GetComponent<MoveTowards>().Shooter = gameObject;
         }

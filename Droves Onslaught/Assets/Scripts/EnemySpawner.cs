@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] bool SpawnEnemies = true;
 
     //Equivalent to "i" in a for loop (for the 3 lists)
     [SerializeField] int Round = 0;
@@ -25,14 +26,24 @@ public class EnemySpawner : MonoBehaviour
 
     private Arrays ListScript;
 
+
     [SerializeField] bool RestartWhenRoundsFinish = true;
+    [SerializeField] bool OnRestartUpgradeEnemies = true;
+
+    [SerializeField] GameObject SwarmGO;
+    [SerializeField] GameObject FighterGO;
+    [SerializeField] GameObject BruteGO;
+    [SerializeField] GameObject TankGO;
+
+
+
 
 
     private void Start()
     {
         ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
 
-        SetCurrentList();
+        SetCurrentDelayList();
 
         if(Enemy.Count != Amount.Count || Amount.Count != StartDelayBefore.Count)
         {
@@ -70,32 +81,58 @@ public class EnemySpawner : MonoBehaviour
     
     private void Update()
     {
-        if(Round < Enemy.Count)
+        if (SpawnEnemies)
         {
-            if (DelayBefore[Round] > 0)
+            if (Round < Enemy.Count)
             {
-                DelayBefore[Round] -= Time.deltaTime;
+                if (DelayBefore[Round] > 0)
+                {
+                    DelayBefore[Round] -= Time.deltaTime;
+                }
+
+                else
+                {
+                    Spawn(Enemy[Round], Amount[Round]);
+                }
             }
 
+            else if (RestartWhenRoundsFinish)
+            {
+                //Either restart and set round to 0 (and maybe change swarm enemies to brutes?)
+                //Or repeat the last round forever, but increase enemy amount with round number (like old spawn system)
+                //Or nothing and just have a lot of rounds per level
+
+                if (OnRestartUpgradeEnemies)
+                {
+                    for (int i = 0; i < Enemy.Count; i++)
+                    {
+                        if (Enemy[i] == SwarmGO)
+                        {
+                            Enemy[i] = FighterGO;
+                        }
+                        else if (Enemy[i] == FighterGO)
+                        {
+                            Enemy[i] = BruteGO;
+                        }
+                    }
+                }
+
+
+
+                SetCurrentDelayList();
+                Round = 0;
+            }
             else
             {
-                Spawn(Enemy[Round], Amount[Round]);
+                //GameOver
+                GameObject Manager = GameObject.FindGameObjectWithTag("Manager");
+                Manager.GetComponent<Player>().GameOver();
             }
-        }
-
-        else if(RestartWhenRoundsFinish)
-        {
-            //Either restart and set round to 0 (and maybe change swarm enemies to brutes?)
-            //Or repeat the last round forever, but increase enemy amount with round number (like old spawn system)
-            //Or nothing and just have a lot of rounds per level
-
-            SetCurrentList();
-            Round = 0;
         }
     }
 
-
-    private void SetCurrentList()
+    
+    private void SetCurrentDelayList()
     {
         //Clear list, then add start values (can't do start=current, it makes both lists share values constantly)
         DelayBefore.Clear();

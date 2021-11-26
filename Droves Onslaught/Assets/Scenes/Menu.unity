@@ -2133,7 +2133,7 @@ MonoBehaviour:
   - {fileID: 3284564456611010982, guid: e9211a7778d108e4d9b5114a84780a86, type: 3}
   - {fileID: 3284564456611010982, guid: e9211a7778d108e4d9b5114a84780a86, type: 3}
   - {fileID: 7343607769153712210, guid: 1476ed3afe6a44d438b13eb43648476b, type: 3}
-  Amount: 0300000005000000050000000100000005000000030000000400000002000000
+  Amount: 0300000005000000030000000100000005000000030000000400000002000000
   StartDelayBefore:
   - 3
   - 4
@@ -2146,6 +2146,11 @@ MonoBehaviour:
   SpawnX: {x: 10, y: 25}
   SpawnY: {x: -10, y: 10}
   RestartWhenRoundsFinish: 1
+  OnRestartUpgradeEnemies: 1
+  SwarmGO: {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
+  FighterGO: {fileID: 4606661815530133700, guid: d00f6f6760532b842830fb991fd5ea89, type: 3}
+  BruteGO: {fileID: 7343607769153712210, guid: 1476ed3afe6a44d438b13eb43648476b, type: 3}
+  TankGO: {fileID: 3284564456611010982, guid: e9211a7778d108e4d9b5114a84780a86, type: 3}
 --- !u!4 &777303988
 Transform:
   m_ObjectHideFlags: 0

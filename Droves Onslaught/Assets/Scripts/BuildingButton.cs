@@ -58,7 +58,7 @@ public class BuildingButton : MonoBehaviour
 
                     for(int i = 0; i < ButtonScript.BuildingUpgrades.Count; i++)
                     {
-                        GameObject Button = ButtonParent.transform.GetChild(i).gameObject;
+                        GameObject Button = ButtonParent.transform.GetChild(0).GetChild(i).gameObject;
                     
                         //Turn button on
                         Button.SetActive(true);
@@ -74,11 +74,11 @@ public class BuildingButton : MonoBehaviour
             
 
             //Sets the destroy Button on upgrade screen
-            ButtonParent.transform.GetChild(3).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
+            ButtonParent.transform.GetChild(1).GetChild(0).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
             //Sets hide buttons button
-            ButtonParent.transform.GetChild(4).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
+            ButtonParent.transform.GetChild(1).GetChild(1).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
             //Sets Tether buttons button
-            ButtonParent.transform.GetChild(5).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
+            ButtonParent.transform.GetChild(1).GetChild(2).gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
 
 
 
@@ -102,7 +102,7 @@ public class BuildingButton : MonoBehaviour
             Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
 
             //Destroys Upgrade Canvas after tethering - Calls Destroy Parent
-            Manager.GetComponent<PlacingBuildings>().ActiveUpgradeCanvas.transform.GetChild(0).transform.GetChild(4).gameObject.GetComponent<DestroyParent>().DestroyTheParent();
+            Manager.GetComponent<PlacingBuildings>().ActiveUpgradeCanvas.transform.GetChild(0).GetChild(1).GetChild(0).gameObject.GetComponent<DestroyParent>().DestroyTheParent();
 
 
             //Set tether mode false
@@ -123,7 +123,7 @@ public class BuildingButton : MonoBehaviour
         Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
 
         //Destroys Upgrade Canvas after tethering - Calls Destroy Parent
-        Manager.GetComponent<PlacingBuildings>().ActiveUpgradeCanvas.transform.GetChild(0).transform.GetChild(4).gameObject.GetComponent<DestroyParent>().DestroyTheParent();
+        Manager.GetComponent<PlacingBuildings>().ActiveUpgradeCanvas.transform.GetChild(0).GetChild(1).GetChild(0).gameObject.GetComponent<DestroyParent>().DestroyTheParent();
 
 
         //Set tether mode false

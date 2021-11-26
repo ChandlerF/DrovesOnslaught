@@ -23,7 +23,9 @@ public class SetButton : MonoBehaviour
         //Img = GetComponentInChildren<Image>();        //Didn't work, grabbed img from self
 
         Img.sprite = Info.Sprite;
-        UGUI.text = Info.Name + " - " + Info.Cost;
+        UGUI.text = Info.Cost.ToString();
+
+        //UGUI.text = Info.Name + " - " + Info.Cost;
 
         PlayerScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Player>();
     }

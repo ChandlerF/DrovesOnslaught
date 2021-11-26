@@ -20,7 +20,7 @@ public class DestroyParent : MonoBehaviour
 
     private void Update()
     {
-        if(SelectedBuilding == null && transform.name == "DeleteButton") //Have it this way because if code runs an even amount then it doesn't work (even because all 4 buttons have this code)
+        if(SelectedBuilding == null && transform.name == "DeleteButton") //Have it this way because if code runs an even amount then it doesn't work (it's even because all 4 buttons have this code)
         {
             DestroyTheParent();
         }
@@ -126,6 +126,11 @@ public class DestroyParent : MonoBehaviour
 
     public void EnterTetherMode(bool x)   //Called by button
     {
+        if(ListScript == null)
+        {
+            ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
+        }
+
         ListScript.InTetherMode = x;
 
         //Set ListScript Selected Building to the building that's getting re-tethered, globally

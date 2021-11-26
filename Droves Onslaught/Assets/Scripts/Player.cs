@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private CameraShake CamShake;
     
     private GameObject SpawnedDimCanvas;
+    private bool GameIsOver = false;
 
     private void Start()
     {
@@ -48,7 +49,17 @@ public class Player : MonoBehaviour
         CamShake.Trauma += x;
     }
     
-    
+    public void GameOver()
+    {
+        if (!GameIsOver)
+        {
+            //For now we just pause the game
+            Pause();
+            GameIsOver = true;
+        }
+    }
+
+
     public void Pause()
     {
         if(!GetComponent<Arrays>().IsPaused)

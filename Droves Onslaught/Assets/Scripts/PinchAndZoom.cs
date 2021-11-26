@@ -22,6 +22,16 @@ public class PinchAndZoom : MonoBehaviour
     void Start()
     {
         cam = GetComponent<Camera>();
+
+
+        if(cam.orthographicSize < ZoomMinBound)
+        {
+            cam.orthographicSize = ZoomMinBound;
+        }
+        else if(cam.orthographicSize > ZoomMaxBound)
+        {
+            cam.orthographicSize = ZoomMaxBound;
+        }
     }
 
     void Update()

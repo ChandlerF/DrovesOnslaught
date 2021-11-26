@@ -57,7 +57,7 @@ public class Health : MonoBehaviour
         if (gameObject.CompareTag("Tower"))
         {
             //GameOver
-            Manager.GetComponent<Player>().Pause();
+            Manager.GetComponent<Player>().GameOver();
         }
 
         if (GetComponent<ButtonInfo>() && GetComponent<ButtonInfo>().RangeVisual != null)
