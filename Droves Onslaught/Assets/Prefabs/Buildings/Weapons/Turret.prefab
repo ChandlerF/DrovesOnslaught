@@ -170,6 +170,7 @@ MonoBehaviour:
   - {fileID: 1886977672466418204, guid: a9fcc66484be1d840acc54152e56defa, type: 3}
   - {fileID: 3338007895369318516, guid: ee4ca79e0f77a124299116a5cffead6d, type: 3}
   RangeVisual: {fileID: 0}
+  Scale: {x: 1, y: 1}
 --- !u!95 &5438593402144466228
 Animator:
   serializedVersion: 3
@@ -201,7 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26141ae533dabf24298837582481e24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  StartHP: 100
+  HP: 0
   Particles: {fileID: 4007544464715862984, guid: 0117a1b726d9ec344a777e6c2b2c0f30, type: 3}
   Scrap: 0
   TextPopUp: {fileID: 673736955966541936, guid: afe73ec0780a3be4cbc1217b9b599cc1, type: 3}

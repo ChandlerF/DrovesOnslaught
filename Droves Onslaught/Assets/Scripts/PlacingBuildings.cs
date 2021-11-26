@@ -11,8 +11,6 @@ public class PlacingBuildings : MonoBehaviour
     private Arrays ListScript;
 
     [SerializeField] GameObject Tower;
-    
-    public GameObject DimCanvas;
 
     //Global so when tether is manually set, the upgrade menu can be destroyed
     public GameObject ActiveUpgradeCanvas;

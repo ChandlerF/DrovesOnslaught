@@ -8,7 +8,10 @@ public class DestroyParent : MonoBehaviour
     private Arrays ListScript;
     private PlacingBuildings PlaceBuildings;
 
-    public GameObject SelectedBuilding; //Set by BuildingButton when it's spawned
+    public GameObject SelectedBuilding; //Set by BuildingButton when it's spawned\
+
+    [SerializeField] GameObject SpawnParticles;
+    [SerializeField] GameObject DeathParticles;
 
 
     private void Start()
@@ -54,8 +57,15 @@ public class DestroyParent : MonoBehaviour
         ListScript.BuildingsList.Remove(SelectedBuilding);
 
         //Pop up text when scrapped, refund 75% of cost to make
-        SelectedBuilding.GetComponent<Health>().SpawnText((int) (SelectedBuilding.GetComponent<ButtonInfo>().Cost * 0.75));
+        Health HealthScript = SelectedBuilding.GetComponent<Health>();
 
+        float HpPercent = ((float)HealthScript.HP / (float)HealthScript.StartHP);
+        Debug.Log(SelectedBuilding.GetComponent<ButtonInfo>().Cost * 0.75);
+        HealthScript.SpawnText((int) ((SelectedBuilding.GetComponent<ButtonInfo>().Cost * 0.75) * HpPercent));
+
+
+        Manager.GetComponent<Player>().CameraShake(0.1f);
+        Instantiate(DeathParticles, SelectedBuilding.transform.position, DeathParticles.transform.rotation);
 
 
         Destroy(SelectedBuilding);
@@ -117,6 +127,9 @@ public class DestroyParent : MonoBehaviour
 
         Destroy(SelectedBuilding);
 
+        Manager.GetComponent<Player>().CameraShake(0.1f);
+        Instantiate(SpawnParticles, SpawnedBuilding.transform.position, SpawnParticles.transform.rotation);
+
         //Turn buttons on / off
         ListScript.ChangeButtonsActive();
 
@@ -135,12 +148,5 @@ public class DestroyParent : MonoBehaviour
 
         //Set ListScript Selected Building to the building that's getting re-tethered, globally
         ListScript.SelectedBuilding = SelectedBuilding;
-    }
-    
-    
-    //Add pause button
-    public void Pause()
-    {
-            Manager.GetComponent<Player>().Pause();
     }
 }

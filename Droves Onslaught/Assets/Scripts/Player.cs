@@ -12,9 +12,11 @@ public class Player : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI UGUI;
 
+    [SerializeField] GameObject PauseMenu;
+
     private CameraShake CamShake;
     
-    private GameObject SpawnedDimCanvas;
+
     private bool GameIsOver = false;
 
     private void Start()
@@ -28,11 +30,6 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))        ////////////////////////
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Pause();
         }
 
         UGUI.text = Scrap.ToString();
@@ -53,25 +50,25 @@ public class Player : MonoBehaviour
     {
         if (!GameIsOver)
         {
-            //For now we just pause the game
-            Pause();
             GameIsOver = true;
         }
     }
 
 
-    public void Pause()
+    //go = who called the func
+    //Spawns an image, need the go to set the image in a canvas (if i spawn it on a canvas you can't unpause with button)
+    public void Pause(GameObject go)
     {
         if(!GetComponent<Arrays>().IsPaused)
         {
-            //Spawn a dim canvas for this, pause menu, and InTetherMode
-            SpawnedDimCanvas = Instantiate(GetComponent<PlacingBuildings>().DimCanvas, transform.position, transform.rotation);
+            PauseMenu.SetActive(true);
+
             Time.timeScale = 0;
             GetComponent<Arrays>().IsPaused = true;
         }
         else
         {
-            Destroy(SpawnedDimCanvas);
+            PauseMenu.SetActive(false);
             Time.timeScale = 1;
             GetComponent<Arrays>().IsPaused = false;
         }

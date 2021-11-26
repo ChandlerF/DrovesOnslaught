@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26141ae533dabf24298837582481e24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 500
+  StartHP: 500
+  HP: 0
   Particles: {fileID: 4007544464715862984, guid: 0117a1b726d9ec344a777e6c2b2c0f30, type: 3}
   Scrap: 0
   TextPopUp: {fileID: 673736955966541936, guid: afe73ec0780a3be4cbc1217b9b599cc1, type: 3}
@@ -161,3 +162,4 @@ MonoBehaviour:
   Name: Tower
   BuildingUpgrades: []
   RangeVisual: {fileID: 0}
+  Scale: {x: 1, y: 1}

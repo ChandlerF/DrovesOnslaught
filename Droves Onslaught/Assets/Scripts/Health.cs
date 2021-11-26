@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-
-    public int HP;
+    public int StartHP;
+    public int HP = 0;
 
     [SerializeField] GameObject Particles;
 
@@ -23,6 +23,8 @@ public class Health : MonoBehaviour
         Manager = GameObject.FindGameObjectWithTag("Manager");
         
         PlayerScript = Manager.GetComponent<Player>();
+
+        HP = StartHP;
     }
 
 

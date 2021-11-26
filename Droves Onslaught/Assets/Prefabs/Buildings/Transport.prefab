@@ -152,6 +152,7 @@ MonoBehaviour:
   Name: Transport
   BuildingUpgrades: []
   RangeVisual: {fileID: 0}
+  Scale: {x: 1, y: 1}
 --- !u!114 &7036947675211934890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +169,8 @@ MonoBehaviour:
   - Tower
   TargetList: []
   MaxRange: 75
+  SpawnedViaEditor: 0
+  SpawnVisual: 1
 --- !u!114 &7472316231170768296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
+  Shooter: {fileID: 0}
   MoveTowardsTarget: 0
   MoveSpeed: 0
   RotateSpeed: 0
@@ -222,7 +226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26141ae533dabf24298837582481e24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  StartHP: 100
+  HP: 0
   Particles: {fileID: 4007544464715862984, guid: 0117a1b726d9ec344a777e6c2b2c0f30, type: 3}
   Scrap: 0
   TextPopUp: {fileID: 673736955966541936, guid: afe73ec0780a3be4cbc1217b9b599cc1, type: 3}
