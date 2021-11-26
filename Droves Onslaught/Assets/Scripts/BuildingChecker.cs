@@ -16,6 +16,8 @@ public class BuildingChecker : MonoBehaviour
 
     private Arrays ListScript;
 
+    [SerializeField] GameObject SpawnParticles;
+
     private void Update()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -116,6 +118,9 @@ public class BuildingChecker : MonoBehaviour
         Manager.GetComponent<Player>().Scrap -= BuildingInfo.Cost;
 
         //Manager.GetComponent<Player>().CameraShake(0.1f);
+
+        Manager.GetComponent<Player>().CameraShake(0.15f);
+        Instantiate(SpawnParticles, SpawnedBuilding.transform.position, SpawnParticles.transform.rotation);
 
         //Turn buttons on / off
         ListScript.ChangeButtonsActive();

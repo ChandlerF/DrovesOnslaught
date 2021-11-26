@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SetButton : MonoBehaviour
 {
+    //Set by BuildingButton Script
     public GameObject Building;
     private ButtonInfo Info;
 
@@ -21,6 +22,10 @@ public class SetButton : MonoBehaviour
 
         UGUI = GetComponentInChildren<TextMeshProUGUI>();
         //Img = GetComponentInChildren<Image>();        //Didn't work, grabbed img from self
+
+
+        Img.transform.localScale = Info.Scale;
+
 
         Img.sprite = Info.Sprite;
         UGUI.text = Info.Cost.ToString();

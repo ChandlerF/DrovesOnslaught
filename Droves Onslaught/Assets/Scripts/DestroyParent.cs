@@ -43,7 +43,7 @@ public class DestroyParent : MonoBehaviour
         //Set tether mode false
         ListScript.InTetherMode = false;
 
-        Destroy(transform.parent.parent.gameObject);
+        Destroy(transform.parent.parent.parent.gameObject);
     }
 
     //Scrap selected building

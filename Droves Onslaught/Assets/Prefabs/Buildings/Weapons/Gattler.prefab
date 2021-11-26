@@ -164,10 +164,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cost: 300
-  Sprite: {fileID: -7492986888825655202, guid: 68e898d1e4369ea47ad56099c18e16ea, type: 3}
+  Sprite: {fileID: 21300000, guid: 4f603d943d108c14a814eaf326b0dd22, type: 3}
   Name: Gattler
   BuildingUpgrades: []
   RangeVisual: {fileID: 0}
+  Scale: {x: 1.5, y: 1.5}
 --- !u!95 &2426811150784486990
 Animator:
   serializedVersion: 3

@@ -34,10 +34,10 @@ public class BuildingButton : MonoBehaviour
             //Get Building
             ButtonInfo ButtonScript = SelectedBuilding.GetComponent<ButtonInfo>();
 
-            if (SelectedBuilding.GetComponent<ButtonInfo>().RangeVisual != null)
+            if (ButtonScript.RangeVisual != null)
             {
                 //Enable building visual
-                SelectedBuilding.GetComponent<ButtonInfo>().RangeVisual.GetComponent<SpriteRenderer>().enabled = true;
+                ButtonScript.RangeVisual.GetComponent<SpriteRenderer>().enabled = true;
             }
 
             //Spawn Canvas (with buttons)

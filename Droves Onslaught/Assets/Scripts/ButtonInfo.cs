@@ -14,6 +14,8 @@ public class ButtonInfo : MonoBehaviour
 
     public GameObject RangeVisual;
 
+    public Vector2 Scale = new Vector2(1, 1);
+
     private void Start()
     {
         Sprite = GetComponent<SpriteRenderer>().sprite;
