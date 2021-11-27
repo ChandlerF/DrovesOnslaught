@@ -3674,7 +3674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnEnemies: 0
   Round: 0
-  FluctuateSpawnRate: 1
+  FluctuateSpawnRate: 0
   Enemy:
   - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
   - {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}

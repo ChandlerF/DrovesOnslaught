@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     //Equivalent to "i" in a for loop (for the 3 lists)
     [SerializeField] int Round = 0;
 
-    [SerializeField] bool FluctuateSpawnRate = true;
+    [SerializeField] bool FluctuateSpawnRate = false;
     
 
     [SerializeField] List<GameObject> Enemy = new List<GameObject>();
@@ -147,7 +147,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (FluctuateSpawnRate)
         {
-            amount += Random.Range(-1, 1);
+            amount += Random.Range(1, 4);
         }
 
 

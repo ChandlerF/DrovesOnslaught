@@ -56,11 +56,10 @@ public class DestroyParent : MonoBehaviour
 
         ListScript.BuildingsList.Remove(SelectedBuilding);
 
-        //Pop up text when scrapped, refund 75% of cost to make
+        //Pop up text when scrapped, refund 75% of cost to make * percentage of hp (so if tower is half health, you get half of 75% back)
         Health HealthScript = SelectedBuilding.GetComponent<Health>();
 
         float HpPercent = ((float)HealthScript.HP / (float)HealthScript.StartHP);
-        Debug.Log(SelectedBuilding.GetComponent<ButtonInfo>().Cost * 0.75);
         HealthScript.SpawnText((int) ((SelectedBuilding.GetComponent<ButtonInfo>().Cost * 0.75) * HpPercent));
 
 
