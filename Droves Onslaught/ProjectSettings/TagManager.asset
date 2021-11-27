@@ -12,6 +12,7 @@ TagManager:
   - Visual
   - Tower
   - Transport
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX

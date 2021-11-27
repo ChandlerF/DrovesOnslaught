@@ -50,6 +50,27 @@ public class Player : MonoBehaviour
     {
         if (!GameIsOver)
         {
+            //1 star from winning
+            int StarsEarned = 1;
+            EnemySpawner Spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
+
+            //Another star from beating the level a second time, but on hard mode
+            if (Spawner.FluctuateSpawnRate == true)
+            {
+                StarsEarned += 1;
+            }
+
+
+            LevelManager.instance.StarsEarned(StarsEarned);
+
+
+
+
+
+
+
+
+
             GameIsOver = true;
         }
     }

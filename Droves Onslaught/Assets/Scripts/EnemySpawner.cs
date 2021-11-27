@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     //Equivalent to "i" in a for loop (for the 3 lists)
     [SerializeField] int Round = 0;
 
-    [SerializeField] bool FluctuateSpawnRate = false;
+    public bool FluctuateSpawnRate = false;
     
 
     [SerializeField] List<GameObject> Enemy = new List<GameObject>();
@@ -51,8 +51,13 @@ public class EnemySpawner : MonoBehaviour
 
 
             SetListToMin();
+        }
 
 
+        //If currentLevel's first star is earned already
+        if (LevelManager.instance.Stars[LevelManager.instance.CurrentLevel][0] == true)
+        {
+            FluctuateSpawnRate = true;
         }
     }
     
