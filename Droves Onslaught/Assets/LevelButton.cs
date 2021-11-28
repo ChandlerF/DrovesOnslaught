@@ -16,17 +16,27 @@ public class LevelButton : MonoBehaviour
 
     [SerializeField] Color GoldColor;
 
+    [SerializeField] bool LevelNumberFromSiblings = true;
 
+
+    //Is called when enabled 
     private void Start()
     {
-        LevelNumber = transform.GetSiblingIndex() + 1;
+        if (LevelNumberFromSiblings)
+        {
+            LevelNumber = transform.GetSiblingIndex() + 1;
 
-        ButtonText = transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+            ButtonText = transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
 
-        ButtonText.text = LevelNumber.ToString();
+            ButtonText.text = LevelNumber.ToString();
+        }
+        else
+        {
+            LevelNumber = LevelManager.instance.CurrentLevel;
+        }
+
         SetStars();
     }
-
 
     private void SetStars()
     {

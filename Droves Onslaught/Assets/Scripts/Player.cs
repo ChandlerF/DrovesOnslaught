@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] GameObject PauseMenu;
 
+    [SerializeField] GameObject GameOverMenu;
+
     private CameraShake CamShake;
     
 
@@ -72,14 +74,12 @@ public class Player : MonoBehaviour
             //Tell Level Manager Stars Earned
             LevelManager.instance.StarsEarned(StarsEarned);
 
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
 
-            //Enable Game Over screen, or switch scenes
             //Set Time to 1
-            //Give option to next level or back
 
-
-            SceneManager.LoadScene("LevelSelect");
+            GameOverMenu.SetActive(true);
+            //SceneManager.LoadScene("LevelSelect");
             GameIsOver = true;
         }
     }

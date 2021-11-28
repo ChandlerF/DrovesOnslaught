@@ -16,6 +16,8 @@ public class ButtonInfo : MonoBehaviour
 
     public Vector2 Scale = new Vector2(1, 1);
 
+    public bool IsUnlocked = false;
+
     private void Start()
     {
         Sprite = GetComponent<SpriteRenderer>().sprite;

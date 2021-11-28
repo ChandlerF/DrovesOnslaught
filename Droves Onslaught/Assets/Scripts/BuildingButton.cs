@@ -56,18 +56,23 @@ public class BuildingButton : MonoBehaviour
                 //Set's upgrade buttons for buildings that have upgrades
                 //Have several buttons not active and per upgrade available set active appropriately
 
-                    for(int i = 0; i < ButtonScript.BuildingUpgrades.Count; i++)
+                for (int i = 0; i < ButtonScript.BuildingUpgrades.Count; i++)
+                {
+                    GameObject Button = ButtonParent.transform.GetChild(0).GetChild(i).gameObject;
+
+                    //if building is unlocked
+                    if (ButtonScript.BuildingUpgrades[i].GetComponent<ButtonInfo>().IsUnlocked)
                     {
-                        GameObject Button = ButtonParent.transform.GetChild(0).GetChild(i).gameObject;
-                    
+
                         //Turn button on
                         Button.SetActive(true);
 
                         //Set SetButton Building
                         Button.GetComponent<SetButton>().Building = ButtonScript.BuildingUpgrades[i];
                         //Set DestroyParent's SelectedBuilding
-                        Button.gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding; ;
+                        Button.gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
                     }
+                }
             }
             
             

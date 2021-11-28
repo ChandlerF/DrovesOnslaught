@@ -19,7 +19,45 @@ public class PauseButton : MonoBehaviour
 
     public void LoadMenuScreen()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Menu");
+
+        Time.timeScale = 1;
+    }
+    
+    
+    public void LoadLevelSelect()
+    {
+        SceneManager.LoadScene("LevelSelect");
+
+        Time.timeScale = 1;
+    }
+    
+    
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        Time.timeScale = 1;
+    }
+    
+    //Set lvl manager current lvl
+    public void LoadNextLevel()
+    {
+        string NextLvlName = System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1));
+        int NextLvl = SceneManager.GetActiveScene().buildIndex + 1;
+
+
+        if(NextLvlName == "Level" + (LevelManager.instance.CurrentLevel + 1).ToString())
+        {
+            LevelManager.instance.CurrentLevel += 1;
+
+            SceneManager.LoadScene(NextLvl);
+        }
+        else
+        {
+            LoadLevelSelect();
+        }
 
         Time.timeScale = 1;
     }

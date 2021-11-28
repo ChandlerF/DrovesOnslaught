@@ -55,8 +55,8 @@ public class EnemySpawner : MonoBehaviour
 
         if(LevelManager.instance != null)
         {
-            //If currentLevel's first star is earned already
-            if (LevelManager.instance.Stars[LevelManager.instance.CurrentLevel][0] == true)
+            //If currentLevel's second star is earned already       //So they can't earn 3rd star until they beat it without casualties
+            if (LevelManager.instance.Stars[LevelManager.instance.CurrentLevel][1] == true)
             {
                 FluctuateSpawnRate = true;
             }

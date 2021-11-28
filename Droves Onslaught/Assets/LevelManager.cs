@@ -33,9 +33,6 @@ public class LevelManager : MonoBehaviour
 
 
 
-
-
-
         //If there's no save data:              //Need the +1 because istarts at 1 for easy read-ability for dictionary
         for (int i = 1; i < TotalLevels + 1; i++)
         {
@@ -61,6 +58,10 @@ public class LevelManager : MonoBehaviour
     //Set stars earned in list
     public void StarsEarned(int x)
     {
+        //Problem
+        //If player tries to get 3rd star, x would not always = 3
+        //So check if star is already true before setting it
+
         if (x >= 1)
         {
             Stars[CurrentLevel][0] = true;
