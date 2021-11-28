@@ -52,34 +52,28 @@ public class Player : MonoBehaviour
     {
         if (!GameIsOver)
         {
-            //1 star from winning
-            int StarsEarned = 1;
             EnemySpawner Spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
 
-            //Another star from beating the level a second time, but on hard mode
-            if (Spawner.FluctuateSpawnRate == true)
-            {
-                StarsEarned += 1;
-            }
+            //Star for beating the level
+            LevelManager.instance.StarsEarned(0);
 
             //Another star from beating the level without losing a building
             if (GetComponent<Arrays>().NumOfBuildingsDestroyed == 0)
             {
-                StarsEarned += 1;
+                LevelManager.instance.StarsEarned(1);
             }
 
-
-
-
-            //Tell Level Manager Stars Earned
-            LevelManager.instance.StarsEarned(StarsEarned);
+            //Another star from beating the level a second time, but on hard mode
+            if (Spawner.FluctuateSpawnRate == true)
+            {
+                LevelManager.instance.StarsEarned(2);
+            }
 
             Time.timeScale = 0;
 
-            //Set Time to 1
 
             GameOverMenu.SetActive(true);
-            //SceneManager.LoadScene("LevelSelect");
+
             GameIsOver = true;
         }
     }

@@ -58,26 +58,11 @@ public class LevelManager : MonoBehaviour
     //Set stars earned in list
     public void StarsEarned(int x)
     {
-        //Problem
-        //If player tries to get 3rd star, x would not always = 3
-        //So check if star is already true before setting it
-
-        if (x >= 1)
+        if (!Stars[CurrentLevel][x])
         {
-            Stars[CurrentLevel][0] = true;
+            TotalStarsEarned += 1;
 
-            if (x >= 2)
-            {
-                Stars[CurrentLevel][1] = true;
-
-
-                if (x >= 3)
-                {
-                    Stars[CurrentLevel][2] = true;
-                }
-            }
+            Stars[CurrentLevel][x] = true;
         }
-
-        TotalStarsEarned += x;
     }
 }

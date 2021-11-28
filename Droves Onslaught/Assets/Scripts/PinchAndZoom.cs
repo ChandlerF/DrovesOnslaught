@@ -18,11 +18,13 @@ public class PinchAndZoom : MonoBehaviour
     private bool IsClicked = false;
     private Vector3 DragPos;
 
+    private Arrays ListScript;
+
 
     void Start()
     {
         cam = GetComponent<Camera>();
-
+        ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
 
         if(cam.orthographicSize < ZoomMinBound)
         {
@@ -40,32 +42,33 @@ public class PinchAndZoom : MonoBehaviour
         {
             if (Input.touchCount > 0)
             {
-                
-                //Panning with touch//
-                if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
+                if (!ListScript.InPlacingBuildingMode)
                 {
-                    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-                    transform.Translate(-touchDeltaPosition.x * PanSpeed, -touchDeltaPosition.y * PanSpeed, 0);
-                    Debug.Log("Pan");
-                }
+                    //Panning with touch//
+                    if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
+                    {
+                        Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                        transform.Translate(-touchDeltaPosition.x * PanSpeed, -touchDeltaPosition.y * PanSpeed, 0);
+                    }
 
-                // Pinch to zoom
-                else if (Input.touchCount == 2)
-                {
+                    // Pinch to zoom
+                    else if (Input.touchCount == 2)
+                    {
 
-                    // get current touch positions
-                    Touch tZero = Input.GetTouch(0);
-                    Touch tOne = Input.GetTouch(1);
-                    // get touch position from the previous frame
-                    Vector2 tZeroPrevious = tZero.position - tZero.deltaPosition;
-                    Vector2 tOnePrevious = tOne.position - tOne.deltaPosition;
+                        // get current touch positions
+                        Touch tZero = Input.GetTouch(0);
+                        Touch tOne = Input.GetTouch(1);
+                        // get touch position from the previous frame
+                        Vector2 tZeroPrevious = tZero.position - tZero.deltaPosition;
+                        Vector2 tOnePrevious = tOne.position - tOne.deltaPosition;
 
-                    float oldTouchDistance = Vector2.Distance(tZeroPrevious, tOnePrevious);
-                    float currentTouchDistance = Vector2.Distance(tZero.position, tOne.position);
+                        float oldTouchDistance = Vector2.Distance(tZeroPrevious, tOnePrevious);
+                        float currentTouchDistance = Vector2.Distance(tZero.position, tOne.position);
 
-                    // get offset value
-                    float deltaDistance = oldTouchDistance - currentTouchDistance;
-                    Zoom(deltaDistance, -TouchZoomSpeed);
+                        // get offset value
+                        float deltaDistance = oldTouchDistance - currentTouchDistance;
+                        Zoom(deltaDistance, -TouchZoomSpeed);
+                    }
                 }
             }
             else

@@ -25,31 +25,16 @@ public class BuildingChecker : MonoBehaviour
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
 
 
-        transform.position = worldPosition;   ///////////////////
+        transform.position = worldPosition;
 
-        //Click mouse, not touching buildings, game isn't paused
-        if(Input.GetMouseButtonDown(0) && !TouchingBuilding && Time.timeScale != 0)     /////////////////////
+       
+        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
-            if (Building.CompareTag("Producer"))
-            {
-                if (TouchingOre)
-                {
-                    DestroyOres = true;
-
-                    SpawnBuilding();
-                }
-            }
-
-            else
-            {
-                if (!TouchingOre)
-                {
-                    SpawnBuilding();
-                    
-                    ListScript.InPlacingBuildingMode = false;
-                    Destroy(gameObject);
-                }
-            }
+            CallSpawnBuilding();
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))     //--------------
+        {
+            CallSpawnBuilding();
         }
 
 
@@ -66,6 +51,33 @@ public class BuildingChecker : MonoBehaviour
 
 
 
+
+    private void CallSpawnBuilding()
+    {
+        if (!TouchingBuilding && Time.timeScale != 0)
+        {
+            if (Building.CompareTag("Producer"))
+            {
+                if (TouchingOre)
+                {
+                    DestroyOres = true;
+
+                    SpawnBuilding();
+                }
+            }
+
+            else
+            {
+                if (!TouchingOre)
+                {
+                    SpawnBuilding();
+
+                    ListScript.InPlacingBuildingMode = false;
+                    Destroy(gameObject);
+                }
+            }
+        }
+    }
 
 
     private void SpawnBuilding()

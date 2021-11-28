@@ -515,7 +515,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 0.4509804}
+    m_NormalColor: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -623,7 +623,6 @@ MonoBehaviour:
   BuildingChecker: {fileID: 3613983595172895242, guid: b0ae99f933f73ad4db2011d8fab44a2d, type: 3}
   Visual: {fileID: 1866382075270357265, guid: 5b942daf555ae6e40aa8e536c509260b, type: 3}
   Tower: {fileID: 5626008921865999339, guid: 04b47793900bea54199bb92528df9902, type: 3}
-  DimCanvas: {fileID: 5501281988721443284, guid: f524b31333b596f4fa70b507c69d11b9, type: 3}
   ActiveUpgradeCanvas: {fileID: 0}
   SpawnTower: 0
 --- !u!4 &374592536
@@ -655,6 +654,8 @@ MonoBehaviour:
   Scrap: 255
   Points: 0
   UGUI: {fileID: 1151813924}
+  PauseMenu: {fileID: 0}
+  GameOverMenu: {fileID: 0}
 --- !u!114 &374592538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,11 +684,13 @@ MonoBehaviour:
   - Tank
   - Fighter
   - Brute
+  AllEnemyNames: []
   UpgradeButtonActive: 0
   SelectedBuilding: {fileID: 0}
   InTetherMode: 0
   InPlacingBuildingMode: 0
   IsPaused: 0
+  NumOfBuildingsDestroyed: 0
 --- !u!114 &374592539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1407,6 +1410,8 @@ GameObject:
   m_Component:
   - component: {fileID: 562376398}
   - component: {fileID: 562376399}
+  - component: {fileID: 562376401}
+  - component: {fileID: 562376400}
   m_Layer: 5
   m_Name: Grid
   m_TagString: Untagged
@@ -1432,7 +1437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -341.11108}
+  m_AnchoredPosition: {x: 0, y: -525.1581}
   m_SizeDelta: {x: 591.62, y: 386.4123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &562376399
@@ -1456,10 +1461,48 @@ MonoBehaviour:
   fitType: 4
   rows: 2
   columns: 1
-  cellSize: {x: 541.62, y: 160.70615}
-  spacing: {x: 0, y: 15}
+  cellSize: {x: 541.62, y: 155.70615}
+  spacing: {x: 0, y: 25}
   fitX: 1
   fitY: 1
+--- !u!114 &562376400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562376397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &562376401
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562376397}
+  m_CullTransparentMesh: 1
 --- !u!1001 &612601190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2218,6 +2261,7 @@ MonoBehaviour:
   SpawnY: {x: 3, y: 20}
   RestartWhenRoundsFinish: 1
   OnRestartUpgradeEnemies: 1
+  MenuSpawner: 1
   SwarmGO: {fileID: 524697476118191260, guid: 8a128f9956b0022449d704fee929ed73, type: 3}
   FighterGO: {fileID: 4606661815530133700, guid: d00f6f6760532b842830fb991fd5ea89, type: 3}
   BruteGO: {fileID: 7343607769153712210, guid: 1476ed3afe6a44d438b13eb43648476b, type: 3}
@@ -2371,7 +2415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -73.953}
+  m_AnchoredPosition: {x: 0, y: -258}
   m_SizeDelta: {x: 792.8566, y: 147.906}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &912661448
@@ -2633,8 +2677,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 125
+  m_fontSizeBase: 125
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3160,8 +3204,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 110
+  m_fontSizeBase: 110
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4433,7 +4477,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 0.4509804}
+    m_NormalColor: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}

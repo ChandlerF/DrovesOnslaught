@@ -30,6 +30,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] bool RestartWhenRoundsFinish = true;
     [SerializeField] bool OnRestartUpgradeEnemies = true;
 
+    [SerializeField] bool MenuSpawner = false;
+
     [SerializeField] GameObject SwarmGO;
     [SerializeField] GameObject FighterGO;
     [SerializeField] GameObject BruteGO;
@@ -53,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
             SetListToMin();
         }
 
-        if(LevelManager.instance != null)
+        if(LevelManager.instance != null && !MenuSpawner)
         {
             //If currentLevel's second star is earned already       //So they can't earn 3rd star until they beat it without casualties
             if (LevelManager.instance.Stars[LevelManager.instance.CurrentLevel][1] == true)
