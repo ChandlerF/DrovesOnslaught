@@ -38,10 +38,19 @@ public class PinchAndZoom : MonoBehaviour
     {
         if (CanMove)
         {
-            if (Input.touchSupported)
+            if (Input.touchCount > 0)
             {
+                
+                //Panning with touch//
+                if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
+                {
+                    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                    transform.Translate(-touchDeltaPosition.x * PanSpeed, -touchDeltaPosition.y * PanSpeed, 0);
+                    Debug.Log("Pan");
+                }
+
                 // Pinch to zoom
-                if (Input.touchCount == 2)
+                else if (Input.touchCount == 2)
                 {
 
                     // get current touch positions
@@ -56,7 +65,7 @@ public class PinchAndZoom : MonoBehaviour
 
                     // get offset value
                     float deltaDistance = oldTouchDistance - currentTouchDistance;
-                    Zoom(deltaDistance, TouchZoomSpeed);
+                    Zoom(deltaDistance, -TouchZoomSpeed);
                 }
             }
             else
@@ -67,38 +76,26 @@ public class PinchAndZoom : MonoBehaviour
                     float scroll = Input.GetAxis("Mouse ScrollWheel");
                     Zoom(scroll, MouseZoomSpeed);
                 }
-            }
-
-            //Panning with touch//
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
-            {
-                Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-                transform.Translate(-touchDeltaPosition.x * PanSpeed, -touchDeltaPosition.y * PanSpeed, 0);
-            }
 
 
+                //Pan By Clicking Scroll Wheel//
 
+                if (Input.GetMouseButtonDown(2))
+                {
+                    DragPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                    IsClicked = true;
+                }
 
-
-
-
-            //Pan By Clicking Scroll Wheel//
-
-            if (Input.GetMouseButtonDown(2))
-            {
-                DragPos = cam.ScreenToWorldPoint(Input.mousePosition);
-                IsClicked = true;
-            }
-
-            if (Input.GetMouseButton(2) && IsClicked)
-            {
-                Vector3 diff = DragPos - cam.ScreenToWorldPoint(Input.mousePosition);
-                diff.z = 0.0f;
-                cam.transform.position += diff;
-            }
-            if (Input.GetMouseButtonUp(2))
-            {
-                IsClicked = false;
+                if (Input.GetMouseButton(2) && IsClicked)
+                {
+                    Vector3 diff = DragPos - cam.ScreenToWorldPoint(Input.mousePosition);
+                    diff.z = 0.0f;
+                    cam.transform.position += diff;
+                }
+                if (Input.GetMouseButtonUp(2))
+                {
+                    IsClicked = false;
+                }
             }
         }
     }

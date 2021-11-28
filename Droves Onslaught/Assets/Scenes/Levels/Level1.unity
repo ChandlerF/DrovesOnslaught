@@ -1308,10 +1308,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanMove: 1
   MouseZoomSpeed: 15
-  TouchZoomSpeed: 0.1
-  ZoomMinBound: 10
+  TouchZoomSpeed: 0.01
+  ZoomMinBound: 5
   ZoomMaxBound: 20
-  PanSpeed: 0.1
+  PanSpeed: 0.005
 --- !u!81 &157017694
 AudioListener:
   m_ObjectHideFlags: 0
