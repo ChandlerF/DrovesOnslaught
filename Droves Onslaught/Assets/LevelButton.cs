@@ -11,6 +11,9 @@ public class LevelButton : MonoBehaviour
 
     private TextMeshProUGUI ButtonText;
 
+    //[SerializeField] List<bool> StarsEarned = new List<bool>();
+
+
     [SerializeField] Color GoldColor;
 
 
@@ -21,7 +24,6 @@ public class LevelButton : MonoBehaviour
         ButtonText = transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
 
         ButtonText.text = LevelNumber.ToString();
-
         SetStars();
     }
 
@@ -31,23 +33,22 @@ public class LevelButton : MonoBehaviour
         GameObject StarsParent = transform.GetChild(0).GetChild(1).gameObject;
 
 
+        //StarsEarned = LevelManager.instance.Stars[LevelNumber];
+
+
         if (LevelManager.instance.Stars[LevelNumber][0])
         {
             StarsParent.transform.GetChild(0).GetComponent<Image>().color = GoldColor;
 
 
-            if (LevelManager.instance.Stars[LevelNumber][1])
+            for (int i = 0; i < 3; i++)
             {
-                StarsParent.transform.GetChild(1).GetComponent<Image>().color = GoldColor;
-
-
-                if (LevelManager.instance.Stars[LevelNumber][2])
+                if (LevelManager.instance.Stars[LevelNumber][i])
                 {
-                    StarsParent.transform.GetChild(2).GetComponent<Image>().color = GoldColor;
+                    StarsParent.transform.GetChild(i).GetComponent<Image>().color = GoldColor;
                 }
             }
         }
-        
     }
 
 

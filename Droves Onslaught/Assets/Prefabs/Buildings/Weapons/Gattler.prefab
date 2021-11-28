@@ -218,7 +218,7 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.15}
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.5494014, y: -0.4144554}
@@ -324,6 +324,10 @@ PrefabInstance:
     - target: {fileID: 6303879479382175852, guid: a77117925281cb043825702ce0f7c9d0, type: 3}
       propertyPath: m_Name
       value: World-Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303879479382175854, guid: a77117925281cb043825702ce0f7c9d0, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a77117925281cb043825702ce0f7c9d0, type: 3}

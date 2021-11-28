@@ -60,17 +60,26 @@ public class Player : MonoBehaviour
                 StarsEarned += 1;
             }
 
+            //Another star from beating the level without losing a building
+            if (GetComponent<Arrays>().NumOfBuildingsDestroyed == 0)
+            {
+                StarsEarned += 1;
+            }
 
+
+
+
+            //Tell Level Manager Stars Earned
             LevelManager.instance.StarsEarned(StarsEarned);
 
+            //Time.timeScale = 0;
+
+            //Enable Game Over screen, or switch scenes
+            //Set Time to 1
+            //Give option to next level or back
 
 
-
-
-
-
-
-
+            SceneManager.LoadScene("LevelSelect");
             GameIsOver = true;
         }
     }

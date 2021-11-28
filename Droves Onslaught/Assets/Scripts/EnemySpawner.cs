@@ -53,11 +53,13 @@ public class EnemySpawner : MonoBehaviour
             SetListToMin();
         }
 
-
-        //If currentLevel's first star is earned already
-        if (LevelManager.instance.Stars[LevelManager.instance.CurrentLevel][0] == true)
+        if(LevelManager.instance != null)
         {
-            FluctuateSpawnRate = true;
+            //If currentLevel's first star is earned already
+            if (LevelManager.instance.Stars[LevelManager.instance.CurrentLevel][0] == true)
+            {
+                FluctuateSpawnRate = true;
+            }
         }
     }
     
@@ -129,14 +131,28 @@ public class EnemySpawner : MonoBehaviour
             }
             else
             {
-                //GameOver
-                GameObject Manager = GameObject.FindGameObjectWithTag("Manager");
-                Manager.GetComponent<Player>().GameOver();
+                if(EnemyCount() <= 0)
+                {
+                    //GameOver
+                    ListScript.gameObject.GetComponent<Player>().GameOver();
+                }
             }
         }
     }
 
     
+    private int EnemyCount()
+    {
+        int x = 0;
+
+        for(int i = 0; i < ListScript.AllEnemyNames.Count; i++)
+        {
+            x += ListScript.BuildingDict[ListScript.AllEnemyNames[i]].Count;
+        }
+
+        return x;
+    }
+
     private void SetCurrentDelayList()
     {
         //Clear list, then add start values (can't do start=current, it makes both lists share values constantly)

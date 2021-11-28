@@ -14,61 +14,40 @@ public class LevelManager : MonoBehaviour
     public int CurrentLevel;
 
     //Identical ro dictionary (uses index instead of key)
-    public List<List<bool>> Stars = new List<List<bool>>();
+    public Dictionary<int, List<bool>> Stars = new Dictionary<int, List<bool>>();
 
 
     private void Awake()
     {
-        instance = this;
-
-        DontDestroyOnLoad(this.gameObject);
-
-        //If there's no save data:
-        for(int i = 0; i < TotalLevels; i++)
+        //If I'm the only one of myself in scene
+        if (instance == null)
         {
-            Stars[i] = new List<bool>();
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        //If I'm not the original
+        else if (instance != this)
+        {
+                Destroy(gameObject);
+        }
 
-            for (int y = 0; y < 3; y++)
-            {
-                Stars[i][y] = false;
-            }
+
+
+
+
+
+        //If there's no save data:              //Need the +1 because istarts at 1 for easy read-ability for dictionary
+        for (int i = 1; i < TotalLevels + 1; i++)
+        {
+            //NullList needs to be in for() loop or else every Level script shares the same stars... weird
+            List<bool> NullList = new List<bool>();
+            NullList.Add(false);
+            NullList.Add(false);
+            NullList.Add(false);
+
+            Stars.Add(i, NullList);
         }
         //Else: Load Save Data
-
-
-
-
-
-
-
-
-         void StarsEarned(int x)
-        {
-            if (x >= 1)
-            {
-                Stars[CurrentLevel][0] = true;
-
-                if (x >= 2)
-                {
-                    Stars[CurrentLevel][1] = true;
-
-
-                    if (x >= 3)
-                    {
-                        Stars[CurrentLevel][2] = true;
-                    }
-                }
-            }
-        }
-
-
-
-
-
-
-
-
-
 
 
         //Have to make it a proper singleton, reference camera
@@ -76,5 +55,28 @@ public class LevelManager : MonoBehaviour
         //Make UI look pretty for Menu and Level Select
         //have tab system or something to access other 'chapters' of levels
         //look into saving stats (maybe round of current level)
+    }
+
+
+    //Set stars earned in list
+    public void StarsEarned(int x)
+    {
+        if (x >= 1)
+        {
+            Stars[CurrentLevel][0] = true;
+
+            if (x >= 2)
+            {
+                Stars[CurrentLevel][1] = true;
+
+
+                if (x >= 3)
+                {
+                    Stars[CurrentLevel][2] = true;
+                }
+            }
+        }
+
+        TotalStarsEarned += x;
     }
 }

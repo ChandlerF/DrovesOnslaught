@@ -6979,6 +6979,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalLevels: 10
+  TotalStarsEarned: 0
+  CurrentLevel: 0
 --- !u!4 &1503160100
 Transform:
   m_ObjectHideFlags: 0

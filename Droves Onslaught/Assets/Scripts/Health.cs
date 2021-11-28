@@ -48,6 +48,7 @@ public class Health : MonoBehaviour
     {
         string Name = GetComponent<ButtonInfo>().Name;
         MoveTowards MoveScript = GetComponent<MoveTowards>();
+        Arrays ListScript = Manager.GetComponent<Arrays>();
 
         //If on death, it's scrap is more than 0, add it
         if (Scrap > 0)
@@ -65,22 +66,22 @@ public class Health : MonoBehaviour
         if (GetComponent<ButtonInfo>() && GetComponent<ButtonInfo>().RangeVisual != null)
         {
             GameObject Visual = GetComponent<ButtonInfo>().RangeVisual;
-            Manager.GetComponent<Arrays>().VisualsList.Remove(Visual);
+            ListScript.VisualsList.Remove(Visual);
             Destroy(Visual);
         }
 
 
         //If gameobject is a building//
-        List<GameObject> gos = Manager.GetComponent<Arrays>().BuildingsList;
+        List<GameObject> gos = ListScript.BuildingsList;
         if (gos.Contains(gameObject))
         {
             //Shake Camera
             Manager.GetComponent<Player>().CameraShake(0.5f);
-            //Remove building from building list
+            ListScript.NumOfBuildingsDestroyed += 1;
             gos.Remove(gameObject);
         }
 
-        Manager.GetComponent<Arrays>().BuildingDict[Name].Remove(gameObject);
+        ListScript.BuildingDict[Name].Remove(gameObject);
 
         Instantiate(Particles, transform.position, Particles.transform.rotation);
         Destroy(gameObject);

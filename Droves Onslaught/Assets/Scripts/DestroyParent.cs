@@ -56,6 +56,8 @@ public class DestroyParent : MonoBehaviour
 
         ListScript.BuildingsList.Remove(SelectedBuilding);
 
+        ListScript.NumOfBuildingsDestroyed += 1;
+
         //Pop up text when scrapped, refund 75% of cost to make * percentage of hp (so if tower is half health, you get half of 75% back)
         Health HealthScript = SelectedBuilding.GetComponent<Health>();
 

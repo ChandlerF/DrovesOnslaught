@@ -12,6 +12,10 @@ public class Arrays : MonoBehaviour
 
     [SerializeField] List<string> DictNames = new List<string>();
 
+
+    public List<string> AllEnemyNames = new List<string>();
+
+
     public Dictionary<string, List<GameObject>> BuildingDict = new Dictionary<string, List<GameObject>>();
 
     //Is set to know if upgrade menu can be spawned
@@ -25,6 +29,8 @@ public class Arrays : MonoBehaviour
     
     //For when pausing, or game over
     public bool IsPaused = false;
+
+    public int NumOfBuildingsDestroyed = 0;
 
     private void Awake()
     {
