@@ -6,22 +6,22 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class SerializationManager : MonoBehaviour
+public static class SerializationManager
 {
-    public static bool Save(string saveName, object saveData)
+    public static void Save(SaveData saveData)
     {
-        BinaryFormatter formatter = GetBinaryFormatter();
+        BinaryFormatter formatter = new BinaryFormatter;
 
         if (!Directory.Exists(Application.persistentDataPath + "/saves"))
         {
             Directory.CreateDirectory(Application.persistentDataPath + "/saves");
         }
 
-        string path = Application.persistentDataPath + "/saves/" + saveName + ".save";
+        string path = Application.persistentDataPath + "/saves/" + "Save" + ".save";
+        FileStream stream = File.Create(path);
 
-
-        FileStream file = File.Create(path);
-
+        x data = new x(saveData);
+        
         formatter.Serialize(file, saveData);
 
         file.Close();
