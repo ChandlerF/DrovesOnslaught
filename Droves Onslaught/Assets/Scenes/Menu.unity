@@ -671,6 +671,7 @@ MonoBehaviour:
   BuildingsList: []
   VisualsList: []
   BaseButtonsParent: {fileID: 0}
+  UpgradeButtons: {fileID: 0}
   DictNames:
   - Tower
   - Miner
@@ -2924,6 +2925,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 473965218098737676, guid: 98c9ef9c0b89daf4496138d45b228e50, type: 3}
   m_PrefabInstance: {fileID: 1119097473}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1149081091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1149081093}
+  - component: {fileID: 1149081092}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1149081092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149081091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610d0cde6152c8c4a8d61208bca61ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TotalLevels: 10
+  TotalStarsEarned: 12
+  CurrentLevel: 0
+  BuildingsNames:
+  - Miner
+  - Factory
+  - Turret
+  - Gattler
+  - Sniper
+  - Transport
+  - Market
+--- !u!4 &1149081093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149081091}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1151813922
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
@@ -36,6 +37,23 @@ public class LevelManager : MonoBehaviour
                 Destroy(gameObject);
         }
 
+        
+        //SaveData.current = (SaveData)SerializationManager.Load(Application.persistentDataPath + "/saves/Save.save");  //-->-
+        //TotalStarsEarned = SaveData.current.LvlManager.TotalStarsEarned;
+        //Debug.Log("Load");
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         //If there's no save data:              //Need the +1 because istarts at 1 for easy read-ability for dictionary
@@ -67,6 +85,7 @@ public class LevelManager : MonoBehaviour
     {
         if (!Stars[CurrentLevel][x])
         {
+            //SaveData.current.LvlManager.TotalStarsEarned += 1;    //-->-
             TotalStarsEarned += 1;
 
             Stars[CurrentLevel][x] = true;

@@ -109,6 +109,5 @@ public class PinchAndZoom : MonoBehaviour
         cam.orthographicSize -= deltaMagnitudeDiff * speed;
         // set min and max value of Clamp function upon your requirement
         cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, ZoomMinBound, ZoomMaxBound);
-        Debug.Log("Zoom");
     }
 }

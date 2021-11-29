@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+
+[System.Serializable]
 public class Player : MonoBehaviour
 {
     public int Scrap = 0;
@@ -68,6 +70,11 @@ public class Player : MonoBehaviour
             {
                 LevelManager.instance.StarsEarned(2);
             }
+
+
+            //Debug.Log("Save");
+           // SerializationManager.Save("Save", SaveData.current);      //-->-
+
 
             Time.timeScale = 0;
 
