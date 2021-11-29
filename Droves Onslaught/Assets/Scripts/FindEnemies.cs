@@ -15,7 +15,6 @@ public class FindEnemies : MonoBehaviour
 
     public float MaxRange = 100f;
 
-    private bool IsMarket = false;
 
     private Arrays ListScript;
     private ButtonInfo BuildingInfo;
@@ -27,6 +26,7 @@ public class FindEnemies : MonoBehaviour
 
     private bool RunOnce = false;
 
+    [SerializeField] bool IsMarket = false;
 
     private void Start()
     {
@@ -74,21 +74,20 @@ public class FindEnemies : MonoBehaviour
         }
 
 
-
-        //Have this code here to run once (for the market buildings)
-        //Having trouble setting their target to null because this script sets it to something else immediately
-        if (MoveScript.Target == null && TargetList.Count > 0)
-        {
-            MoveScript.Target = FindClosestEnemy();
-        }
-
-        else if (GetComponent<Producer>())
-        {
-            if (GetComponent<Producer>().IsMarket)
+            //Have this code here to run once (for the market buildings)
+            //Having trouble setting their target to null because this script sets it to something else immediately
+            if (MoveScript.Target == null && TargetList.Count > 0)
             {
-                IsMarket = true;
+                MoveScript.Target = FindClosestEnemy();
             }
-        }
+
+            else if (GetComponent<Producer>())
+            {
+                if (GetComponent<Producer>().IsMarket)
+                {
+                    IsMarket = true;
+                }
+            }
 
         //Every building re does line renderer
         Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
@@ -110,7 +109,7 @@ public class FindEnemies : MonoBehaviour
         {
             SetTargetList();
 
-            if(TargetList.Count > 0)
+            if(TargetList.Count > 0)        ///////////?            // && (FindClosestEnemy().transform.position - transform.position).sqrMagnitude < MaxRange
             {
                 SetTargetAndLR();
             }
@@ -133,7 +132,7 @@ public class FindEnemies : MonoBehaviour
 
         foreach (GameObject go in TargetList)
         {
-            if(go != null)
+            if (go != null)
             {
                 Vector3 diff = go.transform.position - position;
                 float curDistance = diff.sqrMagnitude;
@@ -151,7 +150,10 @@ public class FindEnemies : MonoBehaviour
             }
         }
 
-        if(closest != null && closest.GetComponent<MoveTowards>() != null)
+
+
+
+        if (closest != null && closest.GetComponent<MoveTowards>() != null)
         {
             closest.GetComponent<MoveTowards>().Shooter = gameObject;
         }
@@ -159,14 +161,19 @@ public class FindEnemies : MonoBehaviour
         return closest;
     }
 
+
+
+
+
+
     private void SetTargetAndLR()
     {
-        //Put this into a function, so the if() won't ignore the Set LR section (because the target is no longer null)
+        //Put this into a function, so the if() won't ignore the Set LR section (because the target is no longer null)  /   it was at the end of an if statement
 
         MoveScript.Target = FindClosestEnemy();
 
 
-        //If gameobject is a producer:
+        //If gameobject is a producer:  /   It has a LineRenderer
         if (GetComponent<Producer>() != null)
         {
             //Need to call this after FindClosestEnemy() or else SettingLineRenderers() won't work

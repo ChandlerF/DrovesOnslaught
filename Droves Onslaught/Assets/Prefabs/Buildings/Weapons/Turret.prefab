@@ -148,7 +148,7 @@ MonoBehaviour:
   - Brute
   - Fighter
   TargetList: []
-  MaxRange: 700
+  MaxRange: 650
   SpawnedViaEditor: 0
   SpawnVisual: 1
 --- !u!114 &5871699182762534363

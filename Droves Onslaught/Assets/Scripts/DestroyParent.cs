@@ -94,7 +94,7 @@ public class DestroyParent : MonoBehaviour
 
         Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
 
-        DestroyTheParent();
+        DisableTheParent();
     }
 
     public void SpawnBuilding(GameObject go)        //Called by button

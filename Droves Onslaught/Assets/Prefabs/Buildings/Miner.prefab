@@ -159,7 +159,7 @@ MonoBehaviour:
   TargetName:
   - Factory
   TargetList: []
-  MaxRange: 100
+  MaxRange: 50
   SpawnedViaEditor: 0
   SpawnVisual: 1
 --- !u!114 &6343817766275101422

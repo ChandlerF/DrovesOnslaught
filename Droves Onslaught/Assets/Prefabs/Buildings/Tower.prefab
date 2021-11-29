@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5626008921865999342}
   - component: {fileID: 7484643519443896821}
   - component: {fileID: 4515474903260269946}
+  - component: {fileID: 7187867509705563548}
+  - component: {fileID: 1830593352205167633}
   m_Layer: 6
   m_Name: Tower
   m_TagString: Tower
@@ -163,3 +165,45 @@ MonoBehaviour:
   BuildingUpgrades: []
   RangeVisual: {fileID: 0}
   Scale: {x: 1, y: 1}
+--- !u!114 &7187867509705563548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626008921865999339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7933ad2d075167f4da038e80d4a1f8a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetName: []
+  TargetList: []
+  MaxRange: 100
+  SpawnedViaEditor: 0
+  SpawnVisual: 0
+  IsMarket: 1
+--- !u!114 &1830593352205167633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626008921865999339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7f424461a5cab41a015363f7a546e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  Shooter: {fileID: 0}
+  MoveTowardsTarget: 0
+  MoveSpeed: 0
+  RotateSpeed: 0
+  RotateTowards: 0
+  Innaccuracy: 0
+  Offset: 0
+  MoveForwards: 0
+  DestroyIfTargetNull: 0
+  DoneRotating: 0
+  AccuracyBeforeShooting: 0
