@@ -61,4 +61,12 @@ public class PauseButton : MonoBehaviour
 
         Time.timeScale = 1;
     }
+
+
+    public void LoadShop()
+    {
+        SceneManager.LoadScene("Shop");
+
+        Time.timeScale = 1;
+    }
 }

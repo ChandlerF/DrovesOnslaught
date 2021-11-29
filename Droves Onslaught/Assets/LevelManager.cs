@@ -13,8 +13,13 @@ public class LevelManager : MonoBehaviour
 
     public int CurrentLevel;
 
-    //Identical ro dictionary (uses index instead of key)
+
     public Dictionary<int, List<bool>> Stars = new Dictionary<int, List<bool>>();
+
+    public Dictionary<string, bool> BuildingsUnlocked = new Dictionary<string, bool>();
+    [SerializeField] List<string> BuildingsNames = new List<string>();
+
+
 
 
     private void Awake()
@@ -34,6 +39,7 @@ public class LevelManager : MonoBehaviour
 
 
         //If there's no save data:              //Need the +1 because istarts at 1 for easy read-ability for dictionary
+        //Do the Same for what buildings are unlocked //----
         for (int i = 1; i < TotalLevels + 1; i++)
         {
             //NullList needs to be in for() loop or else every Level script shares the same stars... weird
@@ -47,11 +53,12 @@ public class LevelManager : MonoBehaviour
         //Else: Load Save Data
 
 
-        //Have to make it a proper singleton, reference camera
-        //Have to initialize the lists Stars
-        //Make UI look pretty for Menu and Level Select
-        //have tab system or something to access other 'chapters' of levels
-        //look into saving stats (maybe round of current level)
+
+
+        for(int i = 0; i < BuildingsNames.Count; i++)
+        {
+            BuildingsUnlocked.Add(BuildingsNames[i], false);
+        }
     }
 
 

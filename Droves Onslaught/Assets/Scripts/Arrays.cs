@@ -10,6 +10,8 @@ public class Arrays : MonoBehaviour
 
     [SerializeField] GameObject BaseButtonsParent;
 
+    public GameObject UpgradeButtons;
+
     [SerializeField] List<string> DictNames = new List<string>();
 
 

@@ -14,14 +14,19 @@ public class Shop : MonoBehaviour
 
     private SpriteRenderer SR;
 
+    private string Name;
+
     [SerializeField] Sprite EditorSprite;
 
     private void Start()
     {
+        Name = Building.GetComponent<ButtonInfo>().Name;
         Text = transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
         Price =  int.Parse(Text.text);
 
-        if(EditorSprite == null)
+
+
+        if (EditorSprite == null)
         {
             SR = Building.GetComponent<SpriteRenderer>();
 
@@ -31,6 +36,13 @@ public class Shop : MonoBehaviour
         {
             transform.GetChild(0).GetComponent<Image>().sprite = EditorSprite;
         }
+
+
+        if (LevelManager.instance.BuildingsUnlocked[Name])
+        {
+            //Turn Button Off
+            GetComponent<Button>().interactable = false;
+        }
     }
 
 
@@ -39,13 +51,16 @@ public class Shop : MonoBehaviour
         if (LevelManager.instance.TotalStarsEarned >= Price)
         {
             //Unlock
-            Building.GetComponent<ButtonInfo>().IsUnlocked = true;
+            LevelManager.instance.BuildingsUnlocked[Name] = true;
 
             //Turn Button Off
             GetComponent<Button>().interactable = false;
 
             //Subtract Stars
             LevelManager.instance.TotalStarsEarned -= Price;
+
+            GameObject TextGO = transform.parent.parent.parent.GetChild(0).GetChild(0).gameObject;
+            TextGO.GetComponent<StarsCountText>().SetStarsCount();
         }
     }
 }

@@ -29,6 +29,27 @@ public class DestroyParent : MonoBehaviour
         }
     }
 
+    //Only used once, for upgrade buttons
+    public void DisableTheParent()
+    {
+        ListScript.ChangeButtonsActive();
+
+        ListScript.UpgradeButtonActive = false;
+
+        if (SelectedBuilding != null && SelectedBuilding.GetComponent<ButtonInfo>().RangeVisual != null)
+        {
+            //Disable building visual
+            SelectedBuilding.GetComponent<ButtonInfo>().RangeVisual.GetComponent<SpriteRenderer>().enabled = false;
+
+            //Destroy instead of diasable and remove from list?
+        }
+
+        //Set tether mode false
+        ListScript.InTetherMode = false;
+
+        transform.parent.parent.gameObject.SetActive(false);
+    }
+
     public void DestroyTheParent()
     {
         ListScript.ChangeButtonsActive();
@@ -134,7 +155,7 @@ public class DestroyParent : MonoBehaviour
         //Turn buttons on / off
         ListScript.ChangeButtonsActive();
 
-        DestroyTheParent();
+        DisableTheParent();
 
     }
 

@@ -274,9 +274,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3194800241012111110}
-        m_TargetAssemblyTypeName: LevelButton, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 3194800241012111111}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: UnlockBuilding
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Building: {fileID: 1886977672466418204, guid: a9fcc66484be1d840acc54152e56defa, type: 3}
+  EditorSprite: {fileID: 0}
 --- !u!1 &8987142695936971524
 GameObject:
   m_ObjectHideFlags: 0

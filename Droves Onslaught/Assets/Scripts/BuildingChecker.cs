@@ -32,24 +32,35 @@ public class BuildingChecker : MonoBehaviour
         {
             CallSpawnBuilding();
         }
-        else if (Input.GetKeyDown(KeyCode.Space))     //--------------
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             CallSpawnBuilding();
         }
 
 
-
-        if (Input.GetMouseButtonDown(1))        ///////////////////////////
+        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Canceled)
         {
-            Arrays ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
-            ListScript.ChangeButtonsActive();
+            Cancel();
+        }
+        else if (Input.GetMouseButtonDown(1)) 
+        {
+            Cancel();
+        }
 
-            ListScript.InPlacingBuildingMode = false;
-            Destroy(gameObject);
+        if(Time.timeScale == 0)
+        {
+            Cancel();
         }
     }
 
+    private void Cancel()
+    {
+        Arrays ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
+        ListScript.ChangeButtonsActive();
 
+        ListScript.InPlacingBuildingMode = false;
+        Destroy(gameObject);
+    }
 
 
     private void CallSpawnBuilding()
