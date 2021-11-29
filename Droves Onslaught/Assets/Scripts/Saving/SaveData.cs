@@ -27,7 +27,10 @@ public class SaveData
     }
 
     public LevelManager LvlManager = LevelManager.instance;
-
+    public int TotalStarsEarned;
+    
+    //Dictionary from level manager of what's unlocked, the index of list is key of dict
+    public List<bool> Unlocked = new List<bool>();
 
 
 }
