@@ -8,7 +8,7 @@ using UnityEngine;
 [System.Serializable]
 public static class SerializationManager
 {
-    public static void Save(SaveData saveData)
+    public static void Save(LevelManager manager)
     {
         BinaryFormatter formatter = new BinaryFormatter;
 
@@ -17,10 +17,10 @@ public static class SerializationManager
             Directory.CreateDirectory(Application.persistentDataPath + "/saves");
         }
 
-        string path = Application.persistentDataPath + "/saves/" + "Save" + ".save";
+        string path = Application.persistentDataPath + "/saves.Save";
         FileStream stream = File.Create(path);
 
-        x data = new x(saveData);
+        SaveData data = new SaveData(manager);
         
         formatter.Serialize(file, saveData);
 
@@ -29,18 +29,28 @@ public static class SerializationManager
         return true;
     }
 
-    public static object Load(string path)
+    public static SaveData Load
     {
+        string path = Application.persistentDataPath + "/saves.Save"
         if (!File.Exists(path))
         {
+            Debug.LogError("Save not found at: " + path);
             return null;
         }
 
-        BinaryFormatter formatter = GetBinaryFormatter();
+        BinaryFormatter formatter = new BinaryFormatter;
 
-        FileStream file = File.Open(path, FileMode.Open);
-
-
+        FileStream stream = new FileStream(path, FileMode.Open);
+        
+        SaveData data = formatter.Deserialize(stream) as SaveData;
+        stream.Close();
+        
+        return data;
+        
+        
+        
+        
+        /*
         try
         {
             object save = formatter.Deserialize(file);
@@ -54,6 +64,7 @@ public static class SerializationManager
             file.Close();
             return null;
         }
+        */
     }
 
     public static BinaryFormatter GetBinaryFormatter()
@@ -63,3 +74,8 @@ public static class SerializationManager
         return formatter;
     }
 }
+
+
+
+
+// var = condition ? trueCase : falseCase
