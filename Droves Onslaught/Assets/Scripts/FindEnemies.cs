@@ -25,6 +25,8 @@ public class FindEnemies : MonoBehaviour
     public bool SpawnVisual = true;
 
     private bool RunOnce = false;
+    
+    private bool TargetIsClose = true;
 
     [SerializeField] bool IsMarket = false;
 
@@ -145,6 +147,11 @@ public class FindEnemies : MonoBehaviour
                     if (curDistance < MaxRange)
                     {
                         closest = go;
+                        TargetIsClose = true;
+                    }
+                    else
+                    {
+                        TargetIsClose = false;
                     }
                 }
             }
@@ -174,7 +181,7 @@ public class FindEnemies : MonoBehaviour
 
 
         //If gameobject is a producer:  /   It has a LineRenderer
-        if (GetComponent<Producer>() != null)
+        if (GetComponent<Producer>() != null && TargetIsClose)
         {
             //Need to call this after FindClosestEnemy() or else SettingLineRenderers() won't work
             Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
