@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
@@ -37,10 +37,8 @@ public class LevelManager : MonoBehaviour
                 Destroy(gameObject);
         }
 
-        
-        //SaveData.current = (SaveData)SerializationManager.Load(Application.persistentDataPath + "/saves/Save.save");  //-->-
-        //TotalStarsEarned = SaveData.current.LvlManager.TotalStarsEarned;
-        //Debug.Log("Load");
+
+        //instance.LoadPlayer();
 
 
 
@@ -83,12 +81,31 @@ public class LevelManager : MonoBehaviour
     //Set stars earned in list
     public void StarsEarned(int x)
     {
+        //If the bool (in dict) is false
         if (!Stars[CurrentLevel][x])
         {
-            //SaveData.current.LvlManager.TotalStarsEarned += 1;    //-->-
             TotalStarsEarned += 1;
 
             Stars[CurrentLevel][x] = true;
         }
+    }
+
+
+
+
+
+    public void SavePlayer()
+    {
+        Debug.Log("Save");
+        SerializationManager.Save(this);
+    }
+
+    public void LoadPlayer()
+    {
+        Debug.Log("Load");
+        SaveData data = SerializationManager.Load();
+
+        TotalStarsEarned = data.TotalStarsEarned;
+        BuildingsUnlocked = data.Unlocked;
     }
 }

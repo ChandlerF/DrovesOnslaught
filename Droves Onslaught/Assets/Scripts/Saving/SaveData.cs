@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
-    private static SaveData _current;
+    /*private static SaveData _current;
     public static SaveData current
     {
         get
@@ -24,20 +24,21 @@ public class SaveData
                 _current = value;
             }
         }
-    }
+    }*/
 
     public int TotalStarsEarned;
-    
-    //Dictionary from level manager of what's unlocked, the index of list is key of dict
-    public List<bool> Unlocked = new List<bool>();      //Use bool[] or int[] if needed
 
-    
-    
-    
-    Public SaveData(LevelManager Manager)
+    //Dictionary from level manager of what's unlocked, the index of list is key of dict
+
+    public Dictionary<string, bool> Unlocked = new Dictionary<string, bool>();                           //public List<bool> Unlocked = new List<bool>();      //Use bool[] or int[] if needed
+
+
+
+
+    public SaveData (LevelManager Manager)
     {
         TotalStarsEarned = Manager.TotalStarsEarned;
-
+        Unlocked = Manager.BuildingsUnlocked;
     }
 
 }

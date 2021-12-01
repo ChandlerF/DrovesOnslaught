@@ -10,7 +10,7 @@ public static class SerializationManager
 {
     public static void Save(LevelManager manager)
     {
-        BinaryFormatter formatter = new BinaryFormatter;
+        BinaryFormatter formatter = new BinaryFormatter();
 
         if (!Directory.Exists(Application.persistentDataPath + "/saves"))
         {
@@ -22,29 +22,31 @@ public static class SerializationManager
 
         SaveData data = new SaveData(manager);
         
-        formatter.Serialize(file, saveData);
+        formatter.Serialize(stream, data);
 
-        file.Close();
         Debug.Log("Saveddd");
-        return true;
+        
+        stream.Close();
     }
 
-    public static SaveData Load
+    public static SaveData Load()
     {
-        string path = Application.persistentDataPath + "/saves.Save"
+        string path = Application.persistentDataPath + "/saves.Save";
         if (!File.Exists(path))
         {
             Debug.LogError("Save not found at: " + path);
             return null;
         }
 
-        BinaryFormatter formatter = new BinaryFormatter;
+        BinaryFormatter formatter = new BinaryFormatter();
 
         FileStream stream = new FileStream(path, FileMode.Open);
         
         SaveData data = formatter.Deserialize(stream) as SaveData;
         stream.Close();
-        
+
+        Debug.Log("Loadeddd");
+
         return data;
         
         

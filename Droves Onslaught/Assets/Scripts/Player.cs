@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 
-[System.Serializable]
 public class Player : MonoBehaviour
 {
     public int Scrap = 0;
@@ -72,8 +71,7 @@ public class Player : MonoBehaviour
             }
 
 
-            //Debug.Log("Save");
-           // SerializationManager.Save("Save", SaveData.current);      //-->-
+            LevelManager.instance.SavePlayer();
 
 
             Time.timeScale = 0;
