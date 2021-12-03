@@ -91,7 +91,7 @@ public class BuildingButton : MonoBehaviour
         }
 
         //if in tether mode and the new building is in old buildings target list
-        else if (ListScript.InTetherMode && ListScript.SelectedBuilding.GetComponent<FindEnemies>().TargetName.Contains(SelectedBuilding.name.Remove(SelectedBuilding.name.Length - 7)))   //called from new building when clicked
+        else if (ListScript.InTetherMode && ListScript.SelectedBuilding.GetComponent<FindEnemies>().TargetName.Contains(SelectedBuilding.GetComponent<ButtonInfo>().Name))   //called from new building when clicked
         {
             SetTetherModeFalse();
         }
@@ -124,7 +124,7 @@ public class BuildingButton : MonoBehaviour
         Manager.GetComponent<PlacingBuildings>().SettingLineRenderers();
 
         //Destroys Upgrade Canvas after tethering - Calls Destroy Parent
-        Manager.GetComponent<PlacingBuildings>().ActiveUpgradeCanvas.transform.GetChild(0).GetChild(1).GetChild(0).gameObject.GetComponent<DestroyParent>().DisableTheParent();
+        Manager.GetComponent<PlacingBuildings>().ActiveUpgradeCanvas.transform.GetChild(1).GetChild(0).GetComponent<DestroyParent>().DisableTheParent();
 
 
         //Set tether mode false

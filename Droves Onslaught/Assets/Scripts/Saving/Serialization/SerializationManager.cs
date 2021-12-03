@@ -24,7 +24,7 @@ public static class SerializationManager
         
         formatter.Serialize(stream, data);
 
-        //Debug.Log("Saveddd");
+        Debug.Log("Saveddd");
         
         stream.Close();
     }
@@ -48,8 +48,8 @@ public static class SerializationManager
             SaveData data = formatter.Deserialize(stream) as SaveData;
             stream.Close();
 
-            //Debug.Log("Loadeddd");
-
+            Debug.Log("Loadeddd");
+            Debug.Log(path);
             return data;
         }
         catch

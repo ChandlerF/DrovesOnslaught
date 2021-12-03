@@ -63,8 +63,14 @@ public class LevelManager : MonoBehaviour
 
 
 
-
-        instance.LoadPlayer();
+        if (FileAlreadyCreated())
+        {
+            instance.LoadPlayer();
+        }
+        else
+        {
+            instance.SavePlayer();
+        }
     }
 
 
@@ -86,25 +92,33 @@ public class LevelManager : MonoBehaviour
 
     public void SavePlayer()
     {
-        Debug.Log("Save");
         SerializationManager.Save(this);
+
+
+        Debug.Log("Save");
     }
 
     public void LoadPlayer()
     {
-        Debug.Log("Load");
         SaveData data = SerializationManager.Load();
 
         TotalStarsEarned = data.TotalStarsEarned;
 
-        if (data.Unlocked.Count > 0)
+        BuildingsUnlocked = data.Unlocked;
+        Stars = data.LevelsStars;
+
+
+        Debug.Log("Load");
+    }
+
+
+    private bool FileAlreadyCreated()
+    {
+        if(SerializationManager.Load() != null)
         {
-            BuildingsUnlocked = data.Unlocked;
+            return true;
         }
 
-        if (data.LevelsStars.Count > 0)
-        {
-            Stars = data.LevelsStars;
-        }
+        return false;
     }
 }

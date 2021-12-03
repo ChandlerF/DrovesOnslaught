@@ -32,7 +32,7 @@ public class DestroyParent : MonoBehaviour
     //Only used once, for upgrade buttons
     public void DisableTheParent()
     {
-        ListScript.ChangeButtonsActive();
+        ListScript.GetComponent<Arrays>().ChangeButtonsActive();
 
         ListScript.UpgradeButtonActive = false;
 

@@ -8,7 +8,6 @@ public class MenuScreen : MonoBehaviour
     
     public void LoadStartScene()
     {
-        //LevelManager.instance.DeleteSave();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
