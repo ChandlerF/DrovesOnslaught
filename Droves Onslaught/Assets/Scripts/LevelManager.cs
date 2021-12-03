@@ -38,22 +38,6 @@ public class LevelManager : MonoBehaviour
         }
 
 
-        //instance.LoadPlayer();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //If there's no save data:              //Need the +1 because istarts at 1 for easy read-ability for dictionary
         //Do the Same for what buildings are unlocked //----
         for (int i = 1; i < TotalLevels + 1; i++)
@@ -75,6 +59,12 @@ public class LevelManager : MonoBehaviour
         {
             BuildingsUnlocked.Add(BuildingsNames[i], false);
         }
+
+
+
+
+
+        instance.LoadPlayer();
     }
 
 
@@ -106,6 +96,15 @@ public class LevelManager : MonoBehaviour
         SaveData data = SerializationManager.Load();
 
         TotalStarsEarned = data.TotalStarsEarned;
-        BuildingsUnlocked = data.Unlocked;
+
+        if (data.Unlocked.Count > 0)
+        {
+            BuildingsUnlocked = data.Unlocked;
+        }
+
+        if (data.LevelsStars.Count > 0)
+        {
+            Stars = data.LevelsStars;
+        }
     }
 }

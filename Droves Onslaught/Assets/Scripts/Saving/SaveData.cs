@@ -30,8 +30,10 @@ public class SaveData
 
     //Dictionary from level manager of what's unlocked, the index of list is key of dict
 
+    //Dict of upgrades unlocked
     public Dictionary<string, bool> Unlocked = new Dictionary<string, bool>();                           //public List<bool> Unlocked = new List<bool>();      //Use bool[] or int[] if needed
 
+    public Dictionary<int, List<bool>> LevelsStars = new Dictionary<int, List<bool>>();
 
 
 
@@ -39,6 +41,7 @@ public class SaveData
     {
         TotalStarsEarned = Manager.TotalStarsEarned;
         Unlocked = Manager.BuildingsUnlocked;
+        LevelsStars = Manager.Stars;
     }
 
 }

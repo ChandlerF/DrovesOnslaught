@@ -1438,8 +1438,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -525.1581}
-  m_SizeDelta: {x: 591.62, y: 386.4123}
+  m_AnchoredPosition: {x: 0, y: -780}
+  m_SizeDelta: {x: 591.62, y: 511.8943}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &562376399
 MonoBehaviour:
@@ -1462,7 +1462,7 @@ MonoBehaviour:
   fitType: 4
   rows: 2
   columns: 1
-  cellSize: {x: 541.62, y: 155.70615}
+  cellSize: {x: 541.62, y: 218.44714}
   spacing: {x: 0, y: 25}
   fitX: 1
   fitY: 1
@@ -2416,7 +2416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -258}
+  m_AnchoredPosition: {x: 0, y: -314.2589}
   m_SizeDelta: {x: 792.8566, y: 147.906}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &912661448
@@ -2466,8 +2466,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 87
-  m_fontSizeBase: 87
+  m_fontSize: 137.26
+  m_fontSizeBase: 137.26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2955,7 +2955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalLevels: 10
-  TotalStarsEarned: 12
+  TotalStarsEarned: 0
   CurrentLevel: 0
   BuildingsNames:
   - Miner

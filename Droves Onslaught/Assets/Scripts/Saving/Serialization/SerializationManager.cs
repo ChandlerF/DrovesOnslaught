@@ -24,7 +24,7 @@ public static class SerializationManager
         
         formatter.Serialize(stream, data);
 
-        Debug.Log("Saveddd");
+        //Debug.Log("Saveddd");
         
         stream.Close();
     }
@@ -38,43 +38,53 @@ public static class SerializationManager
             return null;
         }
 
+
         BinaryFormatter formatter = new BinaryFormatter();
 
         FileStream stream = new FileStream(path, FileMode.Open);
-        
-        SaveData data = formatter.Deserialize(stream) as SaveData;
-        stream.Close();
 
-        Debug.Log("Loadeddd");
-
-        return data;
-        
-        
-        
-        
-        /*
         try
         {
-            object save = formatter.Deserialize(file);
-            file.Close();
-            Debug.Log("Loadeddd");
-            return save;
+            SaveData data = formatter.Deserialize(stream) as SaveData;
+            stream.Close();
+
+            //Debug.Log("Loadeddd");
+
+            return data;
         }
         catch
         {
+
             Debug.LogErrorFormat("Failed to load file at {0}", path);
-            file.Close();
+            stream.Close();
             return null;
         }
-        */
     }
 
-    public static BinaryFormatter GetBinaryFormatter()
+
+    /*
+    public static void DeleteSave()
     {
-        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/saves.Save";
 
-        return formatter;
-    }
+        FileStream stream = new FileStream(path, FileMode.Open);
+
+
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+
+            stream.Close();
+            Debug.Log("Deleted Save");
+        }
+
+        else
+        {
+            Debug.LogError("Save not found at: " + path);
+
+            stream.Close();
+        }
+    }*/
 }
 
 

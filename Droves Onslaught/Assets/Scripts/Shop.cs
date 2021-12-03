@@ -61,6 +61,8 @@ public class Shop : MonoBehaviour
 
             GameObject TextGO = transform.parent.parent.parent.GetChild(0).GetChild(0).gameObject;
             TextGO.GetComponent<StarsCountText>().SetStarsCount();
+
+            LevelManager.instance.SavePlayer();
         }
     }
 }
