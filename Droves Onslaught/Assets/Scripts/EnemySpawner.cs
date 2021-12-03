@@ -41,8 +41,6 @@ public class EnemySpawner : MonoBehaviour
 
 
 
-
-
     private void Start()
     {
         ListScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Arrays>();
@@ -92,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
     
     private void Update()
     {
-        if (SpawnEnemies)
+        if (SpawnEnemies && ListScript.PlayerHasPlacedBuilding)
         {
             if (Round < Enemy.Count)
             {

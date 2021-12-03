@@ -172,9 +172,10 @@ MonoBehaviour:
   - Sniper
   - Transport
   TargetList: []
-  MaxRange: 50
+  MaxRange: 40
   SpawnedViaEditor: 0
   SpawnVisual: 1
+  IsMarket: 0
 --- !u!114 &-2548509069237486316
 MonoBehaviour:
   m_ObjectHideFlags: 0

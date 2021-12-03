@@ -159,9 +159,10 @@ MonoBehaviour:
   TargetName:
   - Factory
   TargetList: []
-  MaxRange: 50
+  MaxRange: 40
   SpawnedViaEditor: 0
   SpawnVisual: 1
+  IsMarket: 0
 --- !u!114 &6343817766275101422
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,6 +34,8 @@ public class Arrays : MonoBehaviour
 
     public int NumOfBuildingsDestroyed = 0;
 
+    public bool PlayerHasPlacedBuilding = false;
+
     private void Awake()
     {
         //Can't make lists in the dictionary from the inspector, so I have a list of names and makes the dict lists here

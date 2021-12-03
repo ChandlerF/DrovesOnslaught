@@ -168,9 +168,10 @@ MonoBehaviour:
   TargetName:
   - Tower
   TargetList: []
-  MaxRange: 75
+  MaxRange: 40
   SpawnedViaEditor: 0
   SpawnVisual: 1
+  IsMarket: 0
 --- !u!114 &7472316231170768296
 MonoBehaviour:
   m_ObjectHideFlags: 0

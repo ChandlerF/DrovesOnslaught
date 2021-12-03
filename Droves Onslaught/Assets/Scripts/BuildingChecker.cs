@@ -129,6 +129,8 @@ public class BuildingChecker : MonoBehaviour
 
             //Add visual to list
             ListScript.VisualsList.Add(SpawnedVisual);
+
+            ListScript.PlayerHasPlacedBuilding = true;
         }
 
         

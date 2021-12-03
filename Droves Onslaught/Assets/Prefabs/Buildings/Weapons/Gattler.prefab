@@ -148,9 +148,10 @@ MonoBehaviour:
   - Brute
   - Fighter
   TargetList: []
-  MaxRange: 500
+  MaxRange: 400
   SpawnedViaEditor: 0
   SpawnVisual: 1
+  IsMarket: 0
 --- !u!114 &4298817013556371105
 MonoBehaviour:
   m_ObjectHideFlags: 0

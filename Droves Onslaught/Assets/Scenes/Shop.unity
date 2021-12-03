@@ -5588,6 +5588,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingsUpgradeButton (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2891808023137709456, guid: 2fc06acb3e867e044a8dea7742646a06, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3194800241012111111, guid: 2fc06acb3e867e044a8dea7742646a06, type: 3}
       propertyPath: Building
       value: 
@@ -5678,7 +5682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6892496505489086853, guid: 2fc06acb3e867e044a8dea7742646a06, type: 3}
       propertyPath: m_text
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fc06acb3e867e044a8dea7742646a06, type: 3}
