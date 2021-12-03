@@ -18,19 +18,9 @@ public class SetButton : MonoBehaviour
 
     void Start()
     {
-        Info = Building.GetComponent<ButtonInfo>();
 
-        UGUI = GetComponentInChildren<TextMeshProUGUI>();
-        //Img = GetComponentInChildren<Image>();        //Didn't work, grabbed img from self
+        UpdateInfo();
 
-
-        Img.transform.localScale = Info.Scale;
-
-
-        Img.sprite = Info.Sprite;
-        UGUI.text = Info.Cost.ToString();
-
-        //UGUI.text = Info.Name + " - " + Info.Cost;
 
         PlayerScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Player>();
     }
@@ -47,5 +37,23 @@ public class SetButton : MonoBehaviour
         {
             GetComponent<Button>().interactable = false;
         }
+    }
+
+    public void UpdateInfo()
+    {
+
+        Info = Building.GetComponent<ButtonInfo>();
+
+        UGUI = GetComponentInChildren<TextMeshProUGUI>();
+        //Img = GetComponentInChildren<Image>();        //Didn't work, grabbed img from self
+
+
+        Img.transform.localScale = Info.Scale;
+
+
+        Img.sprite = Info.Sprite;
+        UGUI.text = Info.Cost.ToString();
+
+        //UGUI.text = Info.Name + " - " + Info.Cost;
     }
 }

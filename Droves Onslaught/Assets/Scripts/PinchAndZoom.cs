@@ -38,7 +38,7 @@ public class PinchAndZoom : MonoBehaviour
 
     void Update()
     {
-        if (CanMove)
+        if (CanMove && Time.timeScale != 0)
         {
             if (Input.touchCount > 0)
             {

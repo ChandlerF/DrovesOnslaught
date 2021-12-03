@@ -56,13 +56,6 @@ public class Health : MonoBehaviour
             SpawnText(Scrap);
         }
 
-
-        if (gameObject.CompareTag("Tower"))
-        {
-            //GameOver
-            Manager.GetComponent<Player>().GameOver();
-        }
-
         if (GetComponent<ButtonInfo>() && GetComponent<ButtonInfo>().RangeVisual != null)
         {
             GameObject Visual = GetComponent<ButtonInfo>().RangeVisual;
@@ -84,6 +77,17 @@ public class Health : MonoBehaviour
         ListScript.BuildingDict[Name].Remove(gameObject);
 
         Instantiate(Particles, transform.position, Particles.transform.rotation);
+
+
+
+
+
+        if (gameObject.CompareTag("Tower"))
+        {
+            Manager.GetComponent<Player>().GameLost();
+        }
+
+
         Destroy(gameObject);
     }
     

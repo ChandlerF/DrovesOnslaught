@@ -258,5 +258,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfb4a2131beae846ab3148bd1f3aec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Buttons: {fileID: 7802605940552231358, guid: 9193b72ba7a199b478115f631533f50b, type: 3}
   SelectedBuilding: {fileID: 0}

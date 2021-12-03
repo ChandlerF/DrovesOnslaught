@@ -44,6 +44,18 @@ public class BuildingButton : MonoBehaviour
             Manager.GetComponent<PlacingBuildings>().ActiveUpgradeCanvas = Buttons;
 
 
+            //Set all upgrade buttons to disabled
+            for(int i = 0; i < Buttons.transform.GetChild(0).childCount; i++)
+            {
+                GameObject Button = Buttons.transform.GetChild(0).GetChild(i).gameObject;
+
+                Button.GetComponent<SetButton>().Building = null;
+
+                Button.SetActive(false);
+            }
+
+
+
 
             if (ButtonScript.BuildingUpgrades.Count > 0)
             {
@@ -67,8 +79,12 @@ public class BuildingButton : MonoBehaviour
                         //Turn button on
                         Button.SetActive(true);
 
+
                         //Set SetButton Building
                         Button.GetComponent<SetButton>().Building = ButtonScript.BuildingUpgrades[i];
+
+                        Button.GetComponent<SetButton>().UpdateInfo();
+
                         //Set DestroyParent's SelectedBuilding
                         Button.gameObject.GetComponent<DestroyParent>().SelectedBuilding = SelectedBuilding;
                     }

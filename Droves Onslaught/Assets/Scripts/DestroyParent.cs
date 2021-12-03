@@ -73,7 +73,7 @@ public class DestroyParent : MonoBehaviour
     //Scrap selected building
     public void DestroySelected()
     {
-        ListScript.BuildingDict[SelectedBuilding.name.Remove(SelectedBuilding.name.Length - 7)].Remove(SelectedBuilding);
+        ListScript.BuildingDict[SelectedBuilding.GetComponent<ButtonInfo>().Name].Remove(SelectedBuilding);
 
         ListScript.BuildingsList.Remove(SelectedBuilding);
 
@@ -117,7 +117,7 @@ public class DestroyParent : MonoBehaviour
 
 
         //Remove from lists
-        ListScript.BuildingDict[SelectedBuilding.name.Remove(SelectedBuilding.name.Length - 7)].Remove(SelectedBuilding);
+        ListScript.BuildingDict[SelectedBuilding.GetComponent<ButtonInfo>().Name].Remove(SelectedBuilding);
 
         ListScript.BuildingsList.Remove(SelectedBuilding);
 
@@ -125,7 +125,7 @@ public class DestroyParent : MonoBehaviour
         //Add building to list
         ListScript.BuildingsList.Add(SpawnedBuilding);
 
-        ListScript.BuildingDict[SpawnedBuilding.name.Remove(SpawnedBuilding.name.Length - 7)].Add(SpawnedBuilding);
+        ListScript.BuildingDict[SpawnedBuilding.GetComponent<ButtonInfo>().Name].Add(SpawnedBuilding);
 
 
         //Find size to scale visual up to

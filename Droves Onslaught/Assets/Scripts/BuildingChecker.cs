@@ -104,8 +104,7 @@ public class BuildingChecker : MonoBehaviour
         //Add building to list (of all buildings)
         ListScript.BuildingsList.Add(SpawnedBuilding);
         //Add building to it's individual list in the dictionary
-        string SpawnedName = SpawnedBuilding.gameObject.name;
-        ListScript.BuildingDict[SpawnedName.Remove(SpawnedName.Length - 7)].Add(SpawnedBuilding);   //Removes lasts 7 letters, "(Clone)"
+        ListScript.BuildingDict[SpawnedBuilding.GetComponent<ButtonInfo>().Name].Add(SpawnedBuilding);
 
         ButtonInfo BuildingInfo = SpawnedBuilding.GetComponent<ButtonInfo>();
 

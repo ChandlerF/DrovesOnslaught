@@ -151,6 +151,7 @@ MonoBehaviour:
   MaxRange: 650
   SpawnedViaEditor: 0
   SpawnVisual: 1
+  IsMarket: 0
 --- !u!114 &5871699182762534363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6303879479382175848, guid: a77117925281cb043825702ce0f7c9d0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.122
       objectReference: {fileID: 0}
     - target: {fileID: 6303879479382175848, guid: a77117925281cb043825702ce0f7c9d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

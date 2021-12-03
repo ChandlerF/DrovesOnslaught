@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 
     public int Points = 0;
 
+    public bool UsesPoints = false;
+
     [SerializeField] TextMeshProUGUI UGUI;
 
     [SerializeField] GameObject PauseMenu;
@@ -82,6 +84,21 @@ public class Player : MonoBehaviour
             GameIsOver = true;
         }
     }
+
+    public void GameLost()
+    {
+        if (!GameIsOver)
+        {
+            Time.timeScale = 0;
+            
+            GameOverMenu.SetActive(true);
+
+            GameIsOver = true;
+        }
+    }
+
+
+
 
 
     //go = who called the func
