@@ -17,6 +17,18 @@ public class BuildingChecker : MonoBehaviour
     private Arrays ListScript;
 
     [SerializeField] GameObject SpawnParticles;
+    
+    private SpriteRenderer SR;
+    [SerializeField] Color CanPlace;
+    [SerializeField] Color CannotPlace;
+    
+    
+
+    private void Start()
+    {
+     SR = GetComponent<SpriteRenderer>();
+    }
+
 
     private void Update()
     {
@@ -163,13 +175,26 @@ public class BuildingChecker : MonoBehaviour
     {
         if (col.gameObject.layer == 6)       //Buildings
         {
-            TouchingBuilding = true;
             //Debug.Log("Touching Building");
+            
+            TouchingBuilding = true;
+            
+            SR.color = CannotPlace;
         }
         else if (col.gameObject.layer == 10)        //Ore
         {
-            TouchingOre = true;
             //Debug.Log("Touching Ore");
+            
+            TouchingOre = true;
+            
+            if(Building.CompareTag("Producer"))
+            {
+             SR.color = CanPlace;
+            }
+            else
+            {
+             SR.color = CannotPlace;
+            }
         }
 
         if (DestroyOres)        //Called when Building is placed, destroys ore's then the building checker
@@ -192,12 +217,24 @@ public class BuildingChecker : MonoBehaviour
         if (col.gameObject.layer == 6)       //Buildings
         {
             TouchingBuilding = false;
+            
+            SR.color = CanPlace;
             //Debug.Log("Not Touching Building");
         }
         else if (col.gameObject.layer == 10)        //Ore
         {
-            TouchingOre = false;
            // Debug.Log("Not Touching Ore");
+           
+            TouchingOre = false;
+            
+            if(!Building.CompareTag("Producer"))
+            {
+             SR.color = CanPlace;
+            }
+            else
+            {
+             SR.color = CannotPlace;
+            }
         }
     }
 }
