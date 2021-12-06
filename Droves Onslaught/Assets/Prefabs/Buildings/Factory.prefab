@@ -200,6 +200,7 @@ MonoBehaviour:
   DestroyIfTargetNull: 0
   DoneRotating: 0
   AccuracyBeforeShooting: 4
+  AnimSpeed: 1
 --- !u!95 &7525223400653769658
 Animator:
   serializedVersion: 3

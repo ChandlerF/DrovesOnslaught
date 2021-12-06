@@ -3003,8 +3003,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4699,6 +4699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scrap: 2550
   Points: 0
+  UsesPoints: 0
   UGUI: {fileID: 6684496255967550478}
   PauseMenu: {fileID: 6684496255720032081}
   GameOverMenu: {fileID: 6684496254948654750}
@@ -4742,6 +4743,7 @@ MonoBehaviour:
   InPlacingBuildingMode: 0
   IsPaused: 0
   NumOfBuildingsDestroyed: 0
+  PlayerHasPlacedBuilding: 0
 --- !u!1 &6684496255863214069
 GameObject:
   m_ObjectHideFlags: 0
@@ -4990,8 +4992,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -72.9, y: -72}
-  m_SizeDelta: {x: 253.5713, y: 67.2693}
+  m_AnchoredPosition: {x: -89, y: -66.3}
+  m_SizeDelta: {x: 253.5713, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6684496255967550479
 CanvasRenderer:
@@ -5050,8 +5052,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5192,8 +5194,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 110.3, y: -66.3}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 110.3, y: -59}
+  m_SizeDelta: {x: 117.9622, y: 117.9622}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6684496256142144075
 CanvasRenderer:

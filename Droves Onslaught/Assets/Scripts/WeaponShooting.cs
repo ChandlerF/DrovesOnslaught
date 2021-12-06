@@ -16,6 +16,8 @@ public class WeaponShooting : MonoBehaviour
 
     private Animator Anim;
 
+    [SerializeField] float DegreeVariation = 5f;
+
     void Start()
     {
         Anim = GetComponent<Animator>();
@@ -47,7 +49,9 @@ public class WeaponShooting : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(Bullet, transform.position, transform.rotation);//Might want to spawn it slighty ahead of the weapon (so it's not inside the weapon)
+        float randomDegree = Random.Range(-DegreeVariation, DegreeVariation);
+        Quaternion BulletRot = Quaternion.Euler(0, 0, randomDegree);
+        Instantiate(Bullet, transform.position, transform.rotation * BulletRot);
         Ammo -= AmmoPerShot;
         RotateScript.Offset = Random.Range(-RotateScript.Innaccuracy, RotateScript.Innaccuracy);
     }

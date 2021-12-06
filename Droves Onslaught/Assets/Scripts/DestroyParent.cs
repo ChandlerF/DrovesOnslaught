@@ -25,7 +25,7 @@ public class DestroyParent : MonoBehaviour
     {
         if(SelectedBuilding == null && transform.name == "DeleteButton") //Have it this way because if code runs an even amount then it doesn't work (it's even because all 4 buttons have this code)
         {
-            DestroyTheParent();
+            DisableTheParent();
         }
     }
 
@@ -50,7 +50,7 @@ public class DestroyParent : MonoBehaviour
         transform.parent.parent.gameObject.SetActive(false);
     }
 
-    public void DestroyTheParent()
+    /*public void DestroyTheParent()
     {
         ListScript.ChangeButtonsActive();
 
@@ -68,7 +68,7 @@ public class DestroyParent : MonoBehaviour
         ListScript.InTetherMode = false;
 
         Destroy(transform.parent.parent.parent.gameObject);
-    }
+    }*/
 
     //Scrap selected building
     public void DestroySelected()

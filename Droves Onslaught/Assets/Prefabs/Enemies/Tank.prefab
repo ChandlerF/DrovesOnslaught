@@ -118,7 +118,7 @@ MonoBehaviour:
   Shooter: {fileID: 0}
   MoveTowardsTarget: 1
   MoveSpeed: 0.015
-  RotateSpeed: 6
+  RotateSpeed: 2
   RotateTowards: 1
   Innaccuracy: 1
   Offset: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   DestroyIfTargetNull: 0
   DoneRotating: 0
   AccuracyBeforeShooting: 4
+  AnimSpeed: 0
 --- !u!114 &2486120418034781374
 MonoBehaviour:
   m_ObjectHideFlags: 0

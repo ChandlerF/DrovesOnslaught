@@ -114,6 +114,7 @@ MonoBehaviour:
   DestroyIfTargetNull: 0
   DoneRotating: 0
   AccuracyBeforeShooting: 10
+  AnimSpeed: 1.5
 --- !u!114 &2455896316800636666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +130,8 @@ MonoBehaviour:
   Bullet: {fileID: 2437937256551920570, guid: 1cb4d14ed66909e4f8e0c47abd4f7c45, type: 3}
   Ammo: 0
   StartTimer: 0.4
-  AmmoPerShot: 2
+  AmmoPerShot: 1
+  DegreeVariation: 10
 --- !u!114 &3782205979634647112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +151,7 @@ MonoBehaviour:
   - Fighter
   TargetList: []
   MaxRange: 400
-  SpawnedViaEditor: 0
+  SpawnedViaEditor: 1
   SpawnVisual: 1
   IsMarket: 0
 --- !u!114 &4298817013556371105

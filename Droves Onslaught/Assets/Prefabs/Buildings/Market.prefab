@@ -160,6 +160,7 @@ MonoBehaviour:
   MaxRange: 0
   SpawnedViaEditor: 0
   SpawnVisual: 1
+  IsMarket: 0
 --- !u!114 &6687408036168711700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +185,7 @@ MonoBehaviour:
   DestroyIfTargetNull: 0
   DoneRotating: 0
   AccuracyBeforeShooting: 4
+  AnimSpeed: 1
 --- !u!95 &1994026654377538429
 Animator:
   serializedVersion: 3
@@ -478,5 +480,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfb4a2131beae846ab3148bd1f3aec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Buttons: {fileID: 7401708829793434877, guid: cb2c4392ad40f8d4cb6b52f2fd290701, type: 3}
   SelectedBuilding: {fileID: 0}

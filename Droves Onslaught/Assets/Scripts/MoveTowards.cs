@@ -17,7 +17,7 @@ public class MoveTowards : MonoBehaviour
     [SerializeField] bool RotateTowards = false;
 
     public float Innaccuracy = 1f;
-    public float Offset;
+    public float Offset = 0;
 
     [SerializeField] bool MoveForwards = false;
 
@@ -28,6 +28,15 @@ public class MoveTowards : MonoBehaviour
     private int SpriteOffset = 90;
     [SerializeField] float AccuracyBeforeShooting = 4;  //Lower number means more accurate befoe shooting
 
+    [SerializeField] float AnimSpeed = 1f; //1 = Normal    -   Higher is faster
+
+    private void Start()
+    {
+        if(GetComponent<Animator>() != null)
+        {
+            GetComponent<Animator>().speed = AnimSpeed;
+        }
+    }
 
     void FixedUpdate()
     {
@@ -42,8 +51,10 @@ public class MoveTowards : MonoBehaviour
             if (RotateTowards)
             {
                 Vector3 vectorToTarget = Target.transform.position - transform.position;
-                
-                Vector3 NewTargetVector = new Vector3(vectorToTarget.x + Offset, vectorToTarget.y + Offset, 0);
+
+                float offsetX = Random.Range(-Offset, Offset);
+                float offsetY = Random.Range(-Offset, Offset);
+                Vector3 NewTargetVector = new Vector3(vectorToTarget.x + offsetX, vectorToTarget.y + offsetY, 0);
                 
                 //Debug.DrawLine(transform.position, vectorToTarget, Color.blue);
                 //Debug.DrawLine(transform.position, NewTargetVector, Color.green);

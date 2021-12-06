@@ -29,5 +29,8 @@ public class DamageAndKnockback : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
         rb.AddForce(Direction.normalized * -Force);
+        //rb.AddTorque((Force * Mathf.Deg2Rad) * rb.inertia, ForceMode2D.Impulse);
+        float rotation = Random.Range(-10, 10);
+        transform.Rotate(0, 0, rotation);
     }
 }
