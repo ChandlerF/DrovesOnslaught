@@ -27,8 +27,16 @@ public class BuildingChecker : MonoBehaviour
 
         transform.position = worldPosition;
 
+        //https://answers.unity.com/questions/704939/touch-input-certain-screen-part.html       Quad
+        //https://answers.unity.com/questions/1096020/split-screen-in-half-touch-controls.html      Rect
+        //Could use finger Position and draw a ray to see if it hits an object
+        //Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        //GIF :         -       http://pastebin.com/eqFUqgtF
+        //GIF creator:  https://assetstore.unity.com/packages/tools/utilities/gif-creator-42302
+        //Drag button   https://answers.unity.com/questions/350220/how-do-i-drag-a-guibutton-.html
+        //Drag from button      https://answers.unity.com/questions/706042/how-can-i-spawn-and-drag-from-a-button-click.html
        
-        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)// && Input.GetTouch(0).position.y < Screen.height * 0.3 //Releases touch on bottom of screen
         {
             CallSpawnBuilding();
         }
