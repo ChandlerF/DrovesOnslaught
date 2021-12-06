@@ -86,7 +86,8 @@ public class Health : MonoBehaviour
         {
             Manager.GetComponent<Player>().GameLost();
         }
-
+        
+        SpawnBody();
 
         Destroy(gameObject);
     }
@@ -108,5 +109,17 @@ public class Health : MonoBehaviour
 
         //Add scrap to player
         PlayerScript.Scrap += scrap;
+    }
+    
+    
+    
+    private void SpawnBody()
+    {
+     GameObject SpawnedBody = Instantiate(new GameObject, transform.position, transform.rotation);
+     SpawnedBody.transform.scale = transform.scale * 0.75;
+     
+     SpriteRenderer sr = SpawnedBody.AddComponent(SpriteRenderer);
+     sr.sprite = GetComponent<SpriteRenderer>().sprite;
+     sr.color = Color.black;
     }
 }
