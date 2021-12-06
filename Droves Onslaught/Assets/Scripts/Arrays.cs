@@ -56,4 +56,16 @@ public class Arrays : MonoBehaviour
             BaseButtonsParent.SetActive(true);
         }
     }
+
+    private void Update()
+    {
+        if (InPlacingBuildingMode)
+        {
+            Camera.main.GetComponent<PinchAndZoom>().CanMove = false;
+        }
+        else
+        {
+            Camera.main.GetComponent<PinchAndZoom>().CanMove = true;
+        }
+    }
 }

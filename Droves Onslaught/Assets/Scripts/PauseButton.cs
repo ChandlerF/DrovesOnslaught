@@ -27,18 +27,18 @@ public class PauseButton : MonoBehaviour
     
     public void LoadLevelSelect()
     {
-        SceneManager.LoadScene("LevelSelect");
-
         Time.timeScale = 1;
+
+        SceneManager.LoadScene("LevelSelect");
     }
     
     
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
         Time.timeScale = 1;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
     //Set lvl manager current lvl
@@ -52,21 +52,21 @@ public class PauseButton : MonoBehaviour
         {
             LevelManager.instance.CurrentLevel += 1;
 
+            Time.timeScale = 1;
+
             SceneManager.LoadScene(NextLvl);
         }
         else
         {
             LoadLevelSelect();
         }
-
-        Time.timeScale = 1;
     }
 
 
     public void LoadShop()
     {
-        SceneManager.LoadScene("Shop");
-
         Time.timeScale = 1;
+
+        SceneManager.LoadScene("Shop");
     }
 }

@@ -114,7 +114,7 @@ MonoBehaviour:
   DestroyIfTargetNull: 0
   DoneRotating: 0
   AccuracyBeforeShooting: 10
-  AnimSpeed: 1
+  AnimSpeed: 1.2
 --- !u!114 &5242498585831566720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 2437937256551920570, guid: 1cb4d14ed66909e4f8e0c47abd4f7c45, type: 3}
   Ammo: 0
-  StartTimer: 1.8
+  StartTimer: 1.4
   AmmoPerShot: 1
   DegreeVariation: 5
 --- !u!114 &6821009827684596530

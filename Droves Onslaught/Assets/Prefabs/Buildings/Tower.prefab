@@ -207,3 +207,4 @@ MonoBehaviour:
   DestroyIfTargetNull: 0
   DoneRotating: 0
   AccuracyBeforeShooting: 0
+  AnimSpeed: 1

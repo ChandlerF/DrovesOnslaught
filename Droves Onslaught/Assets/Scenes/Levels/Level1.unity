@@ -173,7 +173,7 @@ MonoBehaviour:
   TouchZoomSpeed: 0.01
   ZoomMinBound: 5
   ZoomMaxBound: 20
-  PanSpeed: 0.008
+  PanSpeed: 0.012
 --- !u!81 &157017694
 AudioListener:
   m_ObjectHideFlags: 0

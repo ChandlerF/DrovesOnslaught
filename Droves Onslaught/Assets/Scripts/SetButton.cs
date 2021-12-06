@@ -21,6 +21,9 @@ public class SetButton : MonoBehaviour
 
         UpdateInfo();
 
+        Info = Building.GetComponent<ButtonInfo>();
+
+        UGUI = GetComponentInChildren<TextMeshProUGUI>();
 
         PlayerScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Player>();
     }
@@ -32,10 +35,12 @@ public class SetButton : MonoBehaviour
         if(Scrap >= Info.Cost)
         {
             GetComponent<Button>().interactable = true;
+            UGUI.color = Color.black;
         }
         else
         {
             GetComponent<Button>().interactable = false;
+            UGUI.color = Color.red;
         }
     }
 
