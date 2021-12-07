@@ -101,6 +101,8 @@ MonoBehaviour:
   TouchingOre: 0
   Building: {fileID: 0}
   SpawnParticles: {fileID: 7666199948665706176, guid: 3c05cd01a33911f4ca39c80ff1bcd115, type: 3}
+  CanPlace: {r: 1, g: 1, b: 1, a: 0.6666667}
+  CannotPlace: {r: 1, g: 0, b: 0, a: 0.6666667}
 --- !u!61 &3613983595172895243
 BoxCollider2D:
   m_ObjectHideFlags: 0

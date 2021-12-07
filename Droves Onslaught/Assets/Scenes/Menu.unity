@@ -1077,6 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2d013c86759f64eb87f56a2dcd170f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsAllowedToMove: 0
   CanMove: 0
   MouseZoomSpeed: 15
   TouchZoomSpeed: 0.1

@@ -26,7 +26,16 @@ public class BuildingChecker : MonoBehaviour
 
     private void Start()
     {
-     SR = GetComponent<SpriteRenderer>();
+        SR = GetComponent<SpriteRenderer>();
+
+        if (Building.CompareTag("Producer"))
+        {
+            SR.color = CannotPlace;
+        }
+        else
+        {
+            SR.color = CanPlace;
+        }
     }
 
 
@@ -217,8 +226,11 @@ public class BuildingChecker : MonoBehaviour
         if (col.gameObject.layer == 6)       //Buildings
         {
             TouchingBuilding = false;
-            
-            SR.color = CanPlace;
+
+            if (!Building.CompareTag("Producer"))
+            {
+                SR.color = CanPlace;
+            }
             //Debug.Log("Not Touching Building");
         }
         else if (col.gameObject.layer == 10)        //Ore

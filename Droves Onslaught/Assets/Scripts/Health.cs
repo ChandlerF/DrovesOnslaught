@@ -115,10 +115,10 @@ public class Health : MonoBehaviour
     
     private void SpawnBody()
     {
-     GameObject SpawnedBody = Instantiate(new GameObject, transform.position, transform.rotation);
-     SpawnedBody.transform.scale = transform.scale * 0.75;
+     GameObject SpawnedBody = Instantiate(new GameObject(), transform.position, transform.rotation);
+     SpawnedBody.transform.localScale = Vector3.Scale(transform.localScale, new Vector3(0.5f, 0.5f, 0.5f));
      
-     SpriteRenderer sr = SpawnedBody.AddComponent(SpriteRenderer);
+     SpriteRenderer sr = SpawnedBody.AddComponent<SpriteRenderer>();
      sr.sprite = GetComponent<SpriteRenderer>().sprite;
      sr.color = Color.black;
     }
