@@ -19,6 +19,10 @@ public class LevelManager : MonoBehaviour
 
     public Dictionary<string, bool> BuildingsUnlocked = new Dictionary<string, bool>();
     [SerializeField] List<string> BuildingsNames = new List<string>();
+    
+    public int PlayerLvl = 0;
+    public int PlayerXp = 0;
+    public int XpToLvlUp = 100;
 
 
 
@@ -106,6 +110,9 @@ public class LevelManager : MonoBehaviour
 
         BuildingsUnlocked = data.Unlocked;
         Stars = data.LevelsStars;
+        PlayerLvl = data.PlayerLvl;
+        PlayerXp = data.PlayerXp;
+        XpToLvlUp = data.XpToLvlUp;
 
 
         Debug.Log("Load");
@@ -120,5 +127,20 @@ public class LevelManager : MonoBehaviour
         }
 
         return false;
+    }
+    
+    
+    
+    
+    
+    
+    public void AddXP(int xp)
+    {
+        //PlayerXp += xp;
+        
+        //while(PlayerXp > XpToLvlUp)
+        //PlayerXp -= XpToLvlUp;
+        //PlayerLvl += 1;
+        //XpToLvlUp *= 1.5;
     }
 }
