@@ -85,6 +85,9 @@ public class LevelManager : MonoBehaviour
         if (!Stars[CurrentLevel][x])
         {
             TotalStarsEarned += 1;
+            
+            //Dynamically Adds XP for each star, more XP higher the level
+            AddXP((20 * (x + 1)) * (CurrentLevel / 8));
 
             Stars[CurrentLevel][x] = true;
         }
