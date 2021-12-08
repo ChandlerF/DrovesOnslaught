@@ -17,6 +17,8 @@ public class Health : MonoBehaviour
     private GameObject Manager;
     
     private Player PlayerScript;
+    
+    private bool IsTower = false;
 
     private void Start()
     {
@@ -25,6 +27,11 @@ public class Health : MonoBehaviour
         PlayerScript = Manager.GetComponent<Player>();
 
         HP = StartHP;
+        
+        if (gameObject.CompareTag("Tower"))
+        {
+            IsTower = true;
+        }
     }
 
 
@@ -41,6 +48,12 @@ public class Health : MonoBehaviour
     public void Damage(int Dmg)
     {
         HP -= Dmg;
+        
+        if(IsTower)
+        {
+            //Shake Camera
+            Manager.GetComponent<Player>().CameraShake(0.2f);
+        }
     }
 
 
@@ -82,7 +95,7 @@ public class Health : MonoBehaviour
 
 
 
-        if (gameObject.CompareTag("Tower"))
+        if (IsTower)
         {
             Manager.GetComponent<Player>().GameLost();
         }
