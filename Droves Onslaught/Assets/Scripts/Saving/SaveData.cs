@@ -36,12 +36,19 @@ public class SaveData
     public Dictionary<int, List<bool>> LevelsStars = new Dictionary<int, List<bool>>();
 
 
+    public int PlayerLvl;
+    public int PlayerXp;
+    public int XpToLvlUp;
 
     public SaveData (LevelManager Manager)
     {
         TotalStarsEarned = Manager.TotalStarsEarned;
         Unlocked = Manager.BuildingsUnlocked;
         LevelsStars = Manager.Stars;
+        
+        PlayerLvl = Manager.PlayerLvl;
+        PlayerXp = Manager.PlayerXp;
+        XpToLvlUp = Manager.XpToLvlUp;
     }
 
 }
