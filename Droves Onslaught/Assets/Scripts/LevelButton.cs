@@ -14,7 +14,6 @@ public class LevelButton : MonoBehaviour
     //[SerializeField] List<bool> StarsEarned = new List<bool>();
 
 
-    [SerializeField] Color GoldColor;
 
     [SerializeField] bool LevelNumberFromSiblings = true;
 
@@ -48,14 +47,14 @@ public class LevelButton : MonoBehaviour
 
         if (LevelManager.instance.Stars[LevelNumber][0])
         {
-            StarsParent.transform.GetChild(0).GetComponent<Image>().color = GoldColor;
+            StarsParent.transform.GetChild(0).GetComponent<Image>().color = Color.black;
 
 
             for (int i = 0; i < 3; i++)
             {
                 if (LevelManager.instance.Stars[LevelNumber][i])
                 {
-                    StarsParent.transform.GetChild(i).GetComponent<Image>().color = GoldColor;
+                    StarsParent.transform.GetChild(i).GetComponent<Image>().color = Color.black;
                 }
             }
         }

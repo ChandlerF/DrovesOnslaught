@@ -2663,8 +2663,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280000795
-  m_fontColor: {r: 0.10435206, g: 0.6320754, b: 0.10435206, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2968,6 +2968,9 @@ MonoBehaviour:
   - Sniper
   - Transport
   - Market
+  PlayerLvl: 0
+  PlayerXp: 0
+  XpToLvlUp: 100
 --- !u!4 &1149081093
 Transform:
   m_ObjectHideFlags: 0
@@ -3244,8 +3247,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190277
-  m_fontColor: {r: 0.7735849, g: 0, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4977,6 +4980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: 
   StayInSameScene: 1
+  DontDestroy: 1
 --- !u!114 &1743677130 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2943520207367900788, guid: 496c81681bfc1d945a753bf5864d402f, type: 3}

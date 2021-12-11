@@ -5,6 +5,7 @@ using UnityEngine;
 public class DamageAndKnockback : MonoBehaviour
 {
     [SerializeField] int Dmg;
+    [SerializeField] GameObject ColParticles;
 
     public int KnockbackForce;
 
@@ -18,6 +19,10 @@ public class DamageAndKnockback : MonoBehaviour
 
             Knockback(KnockbackForce, Dir);
 
+            //Rotation for particles
+            Quaternion ParticleRot = Quaternion.Euler(transform.eulerAngles.z, -90, 0);
+            //Spawn particles
+            Instantiate(ColParticles, transform.position, ParticleRot);
 
             collision.transform.GetComponent<Health>().Damage(Dmg);
         }

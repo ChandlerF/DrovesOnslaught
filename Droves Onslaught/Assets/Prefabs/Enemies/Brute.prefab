@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dmg: 50
+  ColParticles: {fileID: 574601525466074822, guid: 7b94c376bd4622449a1f4424b5e5e640, type: 3}
   KnockbackForce: 300
 --- !u!114 &7646668853884505810
 MonoBehaviour:
