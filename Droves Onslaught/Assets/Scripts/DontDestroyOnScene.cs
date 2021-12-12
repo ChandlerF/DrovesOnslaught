@@ -10,39 +10,35 @@ public class DontDestroyOnScene : MonoBehaviour
 
     public bool StayInSameScene = true;
 
-    [SerializeField] bool DontDestroy = true;
    
     private void Awake()
     {
-        if (DontDestroy)
-        {
-            SceneName = SceneManager.GetActiveScene().name;
+        SceneName = SceneManager.GetActiveScene().name;
 
-            //If I'm the only one of myself in scene
-            if (instance == null)
+        //If I'm the only one of myself in scene
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        //If I'm not the original
+        else if (instance != this)
+        {
+            if (instance.StayInSameScene)
             {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            //If I'm not the original
-            else if (instance != this)
-            {
-                if (instance.StayInSameScene)
+                //If instance is in a scene it didn't start in      (not sure how this works loading in multiple scenes at once)
+                if (instance.SceneName != SceneManager.GetActiveScene().name)
                 {
-                    //If instance is in a scene it didn't start in      (not sure how this works loading in multiple scenes at once)
-                    if (instance.SceneName != SceneManager.GetActiveScene().name)
-                    {
-                        Destroy(instance.gameObject);
-                    }
-                    else
-                    {
-                        Destroy(gameObject);
-                    }
+                    Destroy(instance.gameObject);
                 }
                 else
                 {
                     Destroy(gameObject);
                 }
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
     }

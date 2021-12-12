@@ -7625,7 +7625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: 
   StayInSameScene: 1
-  DontDestroy: 1
+  DontDestroy: 0
 --- !u!114 &1632475483
 MonoBehaviour:
   m_ObjectHideFlags: 0

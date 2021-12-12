@@ -7,8 +7,7 @@ public class TutorialImages : MonoBehaviour
 {
     [SerializeField] List<Sprite> Images = new List<Sprite>();
 
-    [SerializeField] float StartTimer;
-    private float Timer;
+    [SerializeField] float Timer;
 
     private int index = 1;
 
@@ -16,25 +15,23 @@ public class TutorialImages : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0;   //Maybe don't need to freeze time, just set time counter to 0
 
-        Timer = StartTimer;
 
         MyImage = GetComponent<Image>();
         MyImage.sprite = Images[0];
+
+        StartCoroutine(Wait());
     }
 
-    //Set image to sprite after timer
 
 
-    void Update()
+    IEnumerator Wait()
     {
-        if(Timer > 0)   //Broken, timeScale is 0 which makes timer irrelevant, use Co routine? or a weird work around with unscaledTime
+        while (true)
         {
-            Timer -= Time.deltaTime;
-        }
-        else
-        {
+            yield return new WaitForSecondsRealtime(Timer);
+
             if ((index + 1) > Images.Count)
             {
                 index = 0;
@@ -42,8 +39,7 @@ public class TutorialImages : MonoBehaviour
 
             MyImage.sprite = Images[index];
 
-            index ++;
-            Timer = StartTimer;
+            index++;
         }
     }
 }

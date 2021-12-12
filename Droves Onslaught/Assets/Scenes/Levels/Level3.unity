@@ -2313,10 +2313,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -127.078
       objectReference: {fileID: 0}
+    - target: {fileID: 3565597940224078190, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4787248608632906827, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
       propertyPath: m_Name
       value: Level
       objectReference: {fileID: 0}
+    - target: {fileID: 4797700194274868889, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
+      propertyPath: Images.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4797700194274868889, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
+      propertyPath: Images.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 55d9d9f76a6b0584ea95f236a25e5fd2, type: 3}
+    - target: {fileID: 4797700194274868889, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
+      propertyPath: Images.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9006b12c8997c424985120699a4d8200, type: 3}
+    - target: {fileID: 4797700194274868889, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
+      propertyPath: Images.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7f1ccfaffd9b4af43af745ac95eaef58, type: 3}
+    - target: {fileID: 4797700194274868889, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
+      propertyPath: Images.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: d0a64f846fabc03458a916a84d51f498, type: 3}
     - target: {fileID: 6684496254982559918, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
       propertyPath: Enemy.Array.size
       value: 5

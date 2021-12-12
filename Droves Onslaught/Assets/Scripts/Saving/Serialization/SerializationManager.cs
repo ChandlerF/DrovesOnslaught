@@ -12,12 +12,12 @@ public static class SerializationManager
     {
         BinaryFormatter formatter = new BinaryFormatter();
 
-        if (!Directory.Exists(Application.persistentDataPath + "/saves"))
+        if (!Directory.Exists(Application.persistentDataPath + "/Saves"))
         {
-            Directory.CreateDirectory(Application.persistentDataPath + "/saves");
+            Directory.CreateDirectory(Application.persistentDataPath + "/Saves");
         }
 
-        string path = Application.persistentDataPath + "/saves.Save";
+        string path = Application.persistentDataPath + "/Saves/save1.Save";
         FileStream stream = File.Create(path);
 
         SaveData data = new SaveData(manager);
@@ -31,7 +31,7 @@ public static class SerializationManager
 
     public static SaveData Load()
     {
-        string path = Application.persistentDataPath + "/saves.Save";
+        string path = Application.persistentDataPath + "/Saves/save1.Save";
         if (!File.Exists(path))
         {
             Debug.LogError("Save not found at: " + path);

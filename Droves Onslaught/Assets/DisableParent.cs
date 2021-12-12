@@ -6,7 +6,7 @@ public class DisableParent : MonoBehaviour
 {
     public void DiasbleParent()
     {
-        transform.parent.gameObject.SetActive(false);
+        transform.parent.parent.parent.gameObject.SetActive(false);
         Time.timeScale = 1;
     }
 }

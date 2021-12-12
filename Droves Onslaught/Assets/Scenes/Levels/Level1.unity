@@ -1346,10 +1346,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -127.078
       objectReference: {fileID: 0}
+    - target: {fileID: 3565597940224078190, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4787248608632906827, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
       propertyPath: m_Name
       value: Level
       objectReference: {fileID: 0}
+    - target: {fileID: 4797700194274868889, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
+      propertyPath: Images.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4797700194274868889, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
+      propertyPath: Images.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b4a69d962381444faf262e74a209d98, type: 3}
+    - target: {fileID: 4797700194274868889, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
+      propertyPath: Images.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1670489cd42f0f94eae78d73db4e96a1, type: 3}
     - target: {fileID: 6396716712998858669, guid: cf3e9301dcbc4f44993a72b6376b84aa, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 123.31763
