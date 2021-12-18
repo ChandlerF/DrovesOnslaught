@@ -105,10 +105,12 @@ MonoBehaviour:
   TargetBuilding: {fileID: 0}
   IsMarket: 0
   MarketScrap: 0
+  InitialStartTimer: 0.75
   StartTimer: 0.75
   Product: {fileID: 4838360965951771847, guid: 2a185dace7bfc3c4f9e5bc5b18e4d423, type: 3}
   ProductInStock: 0
   ProductConsumed: 1
+  SpawnDecay: 1
 --- !u!61 &-1248021527217203269
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -201,6 +203,9 @@ MonoBehaviour:
   DoneRotating: 0
   AccuracyBeforeShooting: 4
   AnimSpeed: 1
+  SpeedDecay: 0
+  DecayMultiplier: 0.00025
+  MinSpeed: 0.02
 --- !u!95 &7525223400653769658
 Animator:
   serializedVersion: 3

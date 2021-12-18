@@ -14,6 +14,7 @@ public class Producer : MonoBehaviour
     public bool IsMarket = false;
     [SerializeField] int MarketScrap;
 
+    [SerializeField] float InitialStartTimer;
     [SerializeField] float StartTimer;
     private float Timer;
     [SerializeField] GameObject Product;
@@ -27,12 +28,18 @@ public class Producer : MonoBehaviour
     private Animator Anim;
 
 
+    [SerializeField] bool SpawnDecay = true;
+    private float MaxDelay = 1.5f;
+
 
     void Start()
     {
         Anim = GetComponent<Animator>();
         PlayerScript = GameObject.FindGameObjectWithTag("Manager").GetComponent<Player>();
-        Timer = StartTimer;
+
+        Timer = InitialStartTimer;
+        StartTimer = InitialStartTimer;
+        MaxDelay = InitialStartTimer * 1.75f;
 
         if (TargetBuilding != null)
         {
@@ -143,9 +150,12 @@ public class Producer : MonoBehaviour
             lineRenderer.sortingLayerName = "LineRenderer";
 
             SetLRPos(Target);
-        }
-    }
 
+
+            SetSpawnRate(Target);
+        }
+
+    }
 
     public void SetLRPos(GameObject Target)
     {
@@ -162,31 +172,42 @@ public class Producer : MonoBehaviour
 
             lineRenderer.SetPosition(0, transform.position + Direction * Multiplier);
             lineRenderer.SetPosition(1, Target.transform.position - Direction * Multiplier);
+
+            SetSpawnRate(Target);
         }
         else
         {
             MakeLineRenderer(Target);
         }
     }
-
+    //0.75 speed    1.3     5
     private void SetAnimTrigger()   //Is called by event when animation is done
     {
         Anim.SetTrigger("Pulse");
     }
 
 
+    private void SetSpawnRate(GameObject target)
+    {
+        if (SpawnDecay)
+        {
+            float dist = Vector3.Distance(transform.position, target.transform.position);
 
-    /*
-     * 
-     *         //Set positions
+            float maxDist = 6;  //A rough estimate of the max range
 
-        Vector3 Direction = (Target.transform.position - transform.position).normalized;
+            float percent = dist / maxDist;
 
-        //Higher the number, the bigger the gap
-        float Multiplier = 0.4f;
-        
-        lineRenderer.SetPosition(0, transform.position + Direction * Multiplier);
-        lineRenderer.SetPosition(1, Target.transform.position - Direction * Multiplier);
+            float newTimer = (percent * InitialStartTimer) + InitialStartTimer;
 
-    */
+            if (newTimer > MaxDelay)
+            {
+                StartTimer = MaxDelay;
+            }
+            else
+            {
+
+                StartTimer = newTimer;
+            }
+        }
+    }
 }

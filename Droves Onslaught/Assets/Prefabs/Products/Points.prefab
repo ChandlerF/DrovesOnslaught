@@ -110,6 +110,10 @@ MonoBehaviour:
   DestroyIfTargetNull: 1
   DoneRotating: 0
   AccuracyBeforeShooting: 4
+  AnimSpeed: 1
+  SpeedDecay: 1
+  DecayMultiplier: 0.00025
+  MinSpeed: 0.02
 --- !u!50 &237329189185827200
 Rigidbody2D:
   serializedVersion: 4

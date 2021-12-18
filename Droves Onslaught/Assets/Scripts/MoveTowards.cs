@@ -30,6 +30,10 @@ public class MoveTowards : MonoBehaviour
 
     [SerializeField] float AnimSpeed = 1f; //1 = Normal    -   Higher is faster
 
+    [SerializeField] bool SpeedDecay = false;
+    [SerializeField] float DecayMultiplier = 0.00025f;
+    [SerializeField] float MinSpeed = 0.02f;
+
     private void Start()
     {
         if(GetComponent<Animator>() != null)
@@ -45,6 +49,11 @@ public class MoveTowards : MonoBehaviour
             if (MoveTowardsTarget)
             {
                 transform.position = Vector2.MoveTowards(transform.position, Target.transform.position, MoveSpeed);
+
+                if (SpeedDecay && MoveSpeed > MinSpeed)
+                {
+                    MoveSpeed -= DecayMultiplier;
+                }
             }
 
 

@@ -105,10 +105,14 @@ MonoBehaviour:
   TargetBuilding: {fileID: 0}
   IsMarket: 1
   MarketScrap: 20
+  InitialStartTimer: 6
   StartTimer: 6
   Product: {fileID: 0}
   ProductInStock: 0
   ProductConsumed: 1
+  SpawnDecay: 1
+  DecayMultiplier: 0.00025
+  MaxDelay: 1.5
 --- !u!114 &4408647980876948415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +190,9 @@ MonoBehaviour:
   DoneRotating: 0
   AccuracyBeforeShooting: 4
   AnimSpeed: 1
+  SpeedDecay: 0
+  DecayMultiplier: 0.00025
+  MinSpeed: 0.02
 --- !u!95 &1994026654377538429
 Animator:
   serializedVersion: 3
