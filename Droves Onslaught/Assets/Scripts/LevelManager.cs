@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
 
     public int TotalLevels;
 
+    public int TotalChapters;
+
     public int TotalStarsEarned = 0;
 
     public int CurrentLevel;
@@ -42,8 +44,6 @@ public class LevelManager : MonoBehaviour
         }
 
 
-        //If there's no save data:              //Need the +1 because istarts at 1 for easy read-ability for dictionary
-        //Do the Same for what buildings are unlocked //----
         for (int i = 1; i < TotalLevels + 1; i++)
         {
             //NullList needs to be in for() loop or else every Level script shares the same stars... weird
@@ -54,7 +54,6 @@ public class LevelManager : MonoBehaviour
 
             Stars.Add(i, NullList);
         }
-        //Else: Load Save Data
 
 
 

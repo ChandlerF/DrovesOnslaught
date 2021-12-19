@@ -2958,7 +2958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610d0cde6152c8c4a8d61208bca61ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalLevels: 10
+  TotalLevels: 20
+  TotalChapters: 2
   TotalStarsEarned: 0
   CurrentLevel: 0
   BuildingsNames:
@@ -4993,7 +4994,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: 
   StayInSameScene: 1
-  DontDestroy: 1
 --- !u!114 &1743677130 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2943520207367900788, guid: 496c81681bfc1d945a753bf5864d402f, type: 3}
