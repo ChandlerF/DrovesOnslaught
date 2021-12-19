@@ -5,13 +5,65 @@ using UnityEngine;
 public class ChaptersManager : MonoBehaviour
 {
     //         Chapter Number  -  List of Levels
-    public Dictionary<int, List<GameObject>> Chapters = new Dictionary<int, List<GameObject>>();
-    
-    //Need to save -----------------------------------------------
+    //public Dictionary<int, List<GameObject>> Chapters = new Dictionary<int, List<GameObject>>();
+
+
+
+    public List<GameObject> Levels = new List<GameObject>();
+
+    //Need to save and load -----------------------------------------------
     public int ActiveChapter = 0;
 
 
-    public void Awake()
+
+    public void SetStars(bool forward)
+    {
+        int x;
+
+        if (forward)
+        {
+            x = 10;
+        }
+        else
+        {
+            x = -10;
+        }
+
+        for (int i = 0; i < Levels.Count; i++)
+        {
+            //LevelButton Script = Levels[i].GetComponent<LevelButton>();
+            
+            Levels[i].GetComponent<LevelButton>().LevelNumber += x;
+            Levels[i].GetComponent<LevelButton>().SetStars();
+
+            Debug.Log(Levels[i].GetComponent<LevelButton>().LevelNumber);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /* public void Awake()
     {
         for(int i = 0; i < LevelManager.instance.TotalChapters; i++)
         {
@@ -35,5 +87,5 @@ public class ChaptersManager : MonoBehaviour
             Chapters[0][i].SetActive(false);
         }
 
-    }
+    }*/
 }

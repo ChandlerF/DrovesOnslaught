@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LevelButton : MonoBehaviour
 {
-    private int LevelNumber;
+    public int LevelNumber;
 
     private TextMeshProUGUI ButtonText;
 
@@ -23,11 +23,7 @@ public class LevelButton : MonoBehaviour
     {
         if (LevelNumberFromSiblings)
         {
-            LevelNumber = transform.GetSiblingIndex() + 1;
-
-            ButtonText = transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-
-            ButtonText.text = LevelNumber.ToString();
+            //LevelNumber = transform.GetSiblingIndex() + 1;    //Commented out but not deleted because the else statement etc.
         }
         else
         {
@@ -37,10 +33,13 @@ public class LevelButton : MonoBehaviour
         SetStars();
     }
 
-    private void SetStars()
+    public void SetStars()
     {
         GameObject StarsParent = transform.GetChild(0).GetChild(1).gameObject;
 
+        ButtonText = transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+
+        ButtonText.text = LevelNumber.ToString();
 
         //StarsEarned = LevelManager.instance.Stars[LevelNumber];
 
