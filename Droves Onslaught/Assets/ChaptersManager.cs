@@ -35,8 +35,6 @@ public class ChaptersManager : MonoBehaviour
             
             Levels[i].GetComponent<LevelButton>().LevelNumber += x;
             Levels[i].GetComponent<LevelButton>().SetStars();
-
-            Debug.Log(Levels[i].GetComponent<LevelButton>().LevelNumber);
         }
     }
 

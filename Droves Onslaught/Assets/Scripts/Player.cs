@@ -24,9 +24,13 @@ public class Player : MonoBehaviour
 
     private bool GameIsOver = false;
 
+    private Arrays ListScript;
+
     private void Start()
     {
         CamShake = Camera.main.transform.parent.GetComponent<CameraShake>();
+
+        ListScript = GetComponent<Arrays>();
     }
 
 
@@ -35,6 +39,11 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))        ////////////////////////
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Time.timeScale = 0;
         }
 
         UGUI.text = Scrap.ToString();
@@ -61,7 +70,7 @@ public class Player : MonoBehaviour
             LevelManager.instance.StarsEarned(0);
 
             //Another star from beating the level without losing a building
-            if (GetComponent<Arrays>().NumOfBuildingsDestroyed == 0)
+            if (ListScript.NumOfBuildingsDestroyed == 0)
             {
                 LevelManager.instance.StarsEarned(1);
             }
@@ -105,18 +114,18 @@ public class Player : MonoBehaviour
     //Spawns an image, need the go to set the image in a canvas (if i spawn it on a canvas you can't unpause with button)
     public void Pause(GameObject go)
     {
-        if(!GetComponent<Arrays>().IsPaused)
+        if(!ListScript.IsPaused)
         {
             PauseMenu.SetActive(true);
 
             Time.timeScale = 0;
-            GetComponent<Arrays>().IsPaused = true;
+            ListScript.IsPaused = true;
         }
         else
         {
             PauseMenu.SetActive(false);
             Time.timeScale = 1;
-            GetComponent<Arrays>().IsPaused = false;
+            ListScript.IsPaused = false;
         }
     }
 }

@@ -105,6 +105,8 @@ public class DestroyParent : MonoBehaviour
 
     public void ReplaceBuilding()
     {
+        Manager.GetComponent<Arrays>().PlayerHasPlacedBuilding = true;
+
         GameObject NewBuilding = GetComponent<SetButton>().Building;
 
         GameObject SpawnedBuilding = Instantiate(NewBuilding, SelectedBuilding.transform.position, SelectedBuilding.transform.rotation);

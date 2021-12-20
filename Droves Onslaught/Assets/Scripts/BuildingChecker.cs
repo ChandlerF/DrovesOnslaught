@@ -80,6 +80,12 @@ public class BuildingChecker : MonoBehaviour
         {
             Cancel();
         }
+
+
+        if (TouchingBuilding)
+        {
+            SR.color = CannotPlace;
+        }
     }
 
     private void Cancel()
@@ -190,6 +196,8 @@ public class BuildingChecker : MonoBehaviour
             
             SR.color = CannotPlace;
         }
+
+
         else if (col.gameObject.layer == 10)        //Ore
         {
             //Debug.Log("Touching Ore");
@@ -198,13 +206,15 @@ public class BuildingChecker : MonoBehaviour
             
             if(Building.CompareTag("Producer"))
             {
-             SR.color = CanPlace;
+                SR.color = CanPlace;
             }
             else
             {
-             SR.color = CannotPlace;
+                SR.color = CannotPlace;
             }
         }
+
+
 
         if (DestroyOres)        //Called when Building is placed, destroys ore's then the building checker
         {
@@ -233,6 +243,8 @@ public class BuildingChecker : MonoBehaviour
             }
             //Debug.Log("Not Touching Building");
         }
+
+
         else if (col.gameObject.layer == 10)        //Ore
         {
            // Debug.Log("Not Touching Ore");
@@ -241,11 +253,11 @@ public class BuildingChecker : MonoBehaviour
             
             if(!Building.CompareTag("Producer"))
             {
-             SR.color = CanPlace;
+                SR.color = CanPlace;
             }
             else
             {
-             SR.color = CannotPlace;
+                SR.color = CannotPlace;
             }
         }
     }

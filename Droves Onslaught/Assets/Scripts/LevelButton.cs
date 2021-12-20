@@ -37,9 +37,12 @@ public class LevelButton : MonoBehaviour
     {
         GameObject StarsParent = transform.GetChild(0).GetChild(1).gameObject;
 
-        ButtonText = transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        if (LevelNumberFromSiblings)
+        {
+            ButtonText = transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
 
-        ButtonText.text = LevelNumber.ToString();
+            ButtonText.text = LevelNumber.ToString();
+        }
 
         //StarsEarned = LevelManager.instance.Stars[LevelNumber];
 
