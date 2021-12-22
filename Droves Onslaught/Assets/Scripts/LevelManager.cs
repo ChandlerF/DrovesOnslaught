@@ -104,6 +104,7 @@ public class LevelManager : MonoBehaviour
             AddXP((20 * (x + 1)) * (CurrentLevel / 8));
 
             Stars[CurrentLevel][x] = true;
+            Debug.Log(Stars[CurrentLevel]);
         }
     }
 

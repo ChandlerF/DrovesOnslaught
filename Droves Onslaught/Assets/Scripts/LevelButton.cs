@@ -17,6 +17,8 @@ public class LevelButton : MonoBehaviour
 
     [SerializeField] bool LevelNumberFromSiblings = true;
 
+    [SerializeField] Color InactiveColor;
+
 
     //Is called when enabled 
     private void Start()
@@ -33,6 +35,9 @@ public class LevelButton : MonoBehaviour
         SetStars();
     }
 
+
+
+
     public void SetStars()
     {
         GameObject StarsParent = transform.GetChild(0).GetChild(1).gameObject;
@@ -44,9 +49,14 @@ public class LevelButton : MonoBehaviour
             ButtonText.text = LevelNumber.ToString();
         }
 
-        //StarsEarned = LevelManager.instance.Stars[LevelNumber];
 
-
+        //Set all stars color to inactive
+        for (int i = 0; i < 3; i++)
+        {
+            StarsParent.transform.GetChild(i).GetComponent<Image>().color = InactiveColor;
+        }
+        //Debug.Log(LevelNumber + LevelManager.instance.Stars[LevelNumber][0].ToString());
+        //If the first star is earned
         if (LevelManager.instance.Stars[LevelNumber][0])
         {
             StarsParent.transform.GetChild(0).GetComponent<Image>().color = Color.black;
