@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class ScreenShot : MonoBehaviour
 {
-    private int num = 0;
-
     private void Start()
     {
         if (!Directory.Exists(Application.persistentDataPath + "/ScreenShots"))
@@ -18,8 +16,9 @@ public class ScreenShot : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/ScreenShots/pic" + num.ToString() + ".jpg");
-            num++;
+            string time = System.DateTime.Now.Minute.ToString() + System.DateTime.Now.Second.ToString() + System.DateTime.Now.Millisecond.ToString();
+
+            ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/ScreenShots/pic" + time + ".jpg");
             Debug.Log("ScreenShot!");
         }
     }
