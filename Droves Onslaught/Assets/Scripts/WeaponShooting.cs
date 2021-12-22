@@ -49,6 +49,8 @@ public class WeaponShooting : MonoBehaviour
 
     private void Shoot()
     {
+        AudioManager.instance.Play("Shoot1");
+
         float randomDegree = Random.Range(-DegreeVariation, DegreeVariation);
         Quaternion BulletRot = Quaternion.Euler(0, 0, randomDegree);
         Instantiate(Bullet, transform.position, transform.rotation * BulletRot);

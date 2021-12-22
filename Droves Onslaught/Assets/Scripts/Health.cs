@@ -19,6 +19,8 @@ public class Health : MonoBehaviour
     private Player PlayerScript;
     
     private bool IsTower = false;
+    private bool IsBuilding = false;
+    private bool IsEnemy = false;
 
     private void Start()
     {
@@ -31,6 +33,14 @@ public class Health : MonoBehaviour
         if (gameObject.CompareTag("Tower"))
         {
             IsTower = true;
+        }
+        else if (gameObject.layer == 6)     //Buildings layer
+        {
+            IsBuilding = true;
+        }
+        else if (transform.CompareTag("Enemy"))
+        {
+            IsEnemy = true;
         }
     }
 
@@ -53,6 +63,12 @@ public class Health : MonoBehaviour
         {
             //Shake Camera
             Manager.GetComponent<Player>().CameraShake(0.2f);
+
+            AudioManager.instance.Play("Hit1");
+        }
+        else if (IsBuilding)
+        {
+            AudioManager.instance.Play("Hit1");
         }
     }
 
@@ -97,7 +113,16 @@ public class Health : MonoBehaviour
 
         if (IsTower)
         {
+            AudioManager.instance.Play("Destroyed1");
             Manager.GetComponent<Player>().GameLost();
+        }
+        else if(IsBuilding)
+        {
+            AudioManager.instance.Play("Destroyed1");
+        }
+        else if (IsEnemy)
+        {
+            AudioManager.instance.Play("Destroyed2");
         }
         
         SpawnBody();

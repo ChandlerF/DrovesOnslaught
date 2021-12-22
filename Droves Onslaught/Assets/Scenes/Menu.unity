@@ -2939,6 +2939,7 @@ GameObject:
   - component: {fileID: 1149081093}
   - component: {fileID: 1149081092}
   - component: {fileID: 1149081094}
+  - component: {fileID: 1149081095}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -2999,6 +3000,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f5ca4e058760b4aad24d6989468a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1149081095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149081091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f39faa34a3a1d45aed993811409827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Shoot1
+    clip: {fileID: 8300000, guid: 44e0e50b62488094c9a78a8990b540f9, type: 3}
+    volume: 0.25
+    pitch: 1
+    source: {fileID: 0}
+  - name: Destroyed1
+    clip: {fileID: 8300000, guid: e4717f8830ff4e744a72772806eaac3d, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: Hit1
+    clip: {fileID: 8300000, guid: 169203dc4e3c0b546a675352465c3b4f, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+  - name: Placed1
+    clip: {fileID: 8300000, guid: edbc85c0c88f4064d876bb396cbe1d40, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+  - name: Destroyed2
+    clip: {fileID: 8300000, guid: 7fab4023bdbb42347abcf7fa394c56e2, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
 --- !u!1 &1151813922
 GameObject:
   m_ObjectHideFlags: 0

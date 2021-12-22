@@ -179,6 +179,10 @@ public class BuildingChecker : MonoBehaviour
         //Manager.GetComponent<Player>().CameraShake(0.1f);
 
         Manager.GetComponent<Player>().CameraShake(0.1f);
+
+        AudioManager.instance.Play("Placed1");
+
+
         Instantiate(SpawnParticles, SpawnedBuilding.transform.position, SpawnParticles.transform.rotation);
 
         //Turn buttons on / off
