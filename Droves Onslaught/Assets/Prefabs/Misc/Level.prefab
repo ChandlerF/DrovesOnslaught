@@ -1067,7 +1067,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: 
   StayInSameScene: 1
-  DontDestroy: 0
 --- !u!1 &638684714565737589
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,7 +2080,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 123.317505}
+  m_AnchoredPosition: {x: 0, y: 123.31763}
   m_SizeDelta: {x: 1080, y: 246.635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8754534497897539457
@@ -3614,7 +3613,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f25398bdee4514aa5219df6a730d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelNumber: 0
   LevelNumberFromSiblings: 0
+  InactiveColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6684496254982559921
 GameObject:
   m_ObjectHideFlags: 0
@@ -6112,7 +6113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.00012207031, y: 127.09802}
+  m_AnchoredPosition: {x: -0.00012207031, y: 127.0979}
   m_SizeDelta: {x: 0, y: 254.156}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6684496256699881837

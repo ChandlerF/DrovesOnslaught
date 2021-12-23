@@ -90,6 +90,8 @@ public class Player : MonoBehaviour
 
             GameOverMenu.SetActive(true);
 
+            AudioManager.instance.Play("GameWon");
+
             GameIsOver = true;
         }
     }
@@ -101,6 +103,8 @@ public class Player : MonoBehaviour
             Time.timeScale = 0;
             
             GameOverMenu.SetActive(true);
+
+            AudioManager.instance.Play("GameLost1");
 
             GameIsOver = true;
         }

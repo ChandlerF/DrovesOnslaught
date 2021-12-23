@@ -3038,6 +3038,16 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     source: {fileID: 0}
+  - name: GameWon
+    clip: {fileID: 8300000, guid: 197a1dd93b30a394a8b8018a7beff2f3, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: GameLost1
+    clip: {fileID: 8300000, guid: 68a3b9ecc729dd44988498b93fef21f0, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
 --- !u!1 &1151813922
 GameObject:
   m_ObjectHideFlags: 0
