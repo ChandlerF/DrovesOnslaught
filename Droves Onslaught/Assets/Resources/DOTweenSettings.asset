@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 16995157, guid: a811bde74b26b53498b4f6d872b09b6d, type: 3}
   m_Name: DOTweenSettings
   m_EditorClassIdentifier: 
-  useSafeMode: 1
+  useSafeMode: 0
   safeModeOptions:
     logBehaviour: 2
-    nestedTweenFailureBehaviour: 0
+    nestedTweenFailureBehaviour: 1
   timeScale: 1
   useSmoothDeltaTime: 0
   maxSmoothUnscaledTime: 0.15
@@ -31,7 +31,7 @@ MonoBehaviour:
   defaultEaseOvershootOrAmplitude: 1.70158
   defaultEasePeriod: 0
   defaultAutoKill: 1
-  defaultLoopType: 0
+  defaultLoopType: 1
   debugMode: 0
   debugStoreTargetId: 1
   showPreviewPanel: 1

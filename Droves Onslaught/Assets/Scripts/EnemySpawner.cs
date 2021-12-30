@@ -7,7 +7,7 @@ using UnityEngine;
 [System.Serializable]
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] bool SpawnEnemies = true;
+    public bool SpawnEnemies = true;
 
     //Equivalent to "i" in a for loop (for the 3 lists)
     [SerializeField] int Round = 0;

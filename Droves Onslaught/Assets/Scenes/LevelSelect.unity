@@ -131,8 +131,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1730473738}
     m_Modifications:
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenDelay
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumber
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength1
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength2
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumberFromSiblings
@@ -322,8 +334,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1730473738}
     m_Modifications:
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenDelay
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumber
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength1
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength2
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumberFromSiblings
@@ -513,8 +537,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1730473738}
     m_Modifications:
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenDelay
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumber
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength1
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength2
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumberFromSiblings
@@ -741,8 +777,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1730473738}
     m_Modifications:
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenDelay
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumber
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength1
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength2
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumberFromSiblings
@@ -932,8 +980,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1730473738}
     m_Modifications:
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenDelay
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumber
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength1
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength2
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumberFromSiblings
@@ -1301,8 +1361,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1730473738}
     m_Modifications:
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenDelay
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumber
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength1
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength2
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumberFromSiblings
@@ -6705,8 +6777,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1730473738}
     m_Modifications:
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenDelay
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumber
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength1
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength2
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumberFromSiblings
@@ -7405,8 +7489,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1730473738}
     m_Modifications:
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenDelay
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumber
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength1
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength2
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumberFromSiblings
@@ -7596,8 +7692,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1730473738}
     m_Modifications:
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenDelay
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumber
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength1
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength2
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumberFromSiblings
@@ -7787,8 +7895,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1730473738}
     m_Modifications:
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenDelay
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength1
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
+      propertyPath: TweenLength2
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2417396202287414606, guid: 3922083c68a679b44adfbd12fa5720d4, type: 3}
       propertyPath: LevelNumberFromSiblings

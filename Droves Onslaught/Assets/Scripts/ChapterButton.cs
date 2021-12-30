@@ -25,9 +25,6 @@ public class ChapterButton : MonoBehaviour
         if (CanGoForwards)
         {
             ManagerScript.SetStars(true);
-
-
-            ManagerScript.ActiveChapter++;
         }
     }
     
@@ -38,9 +35,6 @@ public class ChapterButton : MonoBehaviour
         if (CanGoBackwards)
         {
             ManagerScript.SetStars(false);
-
-
-            ManagerScript.ActiveChapter--;
         }
     }
 

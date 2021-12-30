@@ -15,9 +15,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI UGUI;
 
-    [SerializeField] GameObject PauseMenu;
+    [SerializeField] GameObject PauseMenu, GameOverMenu;
 
-    [SerializeField] GameObject GameOverMenu;
 
     private CameraShake CamShake;
     
@@ -64,7 +63,14 @@ public class Player : MonoBehaviour
     {
         if (!GameIsOver)
         {
-            EnemySpawner Spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
+            EnemySpawner spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
+            spawner.SpawnEnemies = false;
+
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach(var enemy in enemies)
+            {
+                Destroy(enemy);
+            }
 
             //Star for beating the level
             LevelManager.instance.StarsEarned(0);
@@ -76,7 +82,7 @@ public class Player : MonoBehaviour
             }
 
             //Another star from beating the level a second time, but on hard mode
-            if (Spawner.FluctuateSpawnRate == true)
+            if (spawner.FluctuateSpawnRate == true)
             {
                 LevelManager.instance.StarsEarned(2);
             }
@@ -85,7 +91,7 @@ public class Player : MonoBehaviour
             LevelManager.instance.SavePlayer();
 
 
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
 
 
             GameOverMenu.SetActive(true);
